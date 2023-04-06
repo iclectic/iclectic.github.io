@@ -1,4 +1,4 @@
-# Next.Js Website 
+# Next.js Website 
 
 ### External Libraries used in this project:
 
