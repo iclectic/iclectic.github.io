@@ -7,6 +7,7 @@ import { GithubIcon } from '@/components/Icons'
 import Image from 'next/image'
 import project1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
 import { motion } from 'framer-motion';
+import TransitionEffect from '@/components/TransitionEffect'
 
 const FramerImage = motion(Image);
 
@@ -45,8 +46,10 @@ const FeaturedProject = ({type, title, summary, img, link, github}) => {
         <Link href={github} target="_blank" className='w-10'> <GithubIcon /> </Link>    
         <Link href={link} target="_blank"
         className='ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold
-        dark:bg-light dark:text-dark'
+        dark:bg-light dark:text-dark 
         sm:px-4 sm:text-base
+        '
+        
         > Visit Project </Link>    
         </div>  
         </div>
@@ -111,6 +114,7 @@ const projects = () => {
         <title>CodeBucks | Projects Page</title>
         <meta name="description" content="any description" />
       </Head>
+      <TransitionEffect />
       <main className='w-full mb-16 flex flex-col items-center justify-center dark:text-light'>
         <Layout className='pt-16'>
             <AnimatedText text="Imagination Trumps Knowledge!" 
@@ -131,7 +135,7 @@ className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'
                     type="Featured Project"
                     />
             </div>
-            <div className='col-span-6'>
+            <div className='col-span-6 sm:col-span-12'>
             <Project 
                     title="Crypto Screener Application"
                     img={project1}
@@ -143,7 +147,7 @@ className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'
                     type="Featured Project"
                     />
             </div>
-            <div className='col-span-6'>
+            <div className='col-span-6 sm:col-span-12'>
             <Project 
                     title="Crypto Screener Application"
                     img={project1}
@@ -167,7 +171,7 @@ className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'
                     type="Featured Project"
                     />
             </div>
-            <div className='col-span-6'>
+            <div className='col-span-6 sm:col-span-12'>
             <Project 
                     title="Crypto Screener Application"
                     img={project1}
@@ -179,7 +183,7 @@ className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'
                     type="Featured Project"
                     />
             </div>
-            <div className='col-span-6'>
+            <div className='col-span-6 sm:col-span-12'>
             <Project 
                     title="Crypto Screener Application"
                     img={project1}
