@@ -53,22 +53,22 @@ const Education = () => {
 
             <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
                 <Details
-                type="Bachelor of Science in Computer Science" company="Google"
-                time="2016-2020"
-                place="Massachusetts Institute of Technology"
+                type="Master of Science in Computer Science" 
+                time="2022-2023"
+                place="Birmingham City University"
                 info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
                 Intelligence."
                 />
                 <Details
-                type="Bachelor of Science in Computer Science" company="Google"
-                time="2016-2020"
-                place="Massachusetts Institute of Technology"
+                type="British Computer Society Certificate in IT "
+                time="2021"
+                place="Compunet Limited"
                 info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
                 Intelligence."
                 />
                 <Details
-                type="Bachelor of Science in Computer Science" company="Google"
-                time="2016-2020"
+                type="Bachelor of Engineering in Computer Engineering" company="Google"
+                time="2009-2015"
                 place="Massachusetts Institute of Technology"
                 info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
                 Intelligence."

@@ -2,14 +2,15 @@ import React, { useRef} from 'react'
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import AnimatedText from '@/components/AnimatedText';
-import article1 from "../../public/images/articles/pagination component in reactjs.jpg";
-import article2 from "../../public/images/articles/create loading screen in react js.jpg";
+// import article1 from "../../public/images/articles/pagination component in reactjs.jpg";
+// import article2 from "../../public/images/articles/create loading screen in react js.jpg";
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useMotionValue } from 'framer-motion'; 
-import article3 from "../../public/images/articles/create modal component in react using react portals.png";
-import article4 from "../../public/images/articles/form validation in reactjs using custom react hook.png";
-import article5 from "../../public/images/articles/smooth scrolling in reactjs.png";
+// import article3 from "../../public/images/articles/create modal component in react using react portals.png";
+// import article4 from "../../public/images/articles/form validation in reactjs using custom react hook.png";
+// import article5 from "../../public/images/articles/smooth scrolling in reactjs.png";
+import article6 from "../../public/images/articles/coming-soon.png";
 import TransitionEffect from '@/components/TransitionEffect';
 
 const FramerImage = motion(Image);
@@ -127,7 +128,7 @@ const articles = () => {
           Follow this step-by-step guide to integrate Pagination component in your ReactJS project." 
           time="9 min read"
           link="/"
-          img={article1}
+          img={article6}
           />
           <FeaturedArticle 
           title="Build A Custom Pagination Component In Reactjs From Scratch"
@@ -135,7 +136,7 @@ const articles = () => {
           Follow this step-by-step guide to integrate Pagination component in your ReactJS project." 
           time="9 min read"
           link="/"
-          img={article2}
+          img={article6}
           />
         </ul>
         <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">All Articles</h2>
@@ -144,43 +145,43 @@ const articles = () => {
             title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
             date="March 22, 2023"
             link="/"
-            img={article3}
+            img={article6}
           />
            <Article 
             title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
             date="March 22, 2023"
             link="/"
-            img={article4}
+            img={article6}
           />
            <Article 
             title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
             date="March 22, 2023"
             link="/"
-            img={article5}
+            img={article6}
           />
            <Article 
             title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
             date="March 22, 2023"
             link="/"
-            img={article3}
+            img={article6}
           />
            <Article 
             title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
             date="March 22, 2023"
             link="/"
-            img={article3}
+            img={article6}
           />
            <Article 
             title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
             date="March 22, 2023"
             link="/"
-            img={article3}
+            img={article6}
           />
            <Article 
             title="Form Validation In Reactjs: Build A Reusable Custom Hook For Inputs And Error Handling"
             date="March 22, 2023"
             link="/"
-            img={article3}
+            img={article6}
           />
         </ul>
       </Layout>

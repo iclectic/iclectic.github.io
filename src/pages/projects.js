@@ -5,7 +5,12 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { GithubIcon } from '@/components/Icons'
 import Image from 'next/image'
-import project1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
+import project1 from "../../public/images/projects/crypto-screener-cover-image.png";
+import project2 from "../../public/images/projects/agency-website-cover-image.png";
+import project3 from "../../public/images/projects/devdreaming.png";
+import project4 from "../../public/images/projects/fashion-studio-website.png";
+import project5 from "../../public/images/projects/nft-collection-website-cover-image.png";
+import project6 from "../../public/images/projects/portfolio-cover-image.png";
 import { motion } from 'framer-motion';
 import TransitionEffect from '@/components/TransitionEffect'
 
@@ -138,7 +143,7 @@ className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'
             <div className='col-span-6 sm:col-span-12'>
             <Project 
                     title="Crypto Screener Application"
-                    img={project1}
+                    img={project2}
                     summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
                     It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
                     local currency."
@@ -150,7 +155,7 @@ className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'
             <div className='col-span-6 sm:col-span-12'>
             <Project 
                     title="Crypto Screener Application"
-                    img={project1}
+                    img={project3}
                     summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
                     It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
                     local currency."
@@ -162,7 +167,7 @@ className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'
             <div className='col-span-12'>
             <FeaturedProject 
                     title="Crypto Screener Application"
-                    img={project1}
+                    img={project4}
                     summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
                     It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
                     local currency."
@@ -174,7 +179,7 @@ className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'
             <div className='col-span-6 sm:col-span-12'>
             <Project 
                     title="Crypto Screener Application"
-                    img={project1}
+                    img={project5}
                     summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
                     It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
                     local currency."
@@ -186,7 +191,7 @@ className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'
             <div className='col-span-6 sm:col-span-12'>
             <Project 
                     title="Crypto Screener Application"
-                    img={project1}
+                    img={project6}
                     summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
                     It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
                     local currency."

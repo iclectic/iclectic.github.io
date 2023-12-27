@@ -3,7 +3,7 @@ import AnimatedText from '@/components/AnimatedText'
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import Image from 'next/image'
-import profilePic from "../../public/images/profile/developer-pic-2.jpg";
+import profilePic from "../../public/images/profile/photo-moi.png";
 import { useInView, useSpring, useMotionValue } from 'framer-motion'
 import Skills from '@/components/Skills'
 import Experience from '@/components/Experience'
@@ -84,7 +84,7 @@ const about = () => {
 
                   <div className='flex flex-col items-end justify-center xl:items-center'>
                     <span className='inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl'>
-                       <AnimatedNumbers value={50}/>+
+                       <AnimatedNumbers value={2}/>+
                     </span>
                     <h2 className='text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:text-center md:text-lg sm:text-base
                     xs:text-sm'>
@@ -94,7 +94,7 @@ const about = () => {
 
                   <div className='flex flex-col items-end justify-center xl:items-center'>
                   <span className='inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl'>
-                       <AnimatedNumbers value={40}/>+
+                       <AnimatedNumbers value={1}/>+
                     </span>
                     <h2 className='text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:text-center md:text-lg sm:text-base
                     xs:text-sm'>
@@ -104,7 +104,7 @@ const about = () => {
 
                   <div className='flex flex-col items-end justify-center xl:items-center'>
                   <span className='inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl'>
-                       <AnimatedNumbers value={4}/>+
+                       <AnimatedNumbers value={1}/>+
                     </span>
                     <h2 className='text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:text-center md:text-lg sm:text-base
                     xs:text-sm'>
