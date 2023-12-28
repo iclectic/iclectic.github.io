@@ -87,7 +87,7 @@ const Project = ({title, type, img, link, github}) => {
         <div className="w-full flex flex-col items-start justify-between mt-4">
             <span className='text-primary font-medium text-xl dark:text-primaryDark lg:text-lg md:text-base'>{type}</span>
             <Link 
-              href={link} 
+              href={"https://github.com/iclectic/V1.0"} 
               target="_blank" 
               className='hover:underline underline-offset-2'
             >
@@ -100,7 +100,7 @@ const Project = ({title, type, img, link, github}) => {
             target="_blank"
             className='text-lg font-semibold underline md:text-base'
         > 
-         Visit
+         Visit Project
         </Link> 
          <Link href={github} target="_blank" className='w-8 md:w-6'> 
            <GithubIcon />{" "}
@@ -122,7 +122,7 @@ const projects = () => {
       <TransitionEffect />
       <main className='w-full mb-16 flex flex-col items-center justify-center dark:text-light'>
         <Layout className='pt-16'>
-            <AnimatedText text="Imagination Trumps Knowledge!" 
+            <AnimatedText text="Sharpening one's imagination and fostering creativity are catalysts for development and progress." 
 className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'            
             
             />
@@ -130,72 +130,64 @@ className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'
         <div className='grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap:y-24 sm:gap-x-0'>
             <div className='col-span-12'>
                     <FeaturedProject 
-                    title="Crypto Screener Application"
+                    title="Haus"
                     img={project1}
-                    summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-                    It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-                    local currency."
-                    link="/"
+                    summary="A responsive website built with ReactJS and Tailwind CSS."
+                    link="https://github.com/iclectic/Haus"
                     github="/"
                     type="Featured Project"
                     />
             </div>
             <div className='col-span-6 sm:col-span-12'>
             <Project 
-                    title="Crypto Screener Application"
+                    title="Lavish Website"
                     img={project2}
-                    summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-                    It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-                    local currency."
-                    link="/"
+                    summary="Responsive website designed with ReactJS ."
+                    link="https://github.com/iclectic/V1.0"
                     github="/"
                     type="Featured Project"
                     />
             </div>
             <div className='col-span-6 sm:col-span-12'>
             <Project 
-                    title="Crypto Screener Application"
+                    title="Ecommerce Web App"
                     img={project3}
-                    summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-                    It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-                    local currency."
-                    link="/"
+                    summary="The website was meticulously designed utilizing a combination of Hypertext Markup Language (HTML), Cascade Style Sheet (CSS), Javascript, Firebase, Node.js, and Express.js. The primary objectives of the project were to ensure users could easily set up an account and log in using the same registration details, make purchases post-login, and effortlessly add products to the Ecommerce platform for sale. The implementation involved a thoughtful integration of these technologies to achieve a seamless and user-friendly online shopping experience."
+                    link="https://github.com/iclectic/Ecommerce-store-Web-App"
                     github="/"
                     type="Featured Project"
                     />
             </div>
             <div className='col-span-12'>
             <FeaturedProject 
-                    title="Crypto Screener Application"
+                    title="Restaurant Website"
                     img={project4}
-                    summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-                    It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-                    local currency."
-                    link="/"
+                    summary="This sample HTML and Sass restaurant landing page showcases a straightforward and sophisticated design aimed at highlighting the restaurant's brand and services. The website structure comprises a navbar, header, about us, and gallery sections. The navbar incorporates a toggleable hamburger menu containing links for Home, About Us, Gallery, Reservation, Services, and Contact. The header displays the brand logo, name, a welcoming message, and a reservation call-to-action button. The About Us section provides an introduction to the restaurant, its services, a star rating, and an option to explore more. In the Gallery section, a visually appealing collection of restaurant food items is presented, each featuring a card with details like name, price, and an order button."
+                    link="https://github.com/iclectic/Website-for-Restaurant-SASS"
                     github="/"
                     type="Featured Project"
                     />
             </div>
             <div className='col-span-6 sm:col-span-12'>
             <Project 
-                    title="Crypto Screener Application"
+                    title="Flight Widget"
                     img={project5}
-                    summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
-                    It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
-                    local currency."
-                    link="/"
+                    summary="The Automatic Flight Widget is a JavaScript-powered tool designed to showcase a dynamic table of flights, complete with their details and remarks. The table undergoes automatic updates every 5 seconds to reflect new flights, while simultaneously removing the outdated ones. Using this widget is straightforward—just open the index.html file in your web browser, and the flight table will commence its automatic generation and updates at 5-second intervals.
+
+                    Noteworthy features include the storage of flight details in a JavaScript array, facilitating easy additions, removals, or modifications of flights. The dynamic generation of flight details using JavaScript, coupled with their presentation in an HTML and CSS-based table, adds to the widget's versatility. Additionally, the flight details are animated with a flip effect using CSS, enhancing the overall user experience."
+                    link="https://github.com/iclectic/flight-widget"
                     github="/"
                     type="Featured Project"
                     />
             </div>
             <div className='col-span-6 sm:col-span-12'>
             <Project 
-                    title="Crypto Screener Application"
+                    title="Responsive Website Built With Bootstrap"
                     img={project6}
                     summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. 
                     It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your 
                     local currency."
-                    link="/"
+                    link="https://github.com/iclectic/Responsive-Website"
                     github="/"
                     type="Featured Project"
                     />
