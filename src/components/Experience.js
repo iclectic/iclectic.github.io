@@ -60,52 +60,42 @@ const Experience = () => {
 
             <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
                 <Details
-                position="Software Engineer" company="Google"
-                companyLink="www.google.com"
-                time="2022-Present" address="Mountain View, CA"
-                work="Worked on a team responsible for developing new features for Google's 
-                search engine, including improving the accuracy and relevance of search results and 
-                developing new tools for data analysis and visualization."
+                position="Information Technology Support Specialist" company="Frannberry School"
+                companyLink="https://www.frannberryschool.org"
+                time="2022" address="Lagos State, Nigeria"
+                work="I was responsible for setting up and deploying computer hardware and peripherals to optimize their functionality. I diagnosed and resolved software-related issues in computer systems, offering technical assistance and support to the staff at Frannberry School. Additionally, I installed and performed software updates on computers throughout the school."
                 />
 
                 <Details
                 
-                position="Software Engineer" company="Google"
-                companyLink="www.google.com"
-                time="2022-Present" address="Mountain View, CA"
-                work="Worked on a team responsible for developing new features for Google's 
-                search engine, including improving the accuracy and relevance of search results and 
-                developing new tools for data analysis and visualization."
+                position="Technical Support Engineer" company="Tek Experts"
+                companyLink="https://www.tek-experts.com"
+                time="2021-2022" address="Lagos State, Nigeria"
+                work="I provided remote technical support to Microsoft 365 customers in NOAM and EMEA, addressing issues related to Microsoft Entra ID. I documented support requests, managed identities and synchronization between Microsoft 365 and On-premises environments, and assisted with user and group management in Microsoft Entra ID. My role focused on ensuring smooth integration, user authentication, and proper configuration for various systems and applications."
                 />
 
                 <Details
                 
-                position="Software Engineer" company="Google"
-                companyLink="www.google.com"
-                time="2022-Present" address="Mountain View, CA"
-                work="Worked on a team responsible for developing new features for Google's 
-                search engine, including improving the accuracy and relevance of search results and 
-                developing new tools for data analysis and visualization."
+                position="Mechanical Maintenance Technician (Trainee)" company="Prime Atlantic Cegelec"
+                companyLink="https://www.pacenigeria.com"
+                time="2019-2021" address="Lagos State, Nigeria"
+                work="I performed routine maintenance and installations for Pneumatic, Hydraulic, and Electrical actuator controllers, as well as transmission and distribution systems. Additionally, I engaged in metal fabrication for custom-fitted metal elements and conducted routine maintenance and installations for Prime movers."
                 />
 
                 <Details
                 
-                position="Software Engineer" company="Google"
-                companyLink="www.google.com"
-                time="2022-Present" address="Mountain View, CA"
-                work="Worked on a team responsible for developing new features for Google's 
-                search engine, including improving the accuracy and relevance of search results and 
-                developing new tools for data analysis and visualization."
+                position="Information Technology Support Specialist" company="Frannberry School"
+                companyLink="https://www.frannberryschool.org"
+                time="2017-2019" address="Lagos State, Nigeria"
+                work="I was responsible for setting up and deploying computer hardware and peripherals to optimize their functionality. I diagnosed and resolved software-related issues in computer systems, offering technical assistance and support to the staff at Frannberry School. Additionally, I installed and performed software updates on computers throughout the school."
                 />
 
                 <Details
                 
-                position="Software Engineer" company="Google"
-                companyLink="www.google.com"
-                time="2022-Present" address="Mountain View, CA"
-                work="Worked on a team responsible for developing new features for Google's 
-                search engine, including improving the accuracy and relevance of search results and 
-                developing new tools for data analysis and visualization."
+                position="Corps Member" company="National Youth Service Corps (NYSC)"
+                companyLink="https://www.nysc.gov.ng/.com"
+                time="2016-2017" address="Niger State, Nigeria "
+                work="I oversaw agricultural projects in Lafiaji and Raba communities in Niger state under the supervision of Volunteer Service Overseas (VSO) staff. The objective was to enhance the agricultural productivity of maize and millet. I provided education to farmers on the constituents and benefits of fertilizers and pesticides."
                 />
             </ul>
         </div>

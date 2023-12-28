@@ -43,7 +43,7 @@ const about = () => {
   return (
     <>
         <Head>
-                <title>CodeBucks | About Page</title>
+                <title>Ibim Braide | About Page</title>
                 <meta name="description" content="any description" />
         </Head>
         <TransitionEffect />
@@ -54,18 +54,19 @@ const about = () => {
           <div className='col-span-3 flex flex-col items-start justify-start xl:col-span-4 md:order-2 md:col-span-8'>
             <h2 className='mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75'>Biography</h2>
           <p className='font-medium'>
-            Hi, I'm CodeBucks, a web developer and UI/UX designer with a passion for creating beautiful, functional, 
-            and user-centered digital experiences. With 4 years of experience in the field. I am always looking for 
-            new and innovative ways to bring my clients' visions to life.
+          I am Ibim Mercy Miller Braide, a passionate and multifaceted individual with a background in web development and UI/UX design. Born with a love for technology, I have seamlessly blended my technical skills with a creative flair to craft engaging and user-friendly digital experiences.
+
+          Beyond the world of coding and design, I find joy in the rhythm of basketball and football games, cheering on my favorite teams with enthusiasm. In the realm of sports, I'm not just a spectator – I actively engage in activities like table tennis and running to keep the energy flowing.
           </p>
           <p className='my-4 font-medium'>
-            Whether I'm working on a website, mobile app, or 
-            other digital product, I bring my commitment to design excellence and user-centered thinking to 
-            every project I work on. I look forward to the opportunity to bring my skills and passion to your next project.
+          However, my interests extend beyond the digital and athletic domains. I have a culinary curiosity, constantly exploring and mastering the art of cooking diverse cuisines. From experimenting with new recipes to savoring the intricacies of flavors, my kitchen is a canvas for culinary creativity.
+
+          When it comes to entertainment, my movie tastes reflect a mix of classic and action-packed genres. I have a special fondness for the timeless Karate Kid series and the adrenaline-pumping Mission Impossible movies, from the first installment to the latest, including Mission Impossible Dead Reckoning and The Hundred Foot Journey.
           </p>
           <p className='font-medium'>
-            I believe that design is about more than just making things look pretty – it's about solving problems and 
-            creating intuitive, enjoyable experiences for users. 
+          In addition to being fluent in English, I have a conversational command of the German language, adding an international touch to my communication skills. This linguistic versatility is a testament to my eagerness to embrace and learn from different cultures.
+
+          As I navigate through the intersection of technology, sports, culinary arts, and entertainment, my journey is marked by a commitment to growth, creativity, and a genuine love for the diverse experiences life has to offer.
           </p>  
                   </div>
            <div className='col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark

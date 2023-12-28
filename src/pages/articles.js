@@ -112,7 +112,7 @@ const articles = () => {
   return (
     <>
     <Head>
-        <title>CodeBucks | Articles Page</title>
+        <title>Ibim Braide | Articles Page</title>
         <meta name="description" content="any description" />
     </Head>
     <TransitionEffect />

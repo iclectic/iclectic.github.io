@@ -56,22 +56,29 @@ const Education = () => {
                 type="Master of Science in Computer Science" 
                 time="2022-2023"
                 place="Birmingham City University"
-                info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
-                Intelligence."
+                info="The Birmingham City University program offered a diverse array of modules, enhancing my expertise in key areas of computer science. 'Software Development' strengthened my programming skills in industry-demand languages, emphasizing programming's pivotal role in steering modern technologies. 'Software Analysis and Design' explored software engineering, focusing on software design throughout the engineering life cycle. 'Database Design and Development' honed my skills in constructing models using standard UML.
+
+                Moreover, the curriculum covered 'Web Application Development', providing comprehensive skills in client-side programming, server-side programming, and backend services. 'Artificial Intelligence Fundamentals' delved into foundational AI concepts, emphasizing its role in machine learning and decision-making across industries. 'Research Methods and Project Management' instilled crucial knowledge in research literature, methodology, ethics, and project management tools.
+                
+                The program's culmination, the 'Individual Masters Project', allowed me to conduct an in-depth research endeavor aligned with program objectives. This practical project showcased my knowledge application in real-world scenarios, contributing to a holistic understanding of computer science."
                 />
                 <Details
                 type="British Computer Society Certificate in IT "
                 time="2021"
                 place="Compunet Limited"
-                info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
-                Intelligence."
+                info="In the Information Systems syllabus, I covered topics like data management, statistical measures, requirements analysis, multimedia, and hypermedia. I explored the systems development life cycle, focusing on database design, prototyping, and system 
+                development tools. I also gained insights into organizational information flow, personnel considerations, social aspects, and quality assurance methods. In the Software Development syllabus, I focused on fundamental programming concepts, algorithm design, 
+                code development, pseudocode, flowcharts, programming paradigms, testing principles, documentation, software quality assurance, and emerging technologies. For the Computer and Network Technology syllabus, I learned about decimal integers   representation, 
+                logic gates, sequential logic elements, computer system types, the stored program concept, processor architecture, instruction formats, trends in processor technology, memory hierarchy, peripherals,  operating  systems, multitasking,  system  performance, 
+                communication principles, network protocols, communication equipment, security risks, and advances in communication technology."
                 />
                 <Details
-                type="Bachelor of Engineering in Computer Engineering" company="Google"
+                type="Bachelor of Engineering in Computer Engineering" 
                 time="2009-2015"
-                place="Massachusetts Institute of Technology"
-                info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial 
-                Intelligence."
+                place="University of Benin"
+                info="During my Bachelor of Engineering in Computer Engineering at the University of Benin, I gained comprehensive knowledge and skills in the analysis, planning, and design of computer systems, encompassing hardware, software, networks for data transmission, and multimedia. The program also emphasized addressing challenges in instrumentation, control, manufacturing, and electronics through the integration of computer capabilities.
+                The courses covered a broad spectrum of topics, including electrical machines, computer organization, digital system design, analogue electronic circuits, communication principles, engineering mathematics, electromagnetic fields, software engineering, data communication, network, microprocessor systems, artificial neural networks, reliability and maintainability, microprogramming, digital computer networks, digital signal processing, and computer graphics.
+                The curriculum also included practical components with computer laboratories, emphasizing hands-on experience. Additionally, the program incorporated a SIWES (Students Industrial Work Experience Scheme) to provide real-world exposure and application of theoretical concepts."
                 />
 
                 

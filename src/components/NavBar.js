@@ -163,35 +163,35 @@ const NavBar = () => {
          </nav>
         
          <nav className="flex items-center justify-center flex-wrap mt-2">
-             <motion.a href="https://twitter.com" target={"_blank"}  className="w-6 mr-3 sm:mx-1"
+             <motion.a href="https://twitter.com/Tubo_ibim" target={"_blank"}  className="w-6 mr-3 sm:mx-1"
              whileHover={{y:-2}}
              whileTap={{scale:0.9}}
             
              >
                  <TwitterIcon />
              </motion.a>
-             <motion.a href="https://dribbble.com" target={"_blank"}
+             <motion.a href="https://dribbble.com/iclectic" target={"_blank"}
              whileHover={{y:-2}}
              whileTap={{scale:0.9}}
              className="w-6 mx-3 sm:mx-1"
              >
                  <DribbbleIcon />
              </motion.a>
-             <motion.a href="https://pinterest.com" target={"_blank"}
+             <motion.a href="https://www.pinterest.co.uk/ibim0452/" target={"_blank"}
              whileHover={{y:-2}}  
              whileTap={{scale:0.9}}
              className="w-6 mx-3 bg-light rounded-full sm:mx-1"
              >
                  <PinterestIcon />
              </motion.a>
-             <motion.a href="https://github.com" target={"_blank"}
+             <motion.a href="https://github.com/iclectic" target={"_blank"}
              whileHover={{y:-2}}
              whileTap={{scale:0.9}}
              className="w-6 mx-3 bg-light rounded-full dark:bg-dark sm:mx-1"
              >
                  <GithubIcon />
              </motion.a>
-             <motion.a href="https://linkedin.com" target={"_blank"} 
+             <motion.a href="https://www.linkedin.com/in/ibim-braide/" target={"_blank"} 
              whileHover={{y:-2}}
              whileTap={{scale:0.9}}
              className="w-6 ml-3 sm:mx-1"
