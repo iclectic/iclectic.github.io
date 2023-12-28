@@ -56,7 +56,7 @@ const about = () => {
           <p className='font-medium'>
           I am Ibim Mercy Miller Braide, a passionate and multifaceted individual with a background in web development and UI/UX design. Born with a love for technology, I have seamlessly blended my technical skills with a creative flair to craft engaging and user-friendly digital experiences.
 
-          Beyond the world of coding and design, I find joy in the rhythm of basketball and football games, cheering on my favorite teams with enthusiasm. In the realm of sports, I'm not just a spectator – I actively engage in activities like table tennis and running to keep the energy flowing.
+          Beyond the world of coding and design, I find joy in the rhythm of basketball and football games, cheering on my favorite teams with enthusiasm. In the realm of sports, I am not just a spectator – I actively engage in activities like table tennis and running to keep the energy flowing.
           </p>
           <p className='my-4 font-medium'>
           However, my interests extend beyond the digital and athletic domains. I have a culinary curiosity, constantly exploring and mastering the art of cooking diverse cuisines. From experimenting with new recipes to savoring the intricacies of flavors, my kitchen is a canvas for culinary creativity.
