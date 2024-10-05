@@ -39,11 +39,16 @@ export default function Home() {
                 xl:!text-5xl lg:!text-center lg:!text=6xl md:!text-5xl sm:!text-3xl
                 '/>
                 <p className='my-4 text-base font-medium md:text-sm sm:text-xs'>
-                As a passionate web developer, I enjoy transforming creative and innovative ideas into fully functional web applications. Proficient in both frontend and backend development, 
-                I excel in translating web designs crafted in Figma into seamless and responsive websites. My skill set encompasses a range of tasks, including debugging, unit testing, and developing 
-                RESTful API applications. With proficiency in languages such as Python, ReactJS, and JavaScript, I bring a dynamic approach to web development. Beyond my expertise in coding, I also possess 
-                a good foundation in machine learning and data analysis. I invite you to explore my latest projects and biography to gain insights into my journey as a web developer. Feel free to connect 
-                and discover more about my commitment to excellence in the ever-evolving realm of web development.
+                I am an IT Support Specialist with 
+                experience in web development. I am 
+                passionate about web and mobile development, 
+                data analysis, and machine learning. I love 
+                cooking and am obsessed with cooking shows 
+                and food reviews. I also enjoy reading, and 
+                at the moment, I am reading Bad Feminist by 
+                Roxane Gay. My favourite films are The Karate 
+                Kid, starring Ralph Macchio and Pat Morita 
+                (I love an underdog story), and 3 Idiots.
                 </p>
                 <div className='flex items-center self-start mt-2 lg:self-center'>
                    <Link href="/curriculum-vitae.pdf" target={"_blank"}
