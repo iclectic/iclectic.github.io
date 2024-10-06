@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { GithubIcon } from '@/components/Icons'
 import Image from 'next/image'
-import project1 from "../../public/images/projects/crypto-screener-cover-image.png";
+import project1 from "../../public/images/projects/sales_analysis.png";
 import project2 from "../../public/images/projects/agency-website-cover-image.png";
 import project3 from "../../public/images/projects/devdreaming.png";
 import project4 from "../../public/images/projects/fashion-studio-website.png";
@@ -26,20 +26,23 @@ const FeaturedProject = ({type, title, summary, img, link, github}) => {
         <div className='absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark dark:bg-light
         rounded-br-3xl xs:-right-2 sm:h-[102%] xs:w-full xs-rounded-[1.5rem]
         ' />
+
         <Link 
           href={link} 
           target="_blank"
           className='w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full'
         >
-            <FramerImage src={img} alt={title} className="w-full h-auto" 
-            whileHover={{scale:1.05}}
-            transition={{duration:0.2}}
+          <FramerImage
+            src={img}
+            alt={title}
+            className="w-full h-[400px] object-cover" // Enforce the same size for all images
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
             priority
-            sizes="(max-width: 768px) 100vw,
-            (max-width: 1200px) 50vw,
-            50vw"
-            />
-        </Link>  
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+        />
+        </Link>
+
 
         <div className='w-1/2 flex flex-col items-start justify-between pl-6 lg:w-full lg:pl-0 lg:pt-6'>
             <span className='text-primary font-medium text-xl dark:text-primaryDark xs:text-base'>{type}</span>
@@ -73,16 +76,22 @@ const Project = ({title, type, img, link, github}) => {
 <div className='absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark
         rounded-br-3xl dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem] 
         ' />
-            <Link 
-             href={link} 
-             target="_blank"
-             className='w-full cursor-pointer overflow-hidden rounded-lg'
+
+        <Link 
+          href={link} 
+          target="_blank"
+          className='w-full cursor-pointer overflow-hidden rounded-lg'
         >
-            <FramerImage src={img} alt={title} className="w-full h-auto"
-             whileHover={{scale:1.05}}
-             transition={{duration:0.2}}
-            />
-        </Link>  
+          <FramerImage
+            src={img}
+            alt={title}
+            className="w-[250] h-[600px] object-cover" // Enforce the same size for all images
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          />
+        </Link>
+      
+
 
         <div className="w-full flex flex-col items-start justify-between mt-4">
             <span className='text-primary font-medium text-xl dark:text-primaryDark lg:text-lg md:text-base'>{type}</span>
@@ -130,10 +139,15 @@ className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl'
         <div className='grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap:y-24 sm:gap-x-0'>
             <div className='col-span-12'>
                     <FeaturedProject 
-                    title="Haus"
+                    title="Retail Sales Data"
                     img={project1}
-                    summary="A responsive website built with ReactJS and Tailwind CSS."
-                    link="https://github.com/iclectic/Haus"
+                    summary="The Sales Analysis project on GitHub is a comprehensive resource for retail 
+                    sales data analysis. It features a dataset containing various transaction details, 
+                    customer demographics, and sales figures, which can be used for data cleaning and 
+                    SQL querying exercises. The repository includes a schema for creating a retail sales 
+                    table and several SQL query examples for data exploration, cleaning, and analysis, 
+                    such as identifying total sales and best-selling months. "
+                    link="https://github.com/iclectic/sales-analysis"
                     github="/"
                     type="Featured Project"
                     />

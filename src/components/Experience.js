@@ -63,7 +63,11 @@ const Experience = () => {
                 position="Information Technology Support Specialist" company="Frannberry School"
                 companyLink="https://www.frannberryschool.org"
                 time="2022" address="Lagos State, Nigeria"
-                work="I was responsible for setting up and deploying computer hardware and peripherals to optimize their functionality. I diagnosed and resolved software-related issues in computer systems, offering technical assistance and support to the staff at Frannberry School. Additionally, I installed and performed software updates on computers throughout the school."
+                work="I was responsible for setting up and deploying computer hardware and peripherals 
+                to optimize their functionality. I diagnosed and resolved software-related issues in 
+                computer systems, offering technical assistance and support to the staff at Frannberry 
+                School. Additionally, I installed and performed software updates on computers throughout 
+                the school."
                 />
 
                 <Details
@@ -71,7 +75,9 @@ const Experience = () => {
                 position="Technical Support Engineer" company="Tek Experts"
                 companyLink="https://www.tek-experts.com"
                 time="2021-2022" address="Lagos State, Nigeria"
-                work="I provided remote technical support to Microsoft 365 customers in NOAM and EMEA, addressing issues related to Microsoft Entra ID. I documented support requests, managed identities and synchronization between Microsoft 365 and On-premises environments, and assisted with user and group management in Microsoft Entra ID. My role focused on ensuring smooth integration, user authentication, and proper configuration for various systems and applications."
+                work="I provided remote technical support for Microsoft 365 customers in NOAM and EMEA, 
+                resolving Microsoft Entra ID issues, managing identity synchronization, and assisting 
+                with user and group management to ensure smooth integration and authentication."
                 />
 
                 <Details
@@ -79,7 +85,8 @@ const Experience = () => {
                 position="Mechanical Maintenance Technician (Trainee)" company="Prime Atlantic Cegelec"
                 companyLink="https://www.pacenigeria.com"
                 time="2019-2021" address="Lagos State, Nigeria"
-                work="I performed routine maintenance and installations for Pneumatic, Hydraulic, and Electrical actuator controllers, as well as transmission and distribution systems. Additionally, I engaged in metal fabrication for custom-fitted metal elements and conducted routine maintenance and installations for Prime movers."
+                work="I maintained and installed pneumatic, hydraulic, and electrical actuators, 
+                handled transmission systems, performed metal fabrication, and serviced prime movers."
                 />
 
                 <Details
@@ -87,7 +94,9 @@ const Experience = () => {
                 position="Information Technology Support Specialist" company="Frannberry School"
                 companyLink="https://www.frannberryschool.org"
                 time="2017-2019" address="Lagos State, Nigeria"
-                work="I was responsible for setting up and deploying computer hardware and peripherals to optimize their functionality. I diagnosed and resolved software-related issues in computer systems, offering technical assistance and support to the staff at Frannberry School. Additionally, I installed and performed software updates on computers throughout the school."
+                work="I set up and deployed computer hardware, resolved software issues, and provided 
+                technical support to staff at Frannberry School, including installing and updating 
+                software across school systems."
                 />
 
                 <Details
@@ -95,7 +104,8 @@ const Experience = () => {
                 position="Corps Member" company="National Youth Service Corps (NYSC)"
                 companyLink="https://www.nysc.gov.ng/.com"
                 time="2016-2017" address="Niger State, Nigeria "
-                work="I oversaw agricultural projects in Lafiaji and Raba communities in Niger state under the supervision of Volunteer Service Overseas (VSO) staff. The objective was to enhance the agricultural productivity of maize and millet. I provided education to farmers on the constituents and benefits of fertilizers and pesticides."
+                work="I worked on agricultural projects in Lafiaji and Raba, Niger State, under VSO supervision, 
+                aimed at improving maize and millet productivity"
                 />
             </ul>
         </div>
