@@ -59,7 +59,7 @@ export default function Home() {
                   hover:dark:border-light"
                   download={true} 
                   >
-                      Dev Resume <LinkArrow className={"w-2 ml-1"} />
+                      Dev Resume <LinkArrow className={"w-3 ml-1"} />
               </Link>
 
               <Link href="/curriculum-vitae.pdf" target={"_blank"}
@@ -70,7 +70,7 @@ export default function Home() {
                   hover:dark:border-light"
                   download={true} 
               >
-                  Data Analyst Resume <LinkArrow className={"w-2 ml-1"} />
+                  Data Analyst Resume <LinkArrow className={"w-3 ml-1"} />
               </Link>
 
 
