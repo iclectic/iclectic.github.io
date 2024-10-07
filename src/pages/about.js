@@ -53,9 +53,16 @@ const about = () => {
           <div className='col-span-3 flex flex-col items-start justify-start xl:col-span-4 md:order-2 md:col-span-8'>
             <h2 className='mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75'>A Bit About Me</h2>
           <p className='my-4 font-medium'>
-          However, my interests extend beyond the digital and athletic domains. I have a culinary curiosity, constantly exploring and mastering the art of cooking diverse cuisines. From experimenting with new recipes to savoring the intricacies of flavors, my kitchen is a canvas for culinary creativity.
+          My interests extend beyond the digital and athletic realms. I have a 
+          passion for culinary exploration and am constantly experimenting with 
+          different types of cuisine. I can confidently say I am a true foodie.
 
-          When it comes to entertainment, my movie tastes reflect a mix of classic and action-packed genres. I have a special fondness for the timeless Karate Kid series and the adrenaline-pumping Mission Impossible movies, from the first installment to the latest, including Mission Impossible Dead Reckoning and The Hundred Foot Journey.
+          I love reading, particularly social and historical genres, and I have 
+          a fascination with numbers, which has led to my obsession with mathematics. 
+          I am fluent in English, and as the son of a diplomat, I have lived in two 
+          different countries during my formative years, apart from my home country 
+          of Nigeria. Currently, I reside in a third country, England 
+          (the United Kingdom).
           </p>
                   </div>
            <div className='col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark
