@@ -37,16 +37,13 @@ export default function Home() {
                 xl:!text-5xl lg:!text-center lg:!text=6xl md:!text-5xl sm:!text-3xl
                 '/>
                 <p className='my-4 text-base font-medium md:text-sm sm:text-xs'>
-                I am an IT Support Specialist with 
-                experience in web development. I am 
-                passionate about web and mobile development, 
-                data analysis, and machine learning. I love 
-                cooking and am obsessed with cooking shows 
-                and food reviews. I also enjoy reading, and 
-                at the moment, I am reading Bad Feminist by 
-                Roxane Gay. My favourite films are The Karate 
-                Kid, starring Ralph Macchio and Pat Morita 
-                (I love an underdog story), and 3 Idiots.
+                I am an IT Support Specialist with experience in web development, 
+                and I am passionate about web and mobile development, data analysis, 
+                and machine learning. Outside of tech, I love cooking and am an avid 
+                fan of cooking shows and food reviews. I also enjoy reading, and I’m 
+                currently reading Bad Feminist by Roxane Gay. Some of my favourite films 
+                include The Karate Kid (I’m a sucker for an underdog story) and 3 Idiots. 
+                My primary programming languages are JavaScript, Python, and SQL.
                 </p>
 
 
