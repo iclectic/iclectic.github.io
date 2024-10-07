@@ -49,25 +49,25 @@ export default function Home() {
 
                 <div className='flex flex-wrap items-center self-start mt-2 lg:self-center justify-center space-x-1 lg:space-x-0 lg:space-y-4 lg:flex-col'>
                 <Link href="/curriculum-vitae.pdf" target={"_blank"}
-                  className="flex items-center bg-dark text-light p-2.5 w-40 h-12
+                  className="flex items-center bg-dark text-light p-2.5 w-40 h-20
                   rounded-lg text-sm font-semibold hover:b-light hover:text-indigo-300
                   border-2 border-solid border-transparent hover:border-dark
                   dark:bg-light dark:text-dark hover:dark:bg-yellow-500 hover:dark:text-light
                   hover:dark:border-light"
                   download={true} 
                   >
-                      Dev Resume <LinkArrow className={"w-3 ml-1"} />
+                      Dev Resume <LinkArrow className={"w-4 ml-3"} />
               </Link>
 
               <Link href="/curriculum-vitae.pdf" target={"_blank"}
-                  className="flex items-center bg-dark text-light p-2.5 w-40 h-12
+                  className="flex items-center bg-dark text-light p-2.5 w-40 h-20
                   rounded-lg text-sm font-semibold hover:b-light hover:text-indigo-300
                   border-2 border-solid border-transparent hover:border-dark
                   dark:bg-light dark:text-dark hover:dark:bg-yellow-500 hover:dark:text-light
                   hover:dark:border-light"
                   download={true} 
               >
-                  Data Analyst Resume <LinkArrow className={"w-3 ml-1"} />
+                  Data Analyst Resume <LinkArrow className={"w-4 ml-3"} />
               </Link>
 
 
