@@ -51,29 +51,28 @@ export default function Home() {
 
 
                 <div className='flex flex-wrap items-center self-start mt-2 lg:self-center justify-center space-x-1 lg:space-x-0 lg:space-y-4 lg:flex-col'>
-                    <Link href="/curriculum-vitae.pdf" target={"_blank"}
-                    className="flex items-center bg-dark text-light p-2.5 px-6
-                    rounded-lg text-lg font-semibold hover:b-light hover:text-dark
-                    border-2 border-solid border-transparent hover:border-dark
-
-                   dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
-                   hover:dark:border-light md:p-2 md:px-4 md:text-base
-                    "
-                   download={true} 
-                  >Dev Resume <LinkArrow className={"w-4 ml-1"}/>
-                  </Link>
-
-                  <Link href="/curriculum-vitae.pdf" target={"_blank"}
-                  className="flex items-center bg-dark text-light p-2.5 px-6
-                  rounded-lg text-lg font-semibold hover:b-light hover:text-dark
+                <Link href="/curriculum-vitae.pdf" target={"_blank"}
+                  className="flex items-center bg-dark text-light p-2.5 w-40 h-12
+                  rounded-lg text-sm font-semibold hover:b-light hover:text-dark
                   border-2 border-solid border-transparent hover:border-dark
-
-                dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
-                hover:dark:border-light md:p-2 md:px-4 md:text-base
-                  "
+                  dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
+                  hover:dark:border-light"
                   download={true} 
-                  >Data Analyst Resume <LinkArrow className={"w-4 ml-1"}/>
-                  </Link>
+                  >
+                      Dev Resume <LinkArrow className={"w-2 ml-1"} />
+              </Link>
+
+              <Link href="/curriculum-vitae.pdf" target={"_blank"}
+                  className="flex items-center bg-dark text-light p-2.5 w-40 h-12
+                  rounded-lg text-sm font-semibold hover:b-light hover:text-dark
+                  border-2 border-solid border-transparent hover:border-dark
+                  dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
+                  hover:dark:border-light"
+                  download={true} 
+              >
+                  Data Analyst Resume <LinkArrow className={"w-2 ml-1"} />
+              </Link>
+
 
                   <Link href="mailto:ibimbraide@gmail.com" target={"_blank"}
                   className="ml-4 text-lg font-medium capitalize text-dark underline dark:text-light md:text-base
