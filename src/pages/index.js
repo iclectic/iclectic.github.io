@@ -55,7 +55,7 @@ export default function Home() {
                   className="flex items-center bg-dark text-light p-2.5 w-40 h-12
                   rounded-lg text-sm font-semibold hover:b-light hover:text-dark
                   border-2 border-solid border-transparent hover:border-dark
-                  dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
+                  dark:bg-light dark:text-dark hover:dark:bg-yellow-500 hover:dark:text-light
                   hover:dark:border-light"
                   download={true} 
                   >
@@ -66,7 +66,7 @@ export default function Home() {
                   className="flex items-center bg-dark text-light p-2.5 w-40 h-12
                   rounded-lg text-sm font-semibold hover:b-light hover:text-dark
                   border-2 border-solid border-transparent hover:border-dark
-                  dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
+                  dark:bg-light dark:text-dark hover:dark:bg-yellow-500 hover:dark:text-light
                   hover:dark:border-light"
                   download={true} 
               >
