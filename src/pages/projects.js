@@ -22,87 +22,124 @@ import TransitionEffect from '@/components/TransitionEffect';
 
 const FramerImage = motion(Image);
 
+const FallbackSVG = () => (
+  <svg width="100%" height="100%" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" className="bg-gradient-to-br from-gray-200 to-gray-400 dark:from-gray-700 dark:to-gray-900 rounded-2xl">
+    <rect width="400" height="300" rx="24" fill="currentColor" fillOpacity="0.1"/>
+    <g opacity="0.5">
+      <circle cx="200" cy="150" r="60" fill="#6366F1"/>
+      <rect x="120" y="210" width="160" height="20" rx="10" fill="#A5B4FC"/>
+      <rect x="160" y="100" width="80" height="12" rx="6" fill="#E0E7FF"/>
+    </g>
+  </svg>
+);
+
 const FeaturedProject = ({ type, title, summary, img, link, github }) => {
   return (
-    <article className='w-full flex items-center justify-between relative rounded-br-2xl rounded-3xl border border-solid border-dark bg-light shadow-2xl p-12 dark:bg-dark dark:border-light lg:flex-col lg:p-8 xs:rounded-2xl xs:rounded-br-3xl xs:p-4'>
-      <div className='absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark dark:bg-light rounded-br-3xl xs:-right-2 sm:h-[102%] xs:w-full xs:rounded-[1.5rem]' />
-
-      <Link 
-        href={link} 
-        target="_blank" 
-        className='w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full'
+    <motion.article
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="w-full flex items-center justify-between relative rounded-3xl border border-solid border-gray-200 dark:border-gray-700 bg-white/70 dark:bg-gray-900/70 shadow-xl p-12 backdrop-blur-lg lg:flex-col lg:p-8 xs:rounded-2xl xs:p-4 group hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+    >
+      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-gradient-to-br from-indigo-100 to-indigo-300 dark:from-gray-800 dark:to-gray-700 rounded-br-3xl xs:-right-2 sm:h-[102%] xs:w-full xs:rounded-[1.5rem]" />
+      <Link
+        href={link}
+        target="_blank"
+        className="w-1/2 cursor-pointer overflow-hidden rounded-2xl shadow-lg lg:w-full relative"
       >
         <FramerImage
           src={img}
           alt={title}
-          className="w-full h-[400px] object-cover" // Enforce the same size for all images
+          className="w-full h-[340px] object-cover rounded-2xl group-hover:brightness-90 transition duration-300"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+          placeholder="blur"
+          blurDataURL="data:image/svg+xml,%3Csvg width='400' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='300' fill='%23e5e7eb'/%3E%3C/svg%3E"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = FallbackSVG();
+          }}
         />
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-transparent to-transparent p-4 rounded-b-2xl flex flex-col items-start">
+          <span className="text-white text-base font-semibold drop-shadow-md">{type}</span>
+          <span className="text-white text-2xl font-bold drop-shadow-md">{title}</span>
+        </div>
       </Link>
-
-      <div className='w-1/2 flex flex-col items-start justify-between pl-6 lg:w-full lg:pl-0 lg:pt-6'>
-        <span className='text-primary font-medium text-xl dark:text-primaryDark xs:text-base'>{type}</span>
-        <Link href={link} target="_blank" className='hover:underline underline-offset-2'>
-          <h2 className='my-2 w-full text-left text-4xl font-bold dark:text-light sm:text-sm'>{title}</h2>
-        </Link> 
-        <p className='my-2 font-medium text-dark dark:text-light sm:text-sm'>{summary}</p>
-        <div className='mt-2 flex items-center'>
-          <Link href={github} target="_blank" className='w-10'><GithubIcon /></Link>    
-          <Link href={link} target="_blank" className='ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold dark:bg-light dark:text-dark sm:px-4 sm:text-base'>
+      <div className="w-1/2 flex flex-col items-start justify-between pl-6 lg:w-full lg:pl-0 lg:pt-6">
+        <Link href={link} target="_blank" className="hover:underline underline-offset-2">
+          <h2 className="my-2 w-full text-left text-4xl font-bold dark:text-light sm:text-sm">{title}</h2>
+        </Link>
+        <p className="my-2 font-medium text-gray-700 dark:text-gray-300 sm:text-sm">{summary}</p>
+        <div className="mt-4 flex items-center gap-3">
+          <Link href={github} target="_blank" className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-indigo-500 hover:text-white dark:hover:bg-indigo-600 transition">
+            <GithubIcon />
+          </Link>
+          <Link href={link} target="_blank" className="rounded-lg bg-indigo-600 text-white p-2 px-6 text-lg font-semibold hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition sm:px-4 sm:text-base shadow-md">
             Visit Project
-          </Link>    
-        </div>  
+          </Link>
+        </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
 const Project = ({ title, type, img, link, github }) => {
   return (
-    <article className="w-full flex flex-col items-center justify-center rounded-2xl border border-solid border-dark bg-light p-6 relative dark:bg-dark dark:border-light xs:p-4">
-      <div className='absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark rounded-br-3xl dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]' />
-
-      <Link 
-        href={link} 
-        target="_blank" 
-        className='w-full cursor-pointer overflow-hidden rounded-lg'
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="w-full flex flex-col items-center justify-center rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/70 p-6 relative xs:p-4 shadow-lg hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 group"
+    >
+      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-gradient-to-br from-indigo-100 to-indigo-300 dark:from-gray-800 dark:to-gray-700 rounded-br-3xl md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]" />
+      <Link
+        href={link}
+        target="_blank"
+        className="w-full cursor-pointer overflow-hidden rounded-2xl shadow-md relative"
       >
         <FramerImage
           src={img}
           alt={title}
-          className="w-[250] h-[600px] object-cover" // Enforce the same size for all images
-          whileHover={{ scale: 1.05 }}
+          className="w-full h-[220px] object-cover rounded-2xl group-hover:brightness-90 transition duration-300"
+          whileHover={{ scale: 1.04 }}
           transition={{ duration: 0.2 }}
+          placeholder="blur"
+          blurDataURL="data:image/svg+xml,%3Csvg width='400' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='300' fill='%23e5e7eb'/%3E%3C/svg%3E"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = FallbackSVG();
+          }}
         />
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 via-transparent to-transparent p-3 rounded-b-2xl flex flex-col items-start">
+          <span className="text-white text-base font-semibold drop-shadow-md">{type}</span>
+        </div>
       </Link>
-
       <div className="w-full flex flex-col items-start justify-between mt-4">
-        <span className='text-primary font-medium text-xl dark:text-primaryDark lg:text-lg md:text-base'>{type}</span>
-        <Link 
-          href={"https://github.com/iclectic/V1.0"} 
-          target="_blank" 
-          className='hover:underline underline-offset-2'
+        <Link
+          href={link}
+          target="_blank"
+          className="hover:underline underline-offset-2"
         >
-          <h2 className='my-2 w-full text-left text-3xl font-bold lg:text-2xl'>{title}</h2>
-        </Link> 
-       
-        <div className='w-full mt-2 flex items-center justify-between'>
-          <Link 
-            href={link} 
-            target="_blank" 
-            className='text-lg font-semibold underline md:text-base'
-          > 
+          <h2 className="my-2 w-full text-left text-2xl font-bold lg:text-xl dark:text-light">{title}</h2>
+        </Link>
+        <div className="w-full mt-4 flex items-center gap-3">
+          <Link
+            href={link}
+            target="_blank"
+            className="rounded-lg bg-indigo-600 text-white p-2 px-4 text-base font-semibold hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition shadow"
+          >
             Visit Project
-          </Link> 
-          <Link href={github} target="_blank" className='w-8 md:w-6'> 
-            <GithubIcon />{" "}
-          </Link>    
-        </div>  
+          </Link>
+          <Link href={github} target="_blank" className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-indigo-500 hover:text-white dark:hover:bg-indigo-600 transition">
+            <GithubIcon />
+          </Link>
+        </div>
       </div>
-    </article> 
+    </motion.article>
   );
 };
 
@@ -117,8 +154,8 @@ const projects = () => {
       <main className='w-full mb-16 flex flex-col items-center justify-center dark:text-light'>
         <Layout className='pt-16'>
           <AnimatedText 
-            text="Sharpening one's imagination and fostering creativity are catalysts for development and progress." 
-            className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl' 
+            text="Projects" 
+            className='mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl main-title' 
           />
 
           <div className='grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0'>

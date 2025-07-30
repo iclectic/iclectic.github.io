@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  font-family: 'Inter', 'Montserrat', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', 'Montserrat', system-ui, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 400;
+  color: #23272f;
+  background: #f8fafc;
+}
+
+h1, .font-heading, .animated-text, .main-title {
+  font-family: 'Poppins', 'Montserrat', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: #1e293b;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  background: linear-gradient(90deg, #6366F1 0%, #A5B4FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-family: 'Poppins', 'Montserrat', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin-top: 1.5em;
+  margin-bottom: 0.7em;
+  color: #3b3b3b;
+}
+
+h3 {
+  font-family: 'Poppins', 'Montserrat', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+  color: #6366F1;
+}
+
+@media (max-width: 768px) {
+  h1, .font-heading, .animated-text, .main-title {
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+  }
+}

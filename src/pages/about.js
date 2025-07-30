@@ -51,8 +51,8 @@ const about = () => {
         <AnimatedText text="Passion Fuels Aspiration!" className='mb-16 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8' />
         <div className='grid w-full grid-cols-8 gap-16 sm:gap-8'>
           <div className='col-span-3 flex flex-col items-start justify-start xl:col-span-4 md:order-2 md:col-span-8'>
-            <h2 className='mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75'>A Bit About Me</h2>
-          <p className='my-4 font-medium'>
+            <h2 className='mb-4 text-lg font-bold uppercase text-black dark:text-light'>A Bit About Me</h2>
+          <p className='my-4 font-medium text-black dark:text-light'>
           My interests extend beyond the digital and athletic realms. I have a 
           passion for culinary exploration and am constantly experimenting with 
           different types of cuisine. I can confidently say I am a true foodie.
@@ -65,17 +65,18 @@ const about = () => {
           (the United Kingdom).
           </p>
                   </div>
-           <div className='col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark
-           bg-light p-8 dark:bg-dark dark:border-light xl:col-span-4 md:order-1 md:col-span-8
-           '>
-            <div className='absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark dark:bg-light' />
-                <Image src={profilePic} alt="CodeBucks" className='w-full h-auto rounded-2xl'
-                priority
-                sizes="(max-width: 768px) 100vw,
-                (max-width: 1200px) 50vw,
-                33vw"
+           <div className="col-span-3 relative h-max flex items-center justify-center xl:col-span-4 md:order-1 md:col-span-8">
+            <div className="relative group w-full aspect-square flex items-center justify-center rounded-full overflow-hidden shadow-xl border-4 border-solid border-dark bg-gradient-to-br from-gray-200 via-white to-gray-100 dark:from-gray-800 dark:via-dark dark:to-gray-900 transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                <Image 
+                  src={profilePic}
+                  alt="Profile Picture"
+                  className="object-cover w-full h-full rounded-full transition-all duration-300"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
+                
             </div>
+          </div>
                
           
             </div>

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import Image from 'next/image'
-import profilePic from "../../public/images/profile/epiphany.png";
+
 import AnimatedText from '@/components/AnimatedText';
 import Link from 'next/link'
 import { LinkArrow } from '@/components/Icons';
@@ -25,56 +25,36 @@ export default function Home() {
         <Layout className='pt-0 md:pt-16 sm:pt-8'>
           <div className="flex items-center justify-between w-full lg:flex-col"> 
               <div className='w-1/2 md:w-full'>
-                <Image src={profilePic} alt="Ibim Braide" className='w-full h-auto lg:hidden md:inline-block md:w-full'
-                priority
-                sizes="(max-width: 768px) 100vw,
-                (max-width: 1200px) 50vw,
-                50vw"  
-                /> 
+                <div className="relative w-full">
+                  <Image src="/images/profile/ibim_photo.jpg" alt="Ibim Braide" width={400} height={400} className='w-full h-auto rounded-full border-4 border-black opacity-80'
+                    priority
+                    sizes="(max-width: 768px) 100vw,
+                    (max-width: 1200px) 50vw,
+                    50vw"
+                  />
+                  
+                </div>
               </div>
-              <div className='w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center button-group'>
-                <AnimatedText text="A Personal Snapshot" className='!text-6xl !text-left
-                xl:!text-5xl lg:!text-center lg:!text=6xl md:!text-5xl sm:!text-3xl
-                '/>
-                <p className='my-4 text-base font-medium md:text-sm sm:text-xs'>
-                I am an IT Support Specialist with experience in web development, 
-                and I am passionate about web and mobile development, data analysis, 
-                and machine learning. Outside of tech, I love cooking and am an avid 
-                fan of cooking shows and food reviews. I also enjoy reading, and I’m 
-                currently reading Bad Feminist by Roxane Gay. Some of my favourite films 
-                include The Karate Kid (I’m a sucker for an underdog story) and 3 Idiots. 
-                My primary programming languages are JavaScript, Python, and SQL.
+              <div className='w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center button-group ml-8 lg:ml-0 lg:mt-8'>
+                <AnimatedText text="A Personal Snapshot" className='!text-6xl !text-left text-black dark:text-light xl:!text-5xl lg:!text-center lg:!text=6xl md:!text-5xl sm:!text-3xl' />
+                <p className='my-4 text-base font-medium text-black dark:text-light md:text-sm sm:text-xs'>
+                  I am an IT Support Specialist with experience in web development, 
+                  and I am passionate about web and mobile development, data analysis, 
+                  and machine learning. Outside of tech, I love cooking and am an avid 
+                  fan of cooking shows and food reviews. I also enjoy reading, and I'm 
+                  currently reading Bad Feminist by Roxane Gay. Some of my favourite films 
+                  include The Karate Kid (I'm a sucker for an underdog story) and 3 Idiots. 
+                  My primary programming languages are JavaScript, Python, and SQL.
                 </p>
 
-
-                <div className='flex flex-wrap items-center self-start mt-2 lg:self-center justify-center space-x-1 lg:space-x-0 lg:space-y-4 lg:flex-col'>
-                <Link href="/curriculum-vitae.pdf" target={"_blank"}
-                  className="flex items-center bg-dark text-light p-2.5 w-40 h-20
-                  rounded-lg text-sm font-semibold hover:b-light hover:text-indigo-300
-                  border-2 border-solid border-transparent hover:border-dark
-                  dark:bg-light dark:text-dark hover:dark:bg-yellow-500 hover:dark:text-light
-                  hover:dark:border-light"
-                  download={true} 
-                  >
-                      Dev Resume <LinkArrow className={"w-4 ml-3"} />
-              </Link>
-
-              <Link href="/curriculum-vitae.pdf" target={"_blank"}
-                  className="flex items-center bg-dark text-light p-2.5 w-40 h-20
-                  rounded-lg text-sm font-semibold hover:b-light hover:text-indigo-300
-                  border-2 border-solid border-transparent hover:border-dark
-                  dark:bg-light dark:text-dark hover:dark:bg-yellow-500 hover:dark:text-light
-                  hover:dark:border-light"
+<div className='flex items-center self-start mt-2 lg:self-center'>
+                <Link href="/IBIM_BRAIDE_CURRICULUM_VITAE.pdf" target={"_blank"}
+                  className="flex items-center bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light hover:dark:border-light md:p-2 md:px-4 md:text-base"
                   download={true} 
               >
-                  Data Analyst Resume <LinkArrow className={"w-4 ml-3"} />
+                  Resume <LinkArrow className={"w-6 ml-1"} />
               </Link>
-
-
-                  <Link href="mailto:ibimbraide@gmail.com" target={"_blank"}
-                  className="ml-4 text-lg font-medium capitalize text-dark underline dark:text-light md:text-base
-                  "
-                  >Contact</Link> 
+   
                 </div>
               </div>
           </div>
