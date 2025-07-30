@@ -41,9 +41,9 @@ export default function Home() {
                   I am an IT Support Specialist with experience in web development, 
                   and I am passionate about web and mobile development, data analysis, 
                   and machine learning. Outside of tech, I love cooking and am an avid 
-                  fan of cooking shows and food reviews. I also enjoy reading, and I'm 
+                  fan of cooking shows and food reviews. I also enjoy reading, and I&apos;m 
                   currently reading Bad Feminist by Roxane Gay. Some of my favourite films 
-                  include The Karate Kid (I'm a sucker for an underdog story) and 3 Idiots. 
+                  include The Karate Kid (I&apos;m a sucker for an underdog story) and 3 Idiots. 
                   My primary programming languages are JavaScript, Python, and SQL.
                 </p>
 
