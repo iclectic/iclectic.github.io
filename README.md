@@ -1,6 +1,6 @@
 # Ibim Braide Portfolio
 
-This is my personal website and portfolio. I built it to present my work as a senior software engineer, community organiser, and open source contributor based in the United Kingdom. I want it to feel calm, credible, and human. It should communicate technical depth, leadership, and impact without losing warmth.
+This is my personal website and portfolio. I built it to present my work as a software engineer, community organiser, and open source contributor based in the United Kingdom. I want it to feel calm, credible, and human. It should communicate technical depth, leadership, and impact without losing warmth.
 
 It is also a living home for my writing. I care about AI ethics, software engineering, community building, and developer education. This site is where I publish, reflect, and show my work in public.
 
