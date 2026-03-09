@@ -2,60 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  font-family: 'Inter', 'Montserrat', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  font-family: 'Inter', 'Montserrat', system-ui, sans-serif;
-  font-size: 1.08rem;
-  font-weight: 400;
-  color: #23272f;
-  background: #f8fafc;
-}
-
-h1, .font-heading, .animated-text, .main-title {
-  font-family: 'Poppins', 'Montserrat', system-ui, sans-serif;
-  font-weight: 800;
-  letter-spacing: -1px;
-  line-height: 1.1;
-  color: #1e293b;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  background: linear-gradient(90deg, #6366F1 0%, #A5B4FC 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-h2 {
-  font-family: 'Poppins', 'Montserrat', system-ui, sans-serif;
-  font-weight: 700;
-  font-size: 2.2rem;
-  margin-top: 1.5em;
-  margin-bottom: 0.7em;
-  color: #3b3b3b;
-}
-
-h3 {
-  font-family: 'Poppins', 'Montserrat', system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 1.5rem;
-  margin-top: 1.2em;
-  margin-bottom: 0.6em;
-  color: #6366F1;
-}
-
-@media (max-width: 768px) {
-  h1, .font-heading, .animated-text, .main-title {
-    font-size: 2.2rem;
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
-  h2 {
-    font-size: 1.5rem;
+
+  body {
+    @apply bg-background text-foreground dark:bg-background-dark dark:text-foreground-dark;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
-  h3 {
-    font-size: 1.1rem;
+
+  ::selection {
+    @apply bg-accent/20 text-foreground dark:text-foreground-dark;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .prose-custom {
+    @apply max-w-prose text-body leading-relaxed;
+  }
+
+  .prose-custom h2 {
+    @apply font-display text-h2 text-foreground dark:text-foreground-dark mt-12 mb-4;
+  }
+
+  .prose-custom h3 {
+    @apply font-display text-h3 text-foreground dark:text-foreground-dark mt-8 mb-3;
+  }
+
+  .prose-custom p {
+    @apply mb-6 text-foreground/80 dark:text-foreground-dark/80;
+  }
+
+  .prose-custom a {
+    @apply text-accent underline underline-offset-2 decoration-accent/40 hover:decoration-accent transition-colors;
+  }
+
+  .prose-custom code {
+    @apply font-mono text-body-sm bg-foreground/5 dark:bg-foreground-dark/10 px-1.5 py-0.5 rounded;
+  }
+
+  .prose-custom pre {
+    @apply my-6 rounded-lg overflow-x-auto;
+  }
+
+  .prose-custom ul {
+    @apply list-disc pl-6 mb-6 space-y-2;
+  }
+
+  .prose-custom ol {
+    @apply list-decimal pl-6 mb-6 space-y-2;
+  }
+
+  .prose-custom blockquote {
+    @apply border-l-2 border-accent pl-4 italic text-muted dark:text-muted-dark my-6;
+  }
+
+  .prose-custom img {
+    @apply rounded-lg my-8;
   }
 }
