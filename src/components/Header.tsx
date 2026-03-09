@@ -71,7 +71,7 @@ function MobileMenu({
                 href={item.href}
                 onClick={onClose}
                 className={`block text-lg font-medium transition-colors ${
-                  router.pathname === item.href
+                  isActive(item.href)
                     ? 'text-accent'
                     : 'text-foreground dark:text-foreground-dark hover:text-accent'
                 }`}
@@ -89,6 +89,11 @@ function MobileMenu({
 export default function Header() {
   const router = useRouter()
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  function isActive(href: string) {
+    if (href === '/') return router.pathname === '/'
+    return router.pathname === href || router.pathname.startsWith(`${href}/`)
+  }
 
   useEffect(() => {
     setMobileOpen(false)
@@ -110,7 +115,7 @@ export default function Header() {
               key={item.href}
               href={item.href}
               className={`text-body-sm font-medium transition-colors ${
-                router.pathname === item.href
+                isActive(item.href)
                   ? 'text-accent'
                   : 'text-muted dark:text-muted-dark hover:text-foreground dark:hover:text-foreground-dark'
               }`}

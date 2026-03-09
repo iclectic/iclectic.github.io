@@ -3,6 +3,13 @@ import SEO from '@/components/SEO'
 import Container from '@/components/Container'
 import { siteConfig } from '@/lib/siteConfig'
 
+const focusAreas = [
+  'Developer tooling and documentation',
+  'Community tooling and event operations',
+  'Frontend and platform engineering',
+  'Data and automation workflows',
+]
+
 export default function OpenSource() {
   return (
     <>
@@ -15,47 +22,61 @@ export default function OpenSource() {
       <section className="pt-20 pb-16 md:pt-28 md:pb-20">
         <Container>
           <h1 className="font-display text-h1 text-foreground dark:text-foreground-dark">
-            Open Source
+            Open source
           </h1>
-          <p className="mt-4 max-w-xl text-body text-muted dark:text-muted-dark">
-            I believe in building in the open and contributing to the tools and
-            frameworks I use. Open source is how I learn, how I give back, and how
-            I connect with the wider engineering community.
+          <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
+            I contribute to open source because it is where engineering standards are made visible. It is the most
+            honest feedback loop I know, and it keeps my skills grounded in real collaboration.
           </p>
         </Container>
       </section>
 
       <section className="pb-16">
         <Container>
-          <div className="max-w-2xl space-y-6 text-body text-foreground/80 dark:text-foreground-dark/80">
-            <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">
-              Philosophy
-            </h2>
-            <p>
-              I think the best way to improve as an engineer is to read and write code
-              in public. Open source gives you feedback loops that are difficult to
-              replicate in closed environments: code review from strangers, issues filed
-              by people with different use-cases, and the discipline of writing code that
-              others need to understand.
-            </p>
-            <p>
-              I contribute where I can add value, whether that is documentation, bug
-              fixes, or feature work. I also maintain my own projects in the open,
-              because I believe that sharing your work, even when it is imperfect, is
-              more valuable than keeping it private.
-            </p>
+          <div className="grid gap-10 lg:grid-cols-2">
+            <div>
+              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">
+                Philosophy
+              </h2>
+              <div className="mt-4 space-y-5 text-body text-foreground/80 dark:text-foreground-dark/80">
+                <p>
+                  Open source keeps engineering accountable. I contribute in ways that help projects become clearer,
+                  more stable, and more welcoming. That includes code, documentation, issue triage, and supporting new
+                  contributors.
+                </p>
+                <p>
+                  I value maintainability and shared ownership. Good open source projects ship with empathy, not just
+                  cleverness.
+                </p>
+              </div>
+            </div>
+            <div>
+              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">
+                Focus areas
+              </h2>
+              <ul className="mt-4 space-y-3">
+                {focusAreas.map((area) => (
+                  <li
+                    key={area}
+                    className="rounded-xl border border-border dark:border-border-dark px-4 py-3 text-body-sm text-muted dark:text-muted-dark"
+                  >
+                    {area}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </Container>
       </section>
 
       <section className="py-16 border-t border-border dark:border-border-dark">
         <Container>
-          <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark mb-8">
+          <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark mb-4">
             Projects and contributions
           </h2>
           <p className="text-body text-muted dark:text-muted-dark mb-8">
-            You can find my public repositories and contributions on GitHub. I am
-            actively growing this section as I contribute more to the ecosystem.
+            You can find my public repositories and contribution history on GitHub. This section will expand with
+            curated highlights and write ups of significant contributions.
           </p>
           <div className="flex flex-wrap gap-4">
             <a
@@ -73,7 +94,7 @@ export default function OpenSource() {
               href="/contact"
               className="inline-flex items-center rounded-lg border border-border px-5 py-2.5 text-body-sm font-semibold text-foreground transition-colors hover:bg-foreground/5 dark:border-border-dark dark:text-foreground-dark dark:hover:bg-foreground-dark/5"
             >
-              Interested in collaborating?
+              Interested in collaborating
             </Link>
           </div>
         </Container>

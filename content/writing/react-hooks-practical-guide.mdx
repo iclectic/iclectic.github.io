@@ -1,0 +1,137 @@
+---
+title: "React Hooks: A Practical Guide"
+description: "Unravelling the fundamentals of React Hooks, covering useState, useEffect, and useContext with practical examples for modern React development."
+date: "2025-07-20"
+tags: ["React", "JavaScript"]
+featured: true
+published: true
+---
+
+## What Are React Hooks?
+
+React Hooks were introduced in React 16.8 as a way to use state and other React features without writing class components. They let you "hook into" React state and lifecycle features from function components.
+
+Before Hooks, if you needed state or lifecycle methods, you had to use a class component. This led to complex component hierarchies, confusing `this` binding, and logic that was difficult to reuse across components. Hooks solve all of these problems.
+
+## useState
+
+The most basic Hook. It lets you add state to a function component.
+
+```jsx
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  )
+}
+```
+
+Key points about `useState`:
+
+- It returns an array with two elements: the current state value and a function to update it
+- You can call it multiple times in a single component for different pieces of state
+- The initial value is only used on the first render
+- When updating state based on the previous value, use the functional form: `setCount(prev => prev + 1)`
+
+## useEffect
+
+This Hook lets you perform side effects in function components. Think of it as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` combined.
+
+```jsx
+import { useState, useEffect } from 'react'
+
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setLoading(true)
+    fetch(`/api/users/${userId}`)
+      .then(res => res.json())
+      .then(data => {
+        setUser(data)
+        setLoading(false)
+      })
+  }, [userId])
+
+  if (loading) return <p>Loading...</p>
+  return <h1>{user.name}</h1>
+}
+```
+
+The dependency array (second argument) controls when the effect runs:
+
+- **No array**: Runs after every render
+- **Empty array `[]`**: Runs only once after the initial render
+- **With dependencies `[userId]`**: Runs when any dependency changes
+
+## useContext
+
+This Hook lets you subscribe to React context without nesting Consumer components.
+
+```jsx
+import { createContext, useContext } from 'react'
+
+const ThemeContext = createContext('light')
+
+function ThemedButton() {
+  const theme = useContext(ThemeContext)
+
+  return (
+    <button className={theme === 'dark' ? 'btn-dark' : 'btn-light'}>
+      I am themed
+    </button>
+  )
+}
+```
+
+Context is particularly useful for values that many components need access to, such as themes, authentication state, or locale preferences.
+
+## Rules of Hooks
+
+There are two rules you must follow:
+
+1. **Only call Hooks at the top level.** Do not call them inside loops, conditions, or nested functions. This ensures Hooks are called in the same order every render.
+
+2. **Only call Hooks from React functions.** Call them from function components or custom Hooks, not from regular JavaScript functions.
+
+## Custom Hooks
+
+One of the most powerful patterns Hooks enable is extracting reusable logic into custom Hooks:
+
+```jsx
+function useWindowSize() {
+  const [size, setSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  })
+
+  useEffect(() => {
+    function handleResize() {
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  return size
+}
+```
+
+Custom Hooks start with `use` and can call other Hooks. They let you share stateful logic between components without changing your component hierarchy.
+
+## Conclusion
+
+Hooks fundamentally changed how we write React components. They make it easier to share logic, avoid class complexity, and write components that are simpler to test and reason about. Start with `useState` and `useEffect`, and reach for the others as your needs grow.

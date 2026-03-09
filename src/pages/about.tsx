@@ -11,7 +11,7 @@ const experience = [
     period: '2022',
     location: 'Lagos, Nigeria',
     description:
-      'Set up and deployed computer hardware and peripherals. Diagnosed and resolved software-related issues across school systems. Provided technical support to staff and installed software updates.',
+      'Set up and deployed computer hardware and peripherals. Diagnosed and resolved software issues across school systems. Provided technical support to staff and managed software updates.',
   },
   {
     role: 'Technical Support Engineer',
@@ -20,7 +20,7 @@ const experience = [
     period: '2021 - 2022',
     location: 'Lagos, Nigeria',
     description:
-      'Provided remote technical support for Microsoft 365 customers across NOAM and EMEA. Resolved Microsoft Entra ID issues, managed identity synchronisation, and assisted with user and group management.',
+      'Provided remote technical support for Microsoft 365 customers across NOAM and EMEA. Resolved Entra ID issues, managed identity synchronisation, and supported user and group administration.',
   },
   {
     role: 'Mechanical Maintenance Technician (Trainee)',
@@ -57,7 +57,7 @@ const education = [
     institution: 'Birmingham City University',
     period: '2022 - 2023',
     description:
-      'Modules included Software Development, Software Analysis and Design, AI Fundamentals, and Research Methods. Completed an Individual Masters Project applying skills to real-world research.',
+      'Modules included Software Development, Software Analysis and Design, AI Fundamentals, and Research Methods. Completed an Individual Masters Project applying skills to real world research.',
   },
   {
     degree: 'British Computer Society Certificate in IT',
@@ -75,6 +75,20 @@ const education = [
   },
 ]
 
+const focusAreas = [
+  'Senior software engineering across frontend, backend, mobile, and data',
+  'Community leadership for Flutter Birmingham and Golang Birmingham',
+  'Open source contribution and collaboration',
+  'Writing about AI ethics, engineering craft, and developer education',
+]
+
+const values = [
+  'Clarity in communication and code',
+  'Pragmatic delivery with a focus on maintainability',
+  'Inclusive community building and mentorship',
+  'Ethical, responsible engineering decisions',
+]
+
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
@@ -89,11 +103,10 @@ export default function About() {
     <>
       <SEO
         title="About"
-        description="Software engineer, community organiser, and open source contributor. Learn about my background, experience, and what drives my work."
+        description="Software engineer, community organiser, and open source contributor. Learn about my background, leadership, and what drives my work."
         url="/about"
       />
 
-      {/* Intro */}
       <section className="pt-20 pb-16 md:pt-28 md:pb-20">
         <Container>
           <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
@@ -103,58 +116,59 @@ export default function About() {
               </h1>
               <div className="mt-8 space-y-5 text-body text-foreground/80 dark:text-foreground-dark/80">
                 <p>
-                  I am a software engineer based in the United Kingdom with a background
-                  that spans frontend, backend, mobile, and data engineering. I build
-                  with TypeScript, Python, Go, Dart, React, Flutter, and Next.js, and I
-                  care deeply about writing software that is well-architected, accessible,
-                  and maintainable.
+                  I am a software engineer based in the United Kingdom. I build across frontend, backend, mobile, and
+                  data, with a focus on shipping reliable products and clear, maintainable systems.
                 </p>
                 <p>
-                  Beyond engineering, I organise developer communities. I run Flutter
-                  Birmingham and Golang Birmingham, two meetup groups in the West Midlands
-                  focused on growing local developer ecosystems. I believe that strong
-                  communities make stronger engineers.
+                  I organise Flutter Birmingham and help steer Golang Birmingham with the organising team. Community
+                  building is a core part of my work because it strengthens local engineering ecosystems and improves
+                  access to high quality learning.
                 </p>
                 <p>
-                  I contribute to open source and write publicly about AI ethics,
-                  engineering culture, and developer education. I hold a Master of Science
-                  in Computer Science from Birmingham City University and a Bachelor of
+                  I contribute to open source and write about AI ethics, engineering craft, and developer education. I
+                  hold a Master of Science in Computer Science from Birmingham City University and a Bachelor of
                   Engineering in Computer Engineering from the University of Benin.
                 </p>
               </div>
 
               <h2 className="mt-12 font-display text-h2 text-foreground dark:text-foreground-dark">
-                Values and approach
+                Focus areas
               </h2>
-              <div className="mt-4 space-y-5 text-body text-foreground/80 dark:text-foreground-dark/80">
-                <p>
-                  I think the best software comes from teams that communicate well, ship
-                  incrementally, and care about the people using what they build. I value
-                  clarity in code and in conversation. I prefer simple solutions to clever
-                  ones, and I believe that documentation is a feature.
-                </p>
-                <p>
-                  I approach every project by first understanding the problem before
-                  reaching for a solution. I favour composability over complexity, and I
-                  think the best engineers are the ones who ask good questions.
-                </p>
-              </div>
+              <ul className="mt-4 space-y-3">
+                {focusAreas.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-lg border border-border dark:border-border-dark px-4 py-3 text-body-sm text-muted dark:text-muted-dark"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
 
               <h2 className="mt-12 font-display text-h2 text-foreground dark:text-foreground-dark">
-                On a personal note
+                Values and approach
+              </h2>
+              <ul className="mt-4 space-y-3">
+                {values.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-lg border border-border dark:border-border-dark px-4 py-3 text-body-sm text-muted dark:text-muted-dark"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <h2 className="mt-12 font-display text-h2 text-foreground dark:text-foreground-dark">
+                Personal note
               </h2>
               <div className="mt-4 space-y-5 text-body text-foreground/80 dark:text-foreground-dark/80">
                 <p>
-                  My interests extend well beyond the screen. I have a deep passion for
-                  culinary exploration and I am constantly experimenting with different
-                  cuisines. I love reading, particularly social and historical genres,
-                  and I have a fascination with numbers that borders on obsession.
+                  I enjoy research, thoughtful design, and building tools that help people do their best work. I am
+                  motivated by impact, not just output.
                 </p>
                 <p>
-                  As the son of a diplomat, I have lived in two different countries during
-                  my formative years, apart from my home country of Nigeria. I currently
-                  reside in England, and that international perspective shapes how I
-                  think about building software for a global audience.
+                  I currently live in England and work with communities across the West Midlands.
                 </p>
               </div>
             </div>
@@ -175,7 +189,6 @@ export default function About() {
         </Container>
       </section>
 
-      {/* Experience */}
       <section className="py-16 border-t border-border dark:border-border-dark">
         <Container>
           <h2 className="font-display text-h1 text-foreground dark:text-foreground-dark">
@@ -222,7 +235,6 @@ export default function About() {
         </Container>
       </section>
 
-      {/* Education */}
       <section className="py-16 border-t border-border dark:border-border-dark">
         <Container>
           <h2 className="font-display text-h1 text-foreground dark:text-foreground-dark">

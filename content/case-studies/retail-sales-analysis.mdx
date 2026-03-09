@@ -1,0 +1,58 @@
+---
+title: "Retail Sales Data Analysis"
+description: "Comprehensive retail sales data analysis with SQL querying exercises, covering schema creation, data exploration, cleaning, and business insights."
+date: "2025-01-15"
+tags: ["SQL", "Data Analysis", "PostgreSQL"]
+featured: true
+published: true
+---
+
+## Overview
+
+This project involved building a comprehensive SQL-based analysis pipeline for retail sales data. The goal was to extract actionable business insights from raw transactional data using structured querying techniques.
+
+## The Problem
+
+Retail businesses generate vast amounts of transactional data daily, but without structured analysis, this data remains underutilised. The challenge was to design a schema, clean the data, and run targeted analyses to surface patterns in sales performance, customer behaviour, and product trends.
+
+## Approach
+
+I started by designing a normalised database schema in PostgreSQL, then wrote a series of SQL queries that progressed from basic exploration to complex analytical operations.
+
+### Schema Design
+
+The schema was designed to capture transactions with fields for date, product category, quantity, unit price, total amount, and customer demographics. I used appropriate data types and constraints to ensure data integrity from the start.
+
+### Data Cleaning
+
+Before analysis, I performed several cleaning steps:
+
+- Removed duplicate transaction records
+- Handled null values in customer demographic fields
+- Validated date ranges and price consistency
+- Standardised category names
+
+### Analysis
+
+The analysis covered several business questions:
+
+1. **Total sales by month** to identify seasonal patterns
+2. **Best-selling product categories** by both quantity and revenue
+3. **Customer segmentation** based on purchase frequency and spend
+4. **Time-of-day analysis** to understand peak shopping hours
+5. **Year-over-year growth** calculations
+
+## Key Findings
+
+The analysis revealed clear seasonal patterns in purchasing behaviour, with Q4 consistently outperforming other quarters. Certain product categories showed strong correlation with customer demographics, suggesting targeted marketing opportunities.
+
+## Technical Details
+
+- **Database**: PostgreSQL 15
+- **Query complexity**: CTEs, window functions, subqueries, aggregations
+- **Data volume**: 10,000+ transaction records
+- **Tools**: pgAdmin, DBeaver for query development
+
+## What I Learned
+
+This project reinforced the importance of clean data as the foundation for any analysis. It also deepened my understanding of PostgreSQL window functions and their power for time-series analysis in retail contexts.

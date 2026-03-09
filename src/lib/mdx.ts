@@ -13,6 +13,7 @@ export interface FrontMatter {
   featured?: boolean
   image?: string
   published?: boolean
+  [key: string]: unknown
 }
 
 export interface ContentItem {
@@ -29,7 +30,10 @@ function getContentFromDirectory(directory: string): ContentItem[] {
     return []
   }
 
-  const files = fs.readdirSync(fullPath).filter((file) => file.endsWith('.mdx'))
+  const files = fs
+    .readdirSync(fullPath)
+    .filter((file) => file.endsWith('.mdx'))
+    .filter((file) => !file.startsWith('_'))
 
   return files
     .map((file) => {
@@ -50,11 +54,19 @@ function getContentFromDirectory(directory: string): ContentItem[] {
 }
 
 export function getAllWork(): ContentItem[] {
-  return getContentFromDirectory('work')
+  return getContentFromDirectory('case-studies')
 }
 
 export function getAllWriting(): ContentItem[] {
   return getContentFromDirectory('writing')
+}
+
+export function getAllCaseStudies(): ContentItem[] {
+  return getContentFromDirectory('case-studies')
+}
+
+export function getAllContent(directory: string): ContentItem[] {
+  return getContentFromDirectory(directory)
 }
 
 export function getContentBySlug(directory: string, slug: string): ContentItem | null {
@@ -85,5 +97,12 @@ export function getAllSlugs(directory: string): string[] {
   return fs
     .readdirSync(fullPath)
     .filter((file) => file.endsWith('.mdx'))
+    .filter((file) => !file.startsWith('_'))
+    .filter((file) => {
+      const filePath = path.join(fullPath, file)
+      const fileContents = fs.readFileSync(filePath, 'utf-8')
+      const { data } = matter(fileContents)
+      return data.published !== false
+    })
     .map((file) => file.replace(/\.mdx$/, ''))
 }

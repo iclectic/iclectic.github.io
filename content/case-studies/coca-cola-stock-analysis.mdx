@@ -1,0 +1,50 @@
+---
+title: "Coca-Cola Stock Analysis"
+description: "Python-based financial analysis tool applying stock market strategies and machine learning to Coca-Cola stock data for technical indicators and forecasting."
+date: "2025-02-10"
+tags: ["Python", "Machine Learning", "pandas", "matplotlib"]
+featured: true
+published: true
+---
+
+## Overview
+
+A financial analysis project that applies quantitative strategies and machine learning to historical Coca-Cola stock data. The tool uses Python libraries to compute technical indicators and generate price forecasts.
+
+## The Problem
+
+Understanding stock price movements requires more than looking at charts. Investors and analysts need systematic approaches to identify patterns, compute technical indicators, and generate data-driven forecasts. This project aimed to build a reusable analysis pipeline for financial data.
+
+## Approach
+
+### Data Collection
+
+I used the `yfinance` library to pull historical stock data for Coca-Cola (KO), including daily open, high, low, close, and volume data spanning several years.
+
+### Technical Analysis
+
+The analysis pipeline computes several standard technical indicators:
+
+- **Moving Averages**: Simple (SMA) and Exponential (EMA) moving averages at 20, 50, and 200-day windows
+- **Relative Strength Index (RSI)**: Momentum oscillator to identify overbought and oversold conditions
+- **MACD**: Moving Average Convergence Divergence for trend identification
+- **Bollinger Bands**: Volatility-based bands around the moving average
+
+### Machine Learning Forecasting
+
+I trained a regression model using scikit-learn to forecast short-term price movements based on historical features. The model uses a rolling window approach to avoid look-ahead bias.
+
+## Visualisations
+
+All indicators and forecasts are rendered using matplotlib with a clean, publication-ready style. Charts include annotated buy/sell signals based on crossover strategies.
+
+## Technical Details
+
+- **Language**: Python 3.11
+- **Libraries**: yfinance, pandas, numpy, matplotlib, scikit-learn
+- **Environment**: Jupyter Notebook
+- **Data**: 5+ years of daily OHLCV data
+
+## What I Learned
+
+This project taught me about the practical challenges of financial modelling, particularly around avoiding overfitting and managing the inherent noise in stock price data. It also reinforced the importance of clear data visualisation when communicating quantitative findings.

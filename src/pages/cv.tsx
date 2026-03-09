@@ -5,6 +5,22 @@ import { motion } from 'framer-motion'
 
 const timeline = [
   {
+    type: 'work' as const,
+    title: 'Community Organiser',
+    org: 'Flutter Birmingham',
+    period: 'Present',
+    description:
+      'Lead programming, speaker curation, and community operations for the Flutter developer community in Birmingham.',
+  },
+  {
+    type: 'work' as const,
+    title: 'Community Organiser and Steering Support',
+    org: 'Golang Birmingham',
+    period: 'Present',
+    description:
+      'Support strategic direction, programming, and partnerships with the organising team for the Go community in Birmingham.',
+  },
+  {
     type: 'education' as const,
     title: 'MSc Computer Science',
     org: 'Birmingham City University',
@@ -71,10 +87,12 @@ const timeline = [
 ]
 
 const skills = {
-  'Languages': ['TypeScript', 'JavaScript', 'Python', 'SQL', 'Go', 'Dart'],
-  'Frontend': ['React', 'Next.js', 'Vue.js', 'Flutter', 'Tailwind CSS', 'HTML/CSS'],
-  'Backend & Data': ['Node.js', 'PostgreSQL', 'Firebase', 'pandas', 'scikit-learn'],
-  'Tools': ['Git', 'Tableau', 'Figma', 'VS Code', 'CI/CD'],
+  Languages: ['TypeScript', 'JavaScript', 'Python', 'SQL', 'Go', 'Dart'],
+  Frontend: ['React', 'Next.js', 'Vue.js', 'Tailwind CSS', 'HTML', 'CSS'],
+  Mobile: ['Flutter'],
+  Backend: ['Node.js', 'PostgreSQL', 'Firebase'],
+  Data: ['pandas', 'scikit-learn', 'Tableau'],
+  Tools: ['Git', 'Figma', 'VS Code', 'CI/CD'],
 }
 
 const fadeUp = {
@@ -121,13 +139,12 @@ export default function CV() {
         </Container>
       </section>
 
-      {/* Skills */}
       <section className="py-12 border-t border-border dark:border-border-dark">
         <Container>
           <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark mb-8">
             Skills
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {Object.entries(skills).map(([category, items]) => (
               <div key={category}>
                 <h3 className="text-body-sm font-semibold text-foreground dark:text-foreground-dark mb-3">
@@ -149,14 +166,12 @@ export default function CV() {
         </Container>
       </section>
 
-      {/* Timeline */}
       <section className="py-16 border-t border-border dark:border-border-dark">
         <Container>
           <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark mb-10">
             Timeline
           </h2>
           <div className="relative">
-            {/* Vertical line */}
             <div className="absolute left-3 top-2 bottom-2 w-px bg-border dark:bg-border-dark sm:left-4" />
 
             <div className="space-y-0">
@@ -170,7 +185,6 @@ export default function CV() {
                   variants={fadeUp}
                   className="relative pl-10 sm:pl-12 py-6 border-b border-border/50 dark:border-border-dark/50 last:border-b-0"
                 >
-                  {/* Dot */}
                   <div
                     className={`absolute left-1.5 top-8 h-3 w-3 rounded-full border-2 sm:left-2.5 ${
                       item.type === 'education'

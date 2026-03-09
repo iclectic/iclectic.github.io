@@ -45,6 +45,14 @@ export default function SEO({
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={description} />
       {image && <meta name="twitter:image" content={`${siteConfig.url}${image}`} />}
+
+      {/* RSS */}
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        title={`${siteConfig.name} RSS Feed`}
+        href={`${siteConfig.url}/rss.xml`}
+      />
     </Head>
   )
 }
