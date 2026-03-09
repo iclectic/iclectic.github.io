@@ -4,7 +4,7 @@ This is my personal website and portfolio. I built it to present my work as a se
 
 It is also a living home for my writing. I care about AI ethics, software engineering, community building, and developer education. This site is where I publish, reflect, and show my work in public.
 
-![Website Screenshot](visionary.png)
+
 
 ## What you will find
 - Projects and case studies with clear outcomes and lessons
