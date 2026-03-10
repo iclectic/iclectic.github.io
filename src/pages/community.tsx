@@ -8,21 +8,36 @@ const communities = [
     role: 'Organiser',
     description:
       'A developer community for Flutter engineers across the West Midlands. I lead programming, speaker curation, and the overall direction of the meetup.',
-    focus: [
-      'Technical talks and workshops',
-      'Mobile and cross platform engineering',
-      'Mentoring and early career support',
+    link: 'https://www.meetup.com/flutter-birmingham/',
+    responsibilities: [
+      'Organising developer meetups and sessions',
+      'Inviting and supporting speakers',
+      'Planning event topics and formats',
+      'Promoting community growth and visibility',
+      'Coordinating sessions with the organising team',
+    ],
+    impact: [
+      'Multiple developer events organised',
+      'Hosted technical speakers and community sessions',
+      'Supported the growth of the Flutter ecosystem in Birmingham',
     ],
   },
   {
     name: 'Golang Birmingham',
-    role: 'Organiser and steering support',
+    role: 'Organiser within the organising team',
     description:
       'A growing Go community in Birmingham. I support strategic direction with the organising team, including programming and partnerships.',
-    focus: [
-      'Backend architecture and systems thinking',
-      'Concurrency, performance, and reliability',
-      'Community partnerships and visibility',
+    link: 'https://www.meetup.com/birminghamgodevs/',
+    responsibilities: [
+      'Supporting event planning and logistics',
+      'Coordinating speakers and topics',
+      'Community outreach and partnerships',
+      'Organising technical sessions',
+    ],
+    impact: [
+      'Contributed to organising several community events',
+      'Supported discussions on Go, distributed systems, and infrastructure',
+      'Helped create space for backend engineering growth in Birmingham',
     ],
   },
 ]
@@ -72,22 +87,52 @@ export default function Community() {
                       {community.role}
                     </span>
                   </div>
+                  <a
+                    href={community.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-body-sm font-medium text-accent hover:underline underline-offset-2"
+                  >
+                    View Meetup page
+                  </a>
                 </div>
 
                 <p className="mt-6 text-body text-foreground/80 dark:text-foreground-dark/80 max-w-2xl">
                   {community.description}
                 </p>
 
-                <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {community.focus.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-lg border border-border dark:border-border-dark px-4 py-3 text-body-sm text-muted dark:text-muted-dark"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <div className="mt-6 grid gap-6 md:grid-cols-2">
+                  <div>
+                    <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">
+                      Responsibilities
+                    </h3>
+                    <ul className="mt-4 space-y-3">
+                      {community.responsibilities.map((item) => (
+                        <li
+                          key={item}
+                          className="rounded-lg border border-border dark:border-border-dark px-4 py-3 text-body-sm text-muted dark:text-muted-dark"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">
+                      Impact
+                    </h3>
+                    <ul className="mt-4 space-y-3">
+                      {community.impact.map((item) => (
+                        <li
+                          key={item}
+                          className="rounded-lg border border-border dark:border-border-dark px-4 py-3 text-body-sm text-muted dark:text-muted-dark"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </article>
             ))}
           </div>

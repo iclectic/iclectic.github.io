@@ -152,7 +152,7 @@ export default function Home({ caseStudies, writing }: HomeProps) {
               <div>
                 <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Featured projects</h2>
                 <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                  A snapshot of recent work across data, machine learning, and product engineering.
+                  A snapshot of recent work across community tooling, full stack platforms, and mobile apps.
                 </p>
               </div>
               <Link

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Project placeholder image</title>
+  <desc id="desc">Abstract waves with soft gradients</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="50%" stop-color="#1f2937" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)" />
+  <path d="M0 520 C 240 430, 420 650, 720 560 C 980 480, 1080 390, 1200 420 L1200 750 L0 750 Z" fill="url(#wave)" opacity="0.8" />
+  <path d="M0 420 C 260 360, 520 520, 820 450 C 980 410, 1100 320, 1200 300 L1200 750 L0 750 Z" fill="#0ea5e9" opacity="0.35" />
+  <rect x="120" y="140" width="420" height="260" rx="32" fill="#0f172a" opacity="0.7" />
+  <rect x="170" y="200" width="260" height="26" rx="13" fill="#e2e8f0" opacity="0.9" />
+  <rect x="170" y="245" width="220" height="18" rx="9" fill="#cbd5f5" opacity="0.85" />
+  <rect x="170" y="280" width="180" height="18" rx="9" fill="#94a3b8" opacity="0.85" />
+</svg>

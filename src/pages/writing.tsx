@@ -23,6 +23,19 @@ const focusAreas = [
   'Tooling, productivity, and career growth',
 ]
 
+const externalWriting = [
+  {
+    label: 'SSRN',
+    description: 'Research writing on emerging themes such as AI ethics and responsible innovation.',
+    href: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6153030',
+  },
+  {
+    label: 'Dev.to',
+    description: 'Developer essays on software engineering, learning journeys, and practical tooling.',
+    href: 'https://dev.to/intelgreatnez',
+  },
+]
+
 export default function Writing({ mdxArticles }: WritingProps) {
   const mdxFeatured = mdxArticles.filter((a) => a.frontMatter.featured)
   const mdxRest = mdxArticles.filter((a) => !a.frontMatter.featured)
@@ -62,6 +75,32 @@ export default function Writing({ mdxArticles }: WritingProps) {
               </li>
             ))}
           </ul>
+        </Container>
+      </section>
+
+      <section className="pb-12">
+        <Container>
+          <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark mb-4">
+            Writing elsewhere
+          </h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {externalWriting.map((source) => (
+              <a
+                key={source.label}
+                href={source.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl border border-border dark:border-border-dark p-6 hover:border-accent/30 transition-colors"
+              >
+                <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">
+                  {source.label}
+                </h3>
+                <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
+                  {source.description}
+                </p>
+              </a>
+            ))}
+          </div>
         </Container>
       </section>
 

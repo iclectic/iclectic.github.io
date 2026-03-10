@@ -14,15 +14,54 @@ import project12 from '../../public/images/projects/vuejsquiz.png'
 export interface Project {
   title: string
   description: string
-  image: StaticImageData
+  image: StaticImageData | string
   tags: string[]
-  category: 'Frontend' | 'Backend' | 'Mobile' | 'Data' | 'Machine Learning' | 'Open Source'
+  category: 'Frontend' | 'Backend' | 'Mobile' | 'Data' | 'Machine Learning' | 'Open Source' | 'Full Stack'
   link: string
   github?: string
   featured?: boolean
 }
 
 export const projects: Project[] = [
+  {
+    title: 'Flutter Meetup Check In System',
+    description:
+      'Lightweight Flutter app that streamlines attendee check ins for community events such as Flutter Birmingham.',
+    image: '/images/projects/placeholder-1.svg',
+    tags: ['Flutter', 'Dart', 'Mobile', 'Community Tools'],
+    category: 'Mobile',
+    link: '/projects/flutter-meetup-checkin-system',
+    featured: true,
+  },
+  {
+    title: 'AI Supplier Matching Platform',
+    description:
+      'Platform concept that uses structured project inputs and matching logic to help businesses find suitable suppliers.',
+    image: '/images/projects/placeholder-2.svg',
+    tags: ['React', 'C#', 'PostgreSQL', 'Azure'],
+    category: 'Full Stack',
+    link: '/projects/ai-supplier-matching-platform',
+    featured: true,
+  },
+  {
+    title: 'Cumulative Expense Tracker',
+    description:
+      'Flutter based expense tracker that visualises cumulative spending through simple input flows and charts.',
+    image: '/images/projects/placeholder-3.svg',
+    tags: ['Flutter', 'Dart', 'Data Visualisation'],
+    category: 'Mobile',
+    link: '/projects/expense-tracking-application',
+    featured: true,
+  },
+  {
+    title: 'School Portal System Concept',
+    description:
+      'Full stack concept for a school portal that connects students, teachers, and parents through one system.',
+    image: '/images/projects/placeholder-4.svg',
+    tags: ['Education', 'Full Stack', 'Product Concept'],
+    category: 'Full Stack',
+    link: '/projects/school-portal-system-concept',
+  },
   {
     title: 'Retail Sales Data Analysis',
     description:
@@ -32,7 +71,6 @@ export const projects: Project[] = [
     category: 'Data',
     link: 'https://github.com/iclectic/sales-analysis',
     github: 'https://github.com/iclectic/sales-analysis',
-    featured: true,
   },
   {
     title: 'Coca-Cola Stock Analysis',
@@ -43,7 +81,6 @@ export const projects: Project[] = [
     category: 'Machine Learning',
     link: 'https://github.com/iclectic/Coca-Cola-Stock-Analysis/blob/main/notebook.ipynb',
     github: 'https://github.com/iclectic/Coca-Cola-Stock-Analysis',
-    featured: true,
   },
   {
     title: 'Stroke Prediction using ML',
@@ -54,7 +91,6 @@ export const projects: Project[] = [
     category: 'Machine Learning',
     link: 'https://github.com/iclectic/stroke-prediction-using-machine-learning/blob/main/notebooks/strokeprediction.ipynb',
     github: 'https://github.com/iclectic/stroke-prediction-using-machine-learning',
-    featured: true,
   },
   {
     title: 'IMDb Film Data Insights Dashboard',

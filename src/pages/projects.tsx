@@ -37,8 +37,8 @@ export default function Projects() {
             Projects
           </h1>
           <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            A curated selection of work across product engineering, data, and visualisation. Each project reflects
-            how I approach problem framing, delivery, and technical craft.
+            A curated selection of work across product engineering, mobile, and data. Each project reflects how I
+            approach problem framing, delivery, and technical craft.
           </p>
         </Container>
       </section>

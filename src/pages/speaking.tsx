@@ -32,6 +32,14 @@ const formats = [
   'Podcasts and interviews',
 ]
 
+const recentTalks = [
+  {
+    title: 'Avoiding Headaches in State Management',
+    context: 'Flutter community meetup',
+    summary: 'Strategies for managing application state, architectural patterns, and maintainable Flutter codebases.',
+  },
+]
+
 export default function Speaking() {
   return (
     <>
@@ -99,9 +107,27 @@ export default function Speaking() {
                 Recent appearances
               </h2>
               <p className="mt-4 text-body text-muted dark:text-muted-dark">
-                I regularly present at Flutter Birmingham and Golang Birmingham meetups. This section will grow with
-                future conferences and events.
+                I regularly present at Flutter Birmingham and Golang Birmingham meetups. Selected recent sessions are
+                listed below.
               </p>
+              <div className="mt-6 space-y-4">
+                {recentTalks.map((talk) => (
+                  <div
+                    key={talk.title}
+                    className="rounded-xl border border-border dark:border-border-dark p-5"
+                  >
+                    <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">
+                      {talk.title}
+                    </h3>
+                    <p className="mt-1 text-body-sm text-muted dark:text-muted-dark">
+                      {talk.context}
+                    </p>
+                    <p className="mt-3 text-body-sm text-muted dark:text-muted-dark">
+                      {talk.summary}
+                    </p>
+                  </div>
+                ))}
+              </div>
               <Link
                 href="/community"
                 className="mt-4 inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"

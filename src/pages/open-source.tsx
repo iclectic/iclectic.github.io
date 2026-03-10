@@ -5,8 +5,9 @@ import { siteConfig } from '@/lib/siteConfig'
 
 const focusAreas = [
   'Developer tooling and documentation',
+  'Python ecosystems and infrastructure tooling',
   'Community tooling and event operations',
-  'Frontend and platform engineering',
+  'Platform engineering and backend systems',
   'Data and automation workflows',
 ]
 
@@ -45,8 +46,9 @@ export default function OpenSource() {
                   contributors.
                 </p>
                 <p>
-                  I value maintainability and shared ownership. Good open source projects ship with empathy, not just
-                  cleverness.
+                  My contributions include reporting issues, joining technical discussions, proposing improvements, and
+                  collaborating with maintainers. I value maintainability and shared ownership. Good open source
+                  projects ship with empathy, not just cleverness.
                 </p>
               </div>
             </div>
