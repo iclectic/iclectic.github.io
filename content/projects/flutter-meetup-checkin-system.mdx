@@ -6,38 +6,78 @@ tags: ["Flutter", "Dart", "Mobile", "Community Tools"]
 published: true
 ---
 
-## Overview
+## Project overview
 
-A lightweight application designed to streamline attendee check ins at developer community events such as Flutter Birmingham meetups.
+A lightweight Flutter application designed to streamline attendee check ins at developer community events such as Flutter Birmingham meetups. The focus is speed, clarity, and a simple organiser experience.
 
 ## Problem
 
-Community events often rely on manual attendance tracking, which can be slow and difficult to manage as events grow.
+Community events often rely on manual attendance tracking, which becomes slow, error-prone, and difficult to manage as events grow.
 
-## Solution
+## Context
 
-A digital check in system that allows organisers to quickly register attendees and maintain clean participation records.
+The tool is designed for volunteer-run meetups with limited staff, peak arrival surges, and a need for accurate attendance records after each event.
 
 ## My role
 
-I designed the system concept and implemented the application using Flutter.
+I designed the system concept, mapped the user flow, and implemented the application using Flutter.
 
-## Stack
+## Goals
+
+- Reduce average check in time per attendee to under 10 seconds
+- Provide a clear record of attendance that can be exported or reviewed later
+- Keep the UI minimal so organisers can operate it under time pressure
+
+## Technical architecture
+
+- Flutter mobile client
+- Local storage for rapid data capture
+- Optional QR scan flow alongside a manual entry flow
+
+## Implementation decisions
+
+- Local first storage to keep the flow reliable without depending on Wi-Fi
+- A short, linear check in flow to minimise cognitive load
+- Large touch targets and high contrast feedback states
+
+## Trade offs
+
+- No real time sync to a backend in the first version to keep it lightweight
+- Limited customisation of attendee fields to maintain speed
+
+## Challenges
+
+- Designing a flow that remains fast when queues build up
+- Ensuring organisers can correct mistakes without slowing the line
+
+## Solutions
+
+- Added a quick edit state for attendee entries
+- Used colour and motion cues to confirm a successful check in
+
+## Lessons learned
+
+- Simplicity beats feature volume for event tooling
+- Optimising for the busiest moment leads to a better overall experience
+
+## Screenshots or visuals
+
+- [Placeholder] Check in screen
+- [Placeholder] Attendee list view
+- [Placeholder] Success confirmation state
+
+## Stack used
 
 - Flutter
 - Dart
 - Mobile UI frameworks
 
-## Key features
+## Links
 
-- QR based or simplified attendee check in flow
-- Event attendance tracking
-- Clean and lightweight user interface
+- [Placeholder] GitHub repository
+- [Placeholder] Demo video
+- [Placeholder] Figma flow
 
-## Challenge
+## Impact
 
-Designing a simple check in process that would be fast for organisers during busy sessions.
-
-## Outcome
-
-Demonstrated how small developer tools can improve the organisation of community events and support ecosystem growth.
+Demonstrated how small developer tools can improve event operations and support community growth. [Placeholder] Add event counts or time saved metrics.

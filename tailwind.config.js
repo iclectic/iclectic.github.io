@@ -5,46 +5,47 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
+    './content/**/*.{md,mdx}',
   ],
   darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', ...fontFamily.sans],
-        display: ['var(--font-poppins)', ...fontFamily.sans],
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+        display: ['var(--font-display)', ...fontFamily.serif],
         mono: ['var(--font-mono)', ...fontFamily.mono],
       },
       colors: {
         background: {
-          DEFAULT: '#FAFAFA',
-          dark: '#0A0A0A',
+          DEFAULT: '#F7F7FB',
+          dark: '#0A0D12',
         },
         foreground: {
-          DEFAULT: '#171717',
-          dark: '#EDEDED',
+          DEFAULT: '#0B1020',
+          dark: '#E2E8F0',
         },
         muted: {
-          DEFAULT: '#737373',
-          dark: '#A3A3A3',
+          DEFAULT: '#516070',
+          dark: '#8A9AB1',
         },
         accent: {
-          DEFAULT: '#6366F1',
-          light: '#A5B4FC',
-          dark: '#818CF8',
+          DEFAULT: '#14B8A6',
+          light: '#5EEAD4',
+          dark: '#2DD4BF',
         },
         border: {
-          DEFAULT: '#E5E5E5',
-          dark: '#262626',
+          DEFAULT: '#E3E8EF',
+          dark: '#1C2330',
         },
       },
       fontSize: {
-        'display': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '800' }],
-        'h1': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],
-        'h2': ['1.75rem', { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '600' }],
-        'h3': ['1.25rem', { lineHeight: '1.4', fontWeight: '600' }],
+        'display': ['3.5rem', { lineHeight: '1.08', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'h1': ['2.75rem', { lineHeight: '1.15', letterSpacing: '-0.02em', fontWeight: '600' }],
+        'h2': ['2rem', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' }],
+        'h3': ['1.375rem', { lineHeight: '1.3', fontWeight: '600' }],
         'body': ['1rem', { lineHeight: '1.7' }],
-        'body-sm': ['0.875rem', { lineHeight: '1.6' }],
-        'caption': ['0.75rem', { lineHeight: '1.5' }],
+        'body-sm': ['0.9375rem', { lineHeight: '1.6' }],
+        'caption': ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.02em' }],
       },
       maxWidth: {
         'content': '1200px',
@@ -80,4 +81,3 @@ module.exports = {
   },
   plugins: [],
 }
-

@@ -1,49 +1,84 @@
 ---
 title: "AI Supplier Matching Platform"
-description: "A platform concept that helps businesses identify suitable suppliers for project materials."
+description: "A platform concept that uses structured project inputs and matching logic to help businesses find suitable suppliers."
 date: "2026-03-10"
-tags: ["React", "C#", "PostgreSQL", "Azure", "Full Stack"]
+tags: ["React", "C#", "PostgreSQL", "Azure", "Full Stack Development"]
 published: true
 ---
 
-## Overview
+## Project overview
 
-A platform designed to help businesses find suppliers for project materials through an intelligent matching system.
+A full stack platform concept designed to help businesses identify suitable suppliers for project materials using structured inputs and matching logic.
 
 ## Problem
 
-Businesses often struggle to locate reliable suppliers quickly when working on projects.
+Businesses often struggle to find reliable suppliers quickly, especially when requirements are complex or time sensitive.
 
-## Solution
+## Context
 
-A system that uses structured project input data and matching logic to recommend suitable suppliers.
+This work was completed with a startup team, where requirements evolved rapidly and the focus was on testing the product idea quickly.
 
 ## My role
 
-I provided full stack development support and architectural input while working within a startup team.
+Full stack development support and architectural contribution, including front end features, API integration, and data modelling.
 
-## Stack
+## Goals
+
+- Capture structured project requirements without friction
+- Return relevant supplier matches quickly
+- Build a data model that can scale as more suppliers are added
+
+## Technical architecture
+
+- React front end for requirement capture and results
+- C# API services for matching logic and data access
+- PostgreSQL for supplier and project data
+- Azure for hosting and service integration
+
+## Implementation decisions
+
+- Structured input forms to improve data consistency
+- Rule based matching for initial accuracy and transparency
+- Modular API endpoints to allow future ML scoring
+
+## Trade offs
+
+- Prioritised explainable matching over complex ML ranking in early stages
+- Limited advanced filtering in order to ship a working core faster
+
+## Challenges
+
+- Designing a flexible schema for varied supplier attributes
+- Keeping matching logic fast as data grows
+
+## Solutions
+
+- Normalised data model with indexed search fields
+- Clear separation of matching rules from UI presentation
+
+## Lessons learned
+
+- Data structure decisions made early define future matching quality
+- Shipping a clear baseline is better than waiting for perfect automation
+
+## Screenshots or visuals
+
+- [Placeholder] Requirement input flow
+- [Placeholder] Match results view
+- [Placeholder] Architecture diagram
+
+## Stack used
 
 - React
 - C#
 - PostgreSQL
-- Azure cloud services
+- Azure
 
-## Key features
+## Links
 
-- Supplier matching logic
-- Project requirement input flows
-- Backend API services
-- Structured data storage and querying
+- [Placeholder] Product overview deck
+- [Placeholder] Demo or prototype
 
-## Challenge
+## Impact
 
-Ensuring the system could support structured data and scalable search across supplier information.
-
-## Outcome
-
-Contributed to a platform concept designed to streamline procurement workflows for businesses.
-
-## Related
-
-Read the full case study at [/case-studies/ai-supplier-matching-platform](/case-studies/ai-supplier-matching-platform).
+Contributed to a concept that reduces time to shortlist suppliers and improves procurement clarity. [Placeholder] Add user feedback or measurable outcomes.

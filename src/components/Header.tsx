@@ -1,8 +1,15 @@
+'use client'
+
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { siteConfig } from '@/lib/siteConfig'
 import Container from './Container'
+
+const isActive = (href: string, pathname: string) => {
+  if (href === '/') return pathname === '/'
+  return pathname.startsWith(href)
+}
 
 function ThemeToggle() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
@@ -12,6 +19,7 @@ function ThemeToggle() {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     const initial = stored === 'dark' || (!stored && prefersDark) ? 'dark' : 'light'
     setTheme(initial)
+    document.documentElement.classList.toggle('dark', initial === 'dark')
   }, [])
 
   function toggle() {
@@ -47,7 +55,7 @@ function MobileMenu({
   isOpen: boolean
   onClose: () => void
 }) {
-  const router = useRouter()
+  const pathname = usePathname()
 
   if (!isOpen) return null
 
@@ -71,10 +79,11 @@ function MobileMenu({
                 href={item.href}
                 onClick={onClose}
                 className={`block text-lg font-medium transition-colors ${
-                  isActive(item.href)
+                  isActive(item.href, pathname)
                     ? 'text-accent'
                     : 'text-foreground dark:text-foreground-dark hover:text-accent'
                 }`}
+                aria-current={isActive(item.href, pathname) ? 'page' : undefined}
               >
                 {item.label}
               </Link>
@@ -87,17 +96,12 @@ function MobileMenu({
 }
 
 export default function Header() {
-  const router = useRouter()
+  const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
-
-  function isActive(href: string) {
-    if (href === '/') return router.pathname === '/'
-    return router.pathname === href || router.pathname.startsWith(`${href}/`)
-  }
 
   useEffect(() => {
     setMobileOpen(false)
-  }, [router.pathname])
+  }, [pathname])
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border dark:border-border-dark bg-background/80 dark:bg-background-dark/80 backdrop-blur-md">
@@ -105,23 +109,25 @@ export default function Header() {
         <Link
           href="/"
           className="font-display text-lg font-bold text-foreground dark:text-foreground-dark hover:text-accent transition-colors"
+          aria-label="Ibim Braide home"
         >
           IB
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8" aria-label="Primary navigation">
-          {siteConfig.nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-body-sm font-medium transition-colors ${
-                isActive(item.href)
-                  ? 'text-accent'
-                  : 'text-muted dark:text-muted-dark hover:text-foreground dark:hover:text-foreground-dark'
-              }`}
-            >
-              {item.label}
-            </Link>
+            {siteConfig.nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-body-sm font-medium transition-colors ${
+                  isActive(item.href, pathname)
+                    ? 'text-accent'
+                    : 'text-muted dark:text-muted-dark hover:text-foreground dark:hover:text-foreground-dark'
+                }`}
+                aria-current={isActive(item.href, pathname) ? 'page' : undefined}
+              >
+                {item.label}
+              </Link>
           ))}
         </nav>
 

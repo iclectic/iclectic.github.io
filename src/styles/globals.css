@@ -11,7 +11,7 @@
 
   body {
     @apply bg-background text-foreground dark:bg-background-dark dark:text-foreground-dark;
-    font-family: var(--font-inter), system-ui, sans-serif;
+    font-family: var(--font-sans), system-ui, sans-serif;
   }
 
   ::selection {
@@ -49,11 +49,11 @@
   }
 
   .prose-custom code {
-    @apply font-mono text-body-sm bg-foreground/5 dark:bg-foreground-dark/10 px-1.5 py-0.5 rounded;
+    @apply font-mono text-body-sm bg-foreground/5 dark:bg-foreground-dark/10 px-2 py-0.5 rounded;
   }
 
   .prose-custom pre {
-    @apply my-6 rounded-lg overflow-x-auto;
+    @apply my-6 rounded-lg overflow-x-auto border border-border dark:border-border-dark bg-foreground/5 dark:bg-foreground-dark/10;
   }
 
   .prose-custom ul {

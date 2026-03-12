@@ -1,43 +1,82 @@
 ---
 title: "Cumulative Expense Tracker"
-description: "A Flutter application that visualises cumulative expense data over time."
+description: "A Flutter based expense tracker that visualises cumulative spending through simple input flows and charts."
 date: "2026-03-10"
-tags: ["Flutter", "Dart", "Data Visualisation", "Mobile"]
+tags: ["Flutter", "Dart", "Data Visualisation", "Mobile Development"]
 published: true
 ---
 
-## Overview
+## Project overview
 
-A Flutter based expense tracking application designed to help users visualise cumulative financial activity.
+A Flutter mobile application designed to help users track spending and visualise cumulative totals over time.
 
 ## Problem
 
-Many people track expenses manually or across fragmented tools.
+Many people track expenses across multiple tools or rely on manual spreadsheets, which makes trends hard to see.
 
-## Solution
+## Context
 
-A mobile application where users can continuously add financial entries and visualise cumulative values over time.
+This project explored how a clean mobile interface combined with data visualisation can support better financial awareness.
 
 ## My role
 
-I designed and developed the application using Flutter.
+I designed the user experience and built the application end to end in Flutter.
 
-## Stack
+## Goals
+
+- Make expense entry fast and low friction
+- Present cumulative totals clearly in a single view
+- Ensure the UI remains calm and readable over long periods
+
+## Technical architecture
+
+- Flutter client with local storage
+- Data aggregation layer for cumulative totals
+- Charting library for visualisation
+
+## Implementation decisions
+
+- Local storage to keep the app responsive and private
+- Simple chart types to reduce visual noise
+- Focus on cumulative totals rather than category breakdowns for v1
+
+## Trade offs
+
+- No cloud sync in the initial release to keep the scope tight
+- Limited category features to prioritise clarity over complexity
+
+## Challenges
+
+- Maintaining chart readability as data grows
+- Preventing input friction during daily use
+
+## Solutions
+
+- Smoothed chart display and simple colour palette
+- Minimal input form with defaults and quick edits
+
+## Lessons learned
+
+- Clear visual hierarchy matters more than feature volume in personal finance tools
+- Small daily interactions shape overall retention
+
+## Screenshots or visuals
+
+- [Placeholder] Expense entry form
+- [Placeholder] Cumulative chart view
+- [Placeholder] Summary panel
+
+## Stack used
 
 - Flutter
 - Dart
 - Data visualisation libraries
 
-## Key features
+## Links
 
-- Cumulative expense tracking
-- Dynamic charts and visualisation
-- Simple input interface
+- [Placeholder] GitHub repository
+- [Placeholder] Demo video
 
-## Outcome
+## Impact
 
-Explores how mobile apps can provide intuitive personal finance insights.
-
-## Related
-
-Read the full case study at [/case-studies/cumulative-expense-tracker](/case-studies/cumulative-expense-tracker).
+Shows how mobile apps can support intuitive personal finance insights. [Placeholder] Add usage or feedback metrics.

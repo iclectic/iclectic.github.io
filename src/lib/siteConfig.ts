@@ -3,7 +3,7 @@ export const siteConfig = {
   title: 'Ibim Braide | Freelance Engineer',
   description:
     'Freelance engineer and community organiser based in the United Kingdom. Mobile and full stack delivery with clear scope and outcomes. Open source contributor and technical writer.',
-  url: 'https://ibimbraide.dev',
+  url: 'https://ibimbraide.com',
   locale: 'en-GB',
   author: {
     name: 'Ibim Braide',
