@@ -27,7 +27,7 @@ export default function Projects() {
     <>
       <SEO
         title="Projects"
-        description="Selected projects across frontend, backend, mobile, and data engineering."
+        description="Selected projects across mobile, full stack, and data engineering."
         url="/projects"
       />
 
@@ -37,8 +37,8 @@ export default function Projects() {
             Projects
           </h1>
           <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            A curated selection of work across product engineering, mobile, and data. Each project reflects how I
-            approach problem framing, delivery, and technical craft.
+            A curated selection of work across mobile, full stack, and data. Each project reflects clear scope,
+            practical delivery, and measurable outcomes.
           </p>
         </Container>
       </section>

@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     '/uses',
     '/media',
     '/timeline',
-    '/tech-nation',
+    '/impact',
   ]
 
   const staticEntries = staticPages.map((page) => ({

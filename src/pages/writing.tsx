@@ -44,7 +44,7 @@ export default function Writing({ mdxArticles }: WritingProps) {
     <>
       <SEO
         title="Writing"
-        description="Articles on software engineering, AI ethics, developer tools, and community building. Written by Ibim Braide."
+        description="Writing on AI ethics, engineering practice, community building, and developer education."
         url="/writing"
       />
 
@@ -54,8 +54,8 @@ export default function Writing({ mdxArticles }: WritingProps) {
             Writing
           </h1>
           <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            I write to clarify how I think about engineering, ethics, and community leadership. The focus is practical,
-            reflective, and rooted in real delivery work.
+            I write about AI ethics, engineering practice, community building, and developer education. The focus is
+            practical, reflective, and rooted in real delivery work.
           </p>
         </Container>
       </section>

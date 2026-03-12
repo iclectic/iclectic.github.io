@@ -6,19 +6,19 @@ import Container from '@/components/Container'
 import { mdxComponents } from '@/components/mdx/MDXComponents'
 import { getContentBySlug, FrontMatter } from '@/lib/mdx'
 
-interface TechNationProps {
+interface ImpactProps {
   frontMatter: FrontMatter
   mdxSource: MDXRemoteSerializeResult
   readingTime: string
 }
 
-export default function TechNation({ frontMatter, mdxSource, readingTime }: TechNationProps) {
+export default function Impact({ frontMatter, mdxSource, readingTime }: ImpactProps) {
   return (
     <>
       <SEO
         title={frontMatter.title}
         description={frontMatter.description}
-        url="/tech-nation"
+        url="/impact"
         type="article"
         date={frontMatter.date}
       />
@@ -57,7 +57,7 @@ export default function TechNation({ frontMatter, mdxSource, readingTime }: Tech
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const page = getContentBySlug('tech-nation', 'index')
+  const page = getContentBySlug('impact', 'index')
 
   if (!page) {
     return { notFound: true }

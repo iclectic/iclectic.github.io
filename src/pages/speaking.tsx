@@ -38,6 +38,11 @@ const recentTalks = [
     context: 'Flutter community meetup',
     summary: 'Strategies for managing application state, architectural patterns, and maintainable Flutter codebases.',
   },
+  {
+    title: '[Placeholder] Additional talk title',
+    context: '[Placeholder] Event or conference name',
+    summary: '[Placeholder] One sentence summary of the session focus.',
+  },
 ]
 
 export default function Speaking() {
@@ -45,7 +50,7 @@ export default function Speaking() {
     <>
       <SEO
         title="Speaking"
-        description="I speak about software engineering, community building, and AI ethics. Available for conferences, meetups, and workshops."
+        description="I speak about engineering craft, AI ethics, and community leadership. Available for conferences, meetups, and workshops."
         url="/speaking"
       />
 
@@ -55,7 +60,7 @@ export default function Speaking() {
             Speaking
           </h1>
           <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            I speak about software engineering, community leadership, and AI ethics. I focus on clear, practical ideas
+            I speak about engineering craft, community leadership, and AI ethics. I focus on clear, practical ideas
             that help teams build better systems.
           </p>
         </Container>

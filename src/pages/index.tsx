@@ -28,7 +28,7 @@ export default function Home({ caseStudies, writing }: HomeProps) {
   return (
     <>
       <SEO
-        description="Software engineer, community organiser, and open source contributor based in the United Kingdom. Building across frontend, backend, mobile, and data."
+        description="Freelance engineer and community organiser based in the United Kingdom. Mobile and full stack delivery with clear scope and outcomes. Open source contributor and technical writer."
       />
       <StructuredData type="person" />
 
@@ -36,16 +36,18 @@ export default function Home({ caseStudies, writing }: HomeProps) {
         <Container>
           <div className="flex flex-col-reverse gap-12 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
-              <h1 className="font-display text-display text-foreground dark:text-foreground-dark text-balance">
+              <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
                 Ibim Braide
+              </p>
+              <h1 className="mt-4 font-display text-display text-foreground dark:text-foreground-dark text-balance">
+                Freelance engineer and community organiser based in the United Kingdom
               </h1>
               <p className="mt-4 text-h3 text-muted dark:text-muted-dark font-medium">
-                Software engineer, community organiser, and open source contributor.
+                Mobile and full stack delivery with clear scope and outcomes.
               </p>
               <p className="mt-6 text-body text-foreground/80 dark:text-foreground-dark/80 max-w-xl">
-                I build software across frontend, backend, mobile, and data. I organise Flutter Birmingham and help
-                steer Golang Birmingham with the organising team. I write about AI ethics, engineering craft, and
-                community building.
+                I organise Flutter Birmingham and help lead Golang Birmingham with the organising team. I contribute
+                to open source and write about engineering practice, AI ethics, and community building.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -64,7 +66,7 @@ export default function Home({ caseStudies, writing }: HomeProps) {
                   href="/contact"
                   className="inline-flex items-center rounded-lg border border-transparent px-5 py-2.5 text-body-sm font-semibold text-accent hover:text-accent/80 transition-colors"
                 >
-                  Work with me
+                  Get in touch
                 </Link>
               </div>
             </div>
@@ -86,6 +88,9 @@ export default function Home({ caseStudies, writing }: HomeProps) {
 
       <section className="py-12 border-t border-border dark:border-border-dark bg-foreground/[0.02] dark:bg-foreground-dark/[0.02]">
         <Container>
+          <h2 className="mb-4 text-body-sm font-semibold uppercase tracking-[0.2em] text-muted dark:text-muted-dark text-center">
+            Proof and highlights
+          </h2>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-caption text-muted dark:text-muted-dark">
             <span>MSc Computer Science, Birmingham City University</span>
             <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
@@ -97,7 +102,7 @@ export default function Home({ caseStudies, writing }: HomeProps) {
             <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
             <span>Open source contributor</span>
             <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
-            <span>Based in the United Kingdom</span>
+            <span>Freelance engineer in the United Kingdom</span>
           </div>
         </Container>
       </section>
@@ -113,8 +118,7 @@ export default function Home({ caseStudies, writing }: HomeProps) {
               </div>
               <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">Engineering depth</h3>
               <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                Building production software across frontend, backend, mobile, and data. Focused on performance,
-                accessibility, and maintainable systems.
+                Mobile and full stack delivery with clear scope, measurable outcomes, and maintainable systems.
               </p>
             </div>
             <div>
@@ -125,8 +129,7 @@ export default function Home({ caseStudies, writing }: HomeProps) {
               </div>
               <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">Community leadership</h3>
               <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                Building inclusive spaces for engineers to learn and ship together. Leading Flutter Birmingham and
-                supporting Golang Birmingham strategy with the wider team.
+                Organising Flutter Birmingham and helping lead Golang Birmingham with the organising team.
               </p>
             </div>
             <div>
@@ -137,8 +140,7 @@ export default function Home({ caseStudies, writing }: HomeProps) {
               </div>
               <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">Open source impact</h3>
               <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                Contributing to the tools I use and building in the open. I care about documentation, community support,
-                and sustainable engineering practices.
+                Contributing to developer tooling and infrastructure projects through issues, documentation, and collaboration.
               </p>
             </div>
           </div>
@@ -152,7 +154,7 @@ export default function Home({ caseStudies, writing }: HomeProps) {
               <div>
                 <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Featured projects</h2>
                 <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                  A snapshot of recent work across community tooling, full stack platforms, and mobile apps.
+                  A focused selection of work that shows how I frame problems, build useful products, and deliver outcomes with care.
                 </p>
               </div>
               <Link
@@ -254,11 +256,11 @@ export default function Home({ caseStudies, writing }: HomeProps) {
         <Container>
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
-              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Open source</h2>
-              <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                I contribute to open source projects and care about healthy maintainer workflows. I am particularly
-                interested in developer tooling, documentation, and community support systems.
-              </p>
+                <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Open source contributions</h2>
+                <p className="mt-3 text-body text-muted dark:text-muted-dark">
+                  I contribute to developer tooling and infrastructure projects through issues, documentation, and collaboration
+                  with maintainers. Open source keeps my engineering honest and grounded in shared standards.
+                </p>
               <Link
                 href="/open-source"
                 className="mt-4 inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"
@@ -267,10 +269,10 @@ export default function Home({ caseStudies, writing }: HomeProps) {
               </Link>
             </div>
             <div>
-              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Community</h2>
+              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Community leadership</h2>
               <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                I organise Flutter Birmingham and help guide Golang Birmingham with the wider organising team. My focus
-                is creating welcoming, technically credible spaces that help engineers grow.
+                I organise Flutter Birmingham and help lead Golang Birmingham with the organising team, shaping programming
+                and speaker pipelines that keep sessions practical and welcoming.
               </p>
               <Link
                 href="/community"
@@ -288,9 +290,9 @@ export default function Home({ caseStudies, writing }: HomeProps) {
           <Container>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Latest writing</h2>
+                <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Writing</h2>
                 <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                  Writing on engineering practice, developer tooling, and emerging topics like AI ethics and community building.
+                  Writing on engineering practice, AI ethics, and community building with an emphasis on clarity and practical learning.
                 </p>
               </div>
               <Link
@@ -331,7 +333,7 @@ export default function Home({ caseStudies, writing }: HomeProps) {
             <div>
               <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Speaking</h2>
               <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                I speak at meetups and conferences about engineering practice, AI ethics, and community leadership.
+                I speak about engineering craft, AI ethics, and community leadership with a focus on practical takeaways.
               </p>
               <Link
                 href="/speaking"
@@ -341,16 +343,15 @@ export default function Home({ caseStudies, writing }: HomeProps) {
               </Link>
             </div>
             <div>
-              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Working together</h2>
+              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Final call to action</h2>
               <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                I collaborate with teams that value craft, clarity, and meaningful impact. If you are hiring or need a
-                technical partner, I would love to hear from you.
+                If you are hiring, collaborating, or organising a technical event, I would love to talk.
               </p>
               <Link
                 href="/contact"
                 className="mt-4 inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"
               >
-                Start a conversation
+                Get in touch
               </Link>
             </div>
           </div>

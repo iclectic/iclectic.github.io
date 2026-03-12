@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: 'Ibim Braide',
-  title: 'Ibim Braide | Software Engineer',
+  title: 'Ibim Braide | Freelance Engineer',
   description:
-    'Software engineer, community organiser, and open source contributor based in the United Kingdom. Building across frontend, backend, mobile, and data.',
+    'Freelance engineer and community organiser based in the United Kingdom. Mobile and full stack delivery with clear scope and outcomes. Open source contributor and technical writer.',
   url: 'https://ibimbraide.dev',
   locale: 'en-GB',
   author: {
@@ -36,7 +36,7 @@ export const siteConfig = {
     { label: 'Uses', href: '/uses' },
     { label: 'Media', href: '/media' },
     { label: 'Timeline', href: '/timeline' },
-    { label: 'Tech Nation', href: '/tech-nation' },
+    { label: 'Impact', href: '/impact' },
     { label: 'Contact', href: '/contact' },
     { label: 'CV', href: '/cv' },
   ],

@@ -20,6 +20,7 @@ const communities = [
       'Multiple developer events organised',
       'Hosted technical speakers and community sessions',
       'Supported the growth of the Flutter ecosystem in Birmingham',
+      '[Placeholder] Attendance range or event count',
     ],
   },
   {
@@ -38,6 +39,7 @@ const communities = [
       'Contributed to organising several community events',
       'Supported discussions on Go, distributed systems, and infrastructure',
       'Helped create space for backend engineering growth in Birmingham',
+      '[Placeholder] Attendance range or event count',
     ],
   },
 ]
@@ -64,7 +66,7 @@ export default function Community() {
             Community
           </h1>
           <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            I organise developer communities because strong ecosystems make stronger engineers. My focus is creating
+            I organise developer communities because strong ecosystems make stronger engineers. My focus is on
             technically credible, welcoming spaces that help people grow.
           </p>
         </Container>

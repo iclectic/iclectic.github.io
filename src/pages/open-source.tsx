@@ -16,7 +16,7 @@ export default function OpenSource() {
     <>
       <SEO
         title="Open Source"
-        description="My approach to open source contribution and the projects I maintain and contribute to."
+        description="Open source contributions focused on developer tooling, documentation, and collaboration."
         url="/open-source"
       />
 
@@ -26,8 +26,8 @@ export default function OpenSource() {
             Open source
           </h1>
           <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            I contribute to open source because it is where engineering standards are made visible. It is the most
-            honest feedback loop I know, and it keeps my skills grounded in real collaboration.
+            I contribute to open source because it is where engineering standards are visible and shared. It keeps
+            my work grounded in collaboration, clarity, and practical impact.
           </p>
         </Container>
       </section>
@@ -41,14 +41,13 @@ export default function OpenSource() {
               </h2>
               <div className="mt-4 space-y-5 text-body text-foreground/80 dark:text-foreground-dark/80">
                 <p>
-                  Open source keeps engineering accountable. I contribute in ways that help projects become clearer,
-                  more stable, and more welcoming. That includes code, documentation, issue triage, and supporting new
+                  Open source keeps engineering accountable. I contribute in ways that make projects clearer, more
+                  stable, and more welcoming. That includes code, documentation, issue triage, and supporting new
                   contributors.
                 </p>
                 <p>
-                  My contributions include reporting issues, joining technical discussions, proposing improvements, and
-                  collaborating with maintainers. I value maintainability and shared ownership. Good open source
-                  projects ship with empathy, not just cleverness.
+                  My contributions include reporting issues, joining technical discussions, proposing improvements,
+                  and collaborating with maintainers. I value maintainability and shared ownership.
                 </p>
               </div>
             </div>
@@ -74,11 +73,11 @@ export default function OpenSource() {
       <section className="py-16 border-t border-border dark:border-border-dark">
         <Container>
           <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark mb-4">
-            Projects and contributions
+            Contributions
           </h2>
-          <p className="text-body text-muted dark:text-muted-dark mb-8">
-            You can find my public repositories and contribution history on GitHub. This section will expand with
-            curated highlights and write ups of significant contributions.
+          <p className="text-body text-muted dark:text-muted-dark mb-6">
+            You can find my public repositories and contribution history on GitHub. [Placeholder] Add two to three
+            highlighted contributions with a short summary of impact.
           </p>
           <div className="flex flex-wrap gap-4">
             <a

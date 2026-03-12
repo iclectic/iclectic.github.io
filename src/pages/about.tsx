@@ -76,7 +76,7 @@ const education = [
 ]
 
 const focusAreas = [
-  'Senior software engineering across frontend, backend, mobile, and data',
+  'Mobile and full stack delivery with clear scope and outcomes',
   'Community leadership for Flutter Birmingham and Golang Birmingham',
   'Open source contribution and collaboration',
   'Writing about AI ethics, engineering craft, and developer education',
@@ -103,7 +103,7 @@ export default function About() {
     <>
       <SEO
         title="About"
-        description="Software engineer, community organiser, and open source contributor. Learn about my background, leadership, and what drives my work."
+        description="Freelance engineer, community organiser, and open source contributor. Learn about my background, leadership, and what drives my work."
         url="/about"
       />
 
@@ -116,13 +116,13 @@ export default function About() {
               </h1>
               <div className="mt-8 space-y-5 text-body text-foreground/80 dark:text-foreground-dark/80">
                 <p>
-                  I am a software engineer based in the United Kingdom. I build across frontend, backend, mobile, and
-                  data, with a focus on shipping reliable products and clear, maintainable systems.
+                  I am a freelance engineer based in the United Kingdom. I build across frontend, backend, mobile, and
+                  data with a focus on clear delivery, maintainable systems, and measurable outcomes.
                 </p>
                 <p>
-                  I organise Flutter Birmingham and help steer Golang Birmingham with the organising team. Community
-                  building is a core part of my work because it strengthens local engineering ecosystems and improves
-                  access to high quality learning.
+                  I organise Flutter Birmingham and help lead Golang Birmingham with the organising team. Community
+                  building is core to my work because it strengthens engineering ecosystems and improves access to
+                  high quality learning.
                 </p>
                 <p>
                   I contribute to open source and write about AI ethics, engineering craft, and developer education. I
@@ -165,7 +165,7 @@ export default function About() {
               <div className="mt-4 space-y-5 text-body text-foreground/80 dark:text-foreground-dark/80">
                 <p>
                   I enjoy research, thoughtful design, and building tools that help people do their best work. I am
-                  motivated by impact, not just output.
+                  motivated by impact and honest outcomes.
                 </p>
                 <p>
                   I currently live in England and work with communities across the West Midlands.
@@ -194,6 +194,10 @@ export default function About() {
           <h2 className="font-display text-h1 text-foreground dark:text-foreground-dark">
             Experience
           </h2>
+          <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
+            A concise timeline of roles and work that shaped my delivery style. [Placeholder] Add recent freelance
+            engagements with scope and outcomes.
+          </p>
           <div className="mt-10 space-y-0">
             {experience.map((item, i) => (
               <motion.div
@@ -240,6 +244,9 @@ export default function About() {
           <h2 className="font-display text-h1 text-foreground dark:text-foreground-dark">
             Education
           </h2>
+          <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
+            Academic background that supports my engineering practice and research interests.
+          </p>
           <div className="mt-10 space-y-0">
             {education.map((item, i) => (
               <motion.div
@@ -269,6 +276,35 @@ export default function About() {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-12 border-t border-border dark:border-border-dark bg-foreground/[0.02] dark:bg-foreground-dark/[0.02]">
+        <Container>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">
+                Want the full CV or a quick conversation
+              </h2>
+              <p className="mt-2 text-body text-muted dark:text-muted-dark">
+                I am happy to share more detail and discuss how I can help.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="/cv"
+                className="inline-flex items-center rounded-lg bg-foreground px-5 py-2.5 text-body-sm font-semibold text-background transition-colors hover:bg-foreground/80 dark:bg-foreground-dark dark:text-background-dark dark:hover:bg-foreground-dark/80"
+              >
+                View CV
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex items-center rounded-lg border border-border px-5 py-2.5 text-body-sm font-semibold text-foreground transition-colors hover:bg-foreground/5 dark:border-border-dark dark:text-foreground-dark dark:hover:bg-foreground-dark/5"
+              >
+                Contact me
+              </a>
+            </div>
           </div>
         </Container>
       </section>

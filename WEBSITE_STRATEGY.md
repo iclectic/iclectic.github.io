@@ -38,7 +38,7 @@ Ibim Braide is not simply a developer with a portfolio. He is a **software engin
 - **Progressive disclosure**: Lead with impact, reveal depth on demand.
 - **Proof over claims**: Every section should contain or link to evidence.
 - **Scannable**: Recruiters spend 30 seconds. The site must communicate value in that window.
-- **Deep for the curious**: Conference organisers and Tech Nation reviewers will read everything. Give them substance.
+- **Deep for the curious**: Conference organisers and Global Talent reviewers will read everything. Give them substance.
 
 ### Content Model
 
@@ -73,7 +73,7 @@ Ibim Braide is not simply a developer with a portfolio. He is a **software engin
 - Call to action: "Get in touch" or "Read my writing"
 
 ### 3.2 About `/about`
-**Purpose**: The full professional and personal narrative. This is the page a Tech Nation reviewer or conference organiser reads end to end.
+**Purpose**: The full professional and personal narrative. This is the page a Global Talent reviewer or conference organiser reads end to end.
 
 **Content**:
 - Professional positioning paragraph (who I am, what I do, what I care about)
@@ -181,7 +181,7 @@ Ibim Braide is not simply a developer with a portfolio. He is a **software engin
 | Page | Primary Purpose | Secondary Purpose |
 |------|----------------|-------------------|
 | `/` | First impression, positioning | Route visitors to relevant depth |
-| `/about` | Full narrative, credibility | Tech Nation / visa evidence |
+| `/about` | Full narrative, credibility | Global Talent / visa evidence |
 | `/work` | Demonstrate range and quality | Recruiter shortlisting |
 | `/work/[slug]` | Prove depth and thinking | Engineering manager evaluation |
 | `/writing` | Thought leadership | SEO, discoverability |
@@ -232,7 +232,7 @@ returns to "Contact" or follows on GitHub
 ```
 **What they need**: Evidence of code quality, collaborative spirit, sustained contribution.
 
-### 5.5 Tech Nation / Global Talent Reviewer (10 minutes)
+### 5.5 Global Talent Reviewer (10 minutes)
 ```
 Homepage -> reads everything on the page ->
 clicks "About" -> reads full narrative, career, education ->
@@ -362,7 +362,7 @@ Monospace:   JetBrains Mono or Fira Code (code blocks only)
 - Social links
 - Email
 
-This hierarchy ensures that a recruiter scanning for 30 seconds sees Tier 1 and 2. An engineering manager who clicks through sees Tier 3. A Tech Nation reviewer who reads everything sees all four tiers.
+This hierarchy ensures that a recruiter scanning for 30 seconds sees Tier 1 and 2. An engineering manager who clicks through sees Tier 3. A Global Talent reviewer who reads everything sees all four tiers.
 
 ---
 

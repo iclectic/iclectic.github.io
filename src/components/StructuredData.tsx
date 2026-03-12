@@ -26,7 +26,7 @@ export default function StructuredData(props: StructuredDataProps) {
       name: siteConfig.author.name,
       url: siteConfig.url,
       email: siteConfig.author.email,
-      jobTitle: 'Software Engineer and Community Organiser',
+      jobTitle: 'Freelance Engineer and Community Organiser',
       knowsAbout: [
         'Software Engineering',
         'Open Source',

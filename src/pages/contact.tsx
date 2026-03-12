@@ -58,7 +58,7 @@ export default function Contact() {
     <>
       <SEO
         title="Contact"
-        description="Get in touch with Ibim Braide. I welcome conversations about engineering, community, and collaboration."
+        description="Get in touch with Ibim Braide. I welcome conversations about freelance engineering, community, and collaboration."
         url="/contact"
       />
 
@@ -69,7 +69,7 @@ export default function Contact() {
               Get in touch
             </h1>
             <p className="mt-4 text-body text-muted dark:text-muted-dark">
-              I welcome thoughtful conversations about engineering, community building,
+              I welcome thoughtful conversations about freelance engineering, community building,
               open source, and collaboration. Drop me a message and I will get back to you.
             </p>
 
@@ -77,7 +77,7 @@ export default function Contact() {
             <div className="mt-8 rounded-lg border border-accent/20 bg-accent/5 p-4">
               <p className="text-body-sm text-foreground dark:text-foreground-dark">
                 <span className="mr-2 inline-block h-2 w-2 rounded-full bg-green-500" />
-                Open to the right roles, speaking engagements, and open source collaboration.
+                Open to freelance engagements focused on mobile and full stack delivery, speaking invitations, and open source collaboration.
               </p>
             </div>
 

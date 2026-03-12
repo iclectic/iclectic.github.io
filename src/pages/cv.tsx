@@ -109,7 +109,7 @@ export default function CV() {
     <>
       <SEO
         title="CV"
-        description="Career overview for Ibim Braide. Software engineer, community organiser, and open source contributor based in the UK."
+        description="Career overview for Ibim Braide. Freelance engineer, community organiser, and open source contributor based in the UK."
         url="/cv"
       />
 

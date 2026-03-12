@@ -15,7 +15,7 @@ export default function FooterNew() {
               Ibim Braide
             </Link>
             <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-              Software engineer, community organiser, and open source contributor based in the United Kingdom.
+              Freelance engineer and community organiser based in the United Kingdom. Open source contributor and technical writer.
             </p>
           </div>
 
