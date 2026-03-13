@@ -12,6 +12,7 @@ export interface FrontMatter {
   tags?: string[]
   featured?: boolean
   image?: string
+  series?: string
   published?: boolean
   [key: string]: unknown
 }
