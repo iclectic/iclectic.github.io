@@ -1,0 +1,27 @@
+<svg width="800" height="360" viewBox="0 0 800 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="360" rx="24" fill="#0B1020"/>
+  <rect x="40" y="48" width="720" height="40" rx="8" fill="#121A2C"/>
+  <rect x="40" y="112" width="720" height="200" rx="16" fill="#101726"/>
+  <g fill="#1C2330">
+    <rect x="64" y="144" width="24" height="24" rx="4"/>
+    <rect x="96" y="144" width="24" height="24" rx="4"/>
+    <rect x="128" y="144" width="24" height="24" rx="4"/>
+    <rect x="160" y="144" width="24" height="24" rx="4"/>
+    <rect x="192" y="144" width="24" height="24" rx="4"/>
+    <rect x="224" y="144" width="24" height="24" rx="4"/>
+    <rect x="256" y="144" width="24" height="24" rx="4"/>
+  </g>
+  <g fill="#14B8A6">
+    <rect x="64" y="176" width="24" height="24" rx="4"/>
+    <rect x="128" y="176" width="24" height="24" rx="4"/>
+    <rect x="192" y="176" width="24" height="24" rx="4"/>
+    <rect x="256" y="176" width="24" height="24" rx="4"/>
+  </g>
+  <g fill="#2DD4BF">
+    <rect x="96" y="208" width="24" height="24" rx="4"/>
+    <rect x="160" y="208" width="24" height="24" rx="4"/>
+    <rect x="224" y="208" width="24" height="24" rx="4"/>
+  </g>
+  <text x="64" y="78" font-family="Arial, sans-serif" font-size="16" fill="#8A9AB1">Contribution graph placeholder</text>
+  <text x="64" y="328" font-family="Arial, sans-serif" font-size="14" fill="#516070">Replace with a real GitHub contribution graph screenshot.</text>
+</svg>

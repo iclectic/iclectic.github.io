@@ -6,6 +6,8 @@ import Section from '@/components/ui/Section'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Tag from '@/components/ui/Tag'
 import { projects } from '@/data/projects'
+import { openSourceContributions } from '@/data/openSource'
+import { getGitHubActivity, getGitHubUsername } from '@/lib/github'
 import { getAllCaseStudies, getAllWriting } from '@/lib/mdx'
 import { siteConfig } from '@/lib/siteConfig'
 
@@ -17,10 +19,15 @@ function formatDate(dateString: string) {
   })
 }
 
-export default function HomePage() {
+export default async function HomePage() {
   const featuredProjects = projects.filter((project) => project.featured).slice(0, 3)
   const featuredCaseStudies = getAllCaseStudies().slice(0, 2)
   const latestWriting = getAllWriting().slice(0, 2)
+  const githubUsername = getGitHubUsername(siteConfig.author.github)
+  const githubActivity = githubUsername ? await getGitHubActivity(githubUsername, 3) : []
+  const recentContributions = githubActivity.length > 0
+    ? githubActivity
+    : openSourceContributions.slice(0, 3)
 
   const personSchema = {
     '@context': 'https://schema.org',
@@ -295,6 +302,19 @@ export default function HomePage() {
                 I contribute to developer tooling and infrastructure projects through issues, documentation, and collaboration
                 with maintainers. Open source keeps my engineering honest and grounded in shared standards.
               </p>
+              <div className="mt-6 rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-5">
+                <p className="text-body-sm font-semibold text-foreground dark:text-foreground-dark">
+                  Recent contributions
+                </p>
+                <ul className="mt-3 space-y-3 text-body-sm text-muted dark:text-muted-dark list-disc pl-5">
+                  {recentContributions.map((item) => (
+                    <li key={`${item.project}-${item.title}`}>
+                      <span className="font-medium text-foreground dark:text-foreground-dark">{item.type}</span>{' '}
+                      in {item.project}: {item.title}
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <Link
                 href="/open-source"
                 className="mt-4 inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"

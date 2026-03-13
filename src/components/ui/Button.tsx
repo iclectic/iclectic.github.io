@@ -42,10 +42,11 @@ export default function Button({
 
   if (href) {
     const isExternal =
-      external ??
-      href.startsWith('http') ||
-      href.startsWith('mailto:') ||
-      href.startsWith('tel:')
+      typeof external === 'boolean'
+        ? external
+        : href.startsWith('http') ||
+          href.startsWith('mailto:') ||
+          href.startsWith('tel:')
 
     if (isExternal) {
       return (
