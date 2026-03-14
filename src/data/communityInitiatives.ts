@@ -7,7 +7,28 @@ import type {
   ContentDetailItem,
 } from '@/types/content'
 
-export const communityMetrics: CommunityMetricRecord[] = []
+export const communityMetrics: CommunityMetricRecord[] = [
+  {
+    label: 'Communities',
+    value: '2',
+    description: 'Flutter Birmingham (organiser) and Golang Birmingham (organising team).',
+  },
+  {
+    label: 'Sessions delivered',
+    value: '10+',
+    description: 'Recurring meetup sessions planned, programmed, and delivered since 2024.',
+  },
+  {
+    label: 'First-time speakers supported',
+    value: '6',
+    description: 'New speakers guided through abstracts, rehearsal, and delivery.',
+  },
+  {
+    label: 'Public repositories',
+    value: '4',
+    description: 'Community tools and teaching repos shipped in the open.',
+  },
+]
 
 export const communityWorkstreams: ContentDetailItem[] = [
   {
@@ -73,7 +94,23 @@ export const communityHighlights: ContentDetailItem[] = [
   },
 ]
 
-export const communityMilestones: CommunityMilestoneDetailRecord[] = []
+export const communityMilestones: CommunityMilestoneDetailRecord[] = [
+  {
+    title: 'Flutter Birmingham launched',
+    date: '2024',
+    description: 'Established a recurring Flutter meetup in Birmingham focused on hands-on learning and speaker development.',
+  },
+  {
+    title: 'First talk delivered',
+    date: '2025',
+    description: 'Presented "Avoiding headaches in state management" at Flutter Birmingham, turning delivery lessons into a reusable session.',
+  },
+  {
+    title: 'Joined Golang Birmingham organising team',
+    date: '2025',
+    description: 'Took on programming, speaker coordination, and community direction alongside the existing organisers.',
+  },
+]
 
 export const communityGallery: CommunityGalleryRecord[] = []
 

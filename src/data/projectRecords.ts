@@ -38,38 +38,6 @@ export const projectRecords: ProjectRecord[] = [
     },
   },
   {
-    id: 'ai-supplier-matching-platform',
-    slug: 'ai-supplier-matching-platform',
-    title: 'AI Supplier Matching Platform',
-    summary:
-      'Full stack platform concept that uses structured requirements and matching logic to help businesses identify suppliers.',
-    status: 'published',
-    featured: true,
-    publishedAt: '2026-03-10',
-    type: 'concept',
-    category: 'full-stack',
-    role: 'Full stack support and architectural contribution',
-    scope: 'Supplier matching workflow, backend APIs, and structured project input model',
-    outcome:
-      'Explored a procurement workflow that could reduce time spent matching suppliers to project needs.',
-    stack: ['React', 'C#', 'PostgreSQL', 'Azure'],
-    team: 'Startup team',
-    tags: ['React', 'C#', 'PostgreSQL', 'Azure'],
-    images: [
-      {
-        src: '/images/projects/placeholder-2.svg',
-        alt: 'Placeholder preview for the AI Supplier Matching Platform',
-      },
-    ],
-    links: {
-      caseStudy: {
-        label: 'Read project page',
-        href: '/projects/ai-supplier-matching-platform',
-        kind: 'internal',
-      },
-    },
-  },
-  {
     id: 'cumulative-expense-tracker',
     slug: 'expense-tracking-application',
     title: 'Cumulative Expense Tracker',

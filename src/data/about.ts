@@ -1,124 +1,118 @@
 export const heroHighlights = [
-  'Freelance software engineer based in the United Kingdom',
-  'Organiser of Flutter Birmingham',
-  'Leadership role within Golang Birmingham with the organising team',
-  'Open source contributor and technical writer in progress',
+  'MSc Computer Science (Birmingham City University) and BEng Computer Engineering (University of Benin)',
+  'Organiser of Flutter Birmingham since 2024. 10+ sessions delivered.',
+  'Golang Birmingham organising team. Speaker pipeline and programming.',
+  '4 public repositories shipped in 2026. Published research on SSRN.',
 ]
 
 export const storyParagraphs = [
-  'My path into software engineering has been shaped by technical curiosity, practical problem solving, and a growing interest in how strong systems are built. I hold a Bachelor of Engineering degree from the University of Benin and a Master\'s degree in Computer Science from Birmingham City University. Together, those degrees reflect the shape of my development, from an engineering foundation into deeper software and computing work.',
-  'Alongside formal study, I spent time in technical support and troubleshooting roles where clarity, patience, and diagnosis mattered every day. That work taught me how systems behave under pressure and how technical decisions affect real people. It also pushed me towards software engineering, where I could move from reacting to issues to designing better systems from the start.',
-  'Today, my work brings together freelance engineering, community leadership, open source contribution, and a growing writing practice. I want my career to reflect not only technical capability, but also initiative, public contribution, and the ability to create value beyond a single codebase.',
+  'I started in computer engineering at the University of Benin, where the curriculum was hardware-heavy: circuits, embedded systems, networks. I liked the logic but kept gravitating towards software. After graduating, I worked in IT support and troubleshooting roles where I learned something university never taught me: how systems actually break in production, and how much patience and clarity matter when real people are stuck.',
+  'That support work pushed me towards building. I completed a BCS Certificate in IT, then moved to the UK for a Master\'s in Computer Science at Birmingham City University. The MSc gave me structured exposure to AI fundamentals, software analysis, and research methods. I published my research on SSRN. More importantly, it gave me the confidence to stop reacting to systems and start designing them.',
+  'Today I work across Flutter mobile apps, React and Next.js frontends, backend services, and data analysis. But the work I am most proud of sits outside client delivery: organising Flutter Birmingham, helping lead Golang Birmingham, shipping open source tools, and writing about the decisions that matter in engineering. I think the best engineers make the ecosystem better, not just the product.',
 ]
 
 export const currentWork = [
   {
-    title: 'Software engineering',
+    title: 'Freelance engineering',
     description:
-      'I build across mobile and full stack systems with a focus on clear scope, maintainable delivery, and useful outcomes.',
+      'Flutter mobile apps, React frontends, Node and C# backends, PostgreSQL data layers, and Python analysis. I take on scoped projects where I can own a clear piece of the delivery.',
   },
   {
-    title: 'Community leadership',
+    title: 'Two developer communities',
     description:
-      'I organise Flutter Birmingham and play a significant leadership role within Golang Birmingham as part of the organising team.',
+      'I run Flutter Birmingham (organiser since 2024) and sit on the Golang Birmingham organising team. Between them: 10+ sessions, 6 first-time speakers supported, and community tooling shipped in the open.',
   },
   {
-    title: 'Open source and writing',
+    title: 'Public work',
     description:
-      'I contribute to open source, share practical lessons in public, and am building a stronger writing practice around engineering, AI ethics, and developer education.',
+      'Four GitHub repositories shipped in 2026. Three essays published on this site. Research on SSRN. A conference-ready talk delivered at Flutter Birmingham. I believe public output is the best form of professional development.',
   },
 ]
 
 export const timelineMilestones = [
   {
-    period: 'University of Benin',
-    title: 'Engineering foundation',
+    period: '2009 - 2015',
+    title: 'BEng Computer Engineering, University of Benin',
     description:
-      'Completed a Bachelor of Engineering degree and built the technical base that shaped my early approach to systems and problem solving.',
+      'Hardware-heavy curriculum that taught me how computers actually work: circuits, networks, embedded systems. The SIWES industrial placement was my first taste of professional engineering.',
   },
   {
-    period: 'Technical support',
-    title: 'Operational problem solving',
+    period: '2017 - 2022',
+    title: 'IT support and the decision to build',
     description:
-      'Worked in support and troubleshooting roles that sharpened diagnosis, resilience, and practical communication under pressure.',
+      'Roles at Frannberry School and Tek Experts (Microsoft 365). I got good at diagnosing failures and explaining technical problems to non-technical people. But I wanted to design systems, not just fix them.',
   },
   {
-    period: 'Birmingham City University',
-    title: 'Advanced computing study',
+    period: '2022 - 2023',
+    title: 'MSc Computer Science, Birmingham City University',
     description:
-      'Completed a Master\'s degree in Computer Science and deepened my focus on software systems, computing, and research minded technical work.',
+      'AI fundamentals, software analysis and design, research methods. Published on SSRN. This is where I made the full transition from support to software engineering.',
   },
   {
-    period: 'Software engineering',
-    title: 'Building and delivering',
+    period: '2024 - present',
+    title: 'Engineering, community, and public work',
     description:
-      'Moved further into software engineering across frontend, backend, mobile, and data related work with growing product and architecture awareness.',
-  },
-  {
-    period: 'Community and open source',
-    title: 'Public contribution',
-    description:
-      'Took on visible ecosystem work through Flutter Birmingham, Golang Birmingham, open source contribution, and technical writing.',
+      'Founded Flutter Birmingham. Joined the Golang Birmingham organising team. Shipped 4 open source repos. Published essays on AI ethics and community leadership. Started taking on freelance engineering projects.',
   },
 ]
 
 export const principles = [
   {
-    title: 'Clarity over noise',
+    title: 'Show the work',
     description:
-      'I value clear systems, clear reasoning, and communication that helps people move forward.',
+      'I publish repositories, write about decisions, and document community operations in the open. If I cannot explain a choice publicly, I probably have not thought about it enough.',
   },
   {
-    title: 'Reliability matters',
+    title: 'Diagnose before you design',
     description:
-      'Useful software should be understandable, maintainable, and dependable in real conditions.',
+      'Years of support work taught me to understand the failure before proposing the fix. I bring that habit to architecture, code review, and scoping conversations.',
   },
   {
-    title: 'Public contribution improves private craft',
+    title: 'The ecosystem matters as much as the product',
     description:
-      'Open source, writing, and community work make me a better engineer because they sharpen judgement and accountability.',
+      'Running meetups, supporting new speakers, and contributing to open source are not side activities. They are part of what makes me a better engineer.',
   },
   {
-    title: 'Good work should help others',
+    title: 'Finish things',
     description:
-      'I care about outcomes that create learning, trust, or long term value beyond a single deliverable.',
+      'I would rather ship a well-scoped tool that works than announce a grand project that never lands. Every repository on my GitHub has commits, not just a README.',
   },
 ]
 
 export const careAbout = [
-  'Software that is useful, maintainable, and thoughtfully built',
-  'Developer ecosystems strengthened through open source and community work',
-  'Responsible technology, especially where software decisions shape trust and fairness',
-  'Work that leaves something stronger behind, whether that is a product, a contribution, or a community',
+  'Shipping software that people actually use, not just software that compiles',
+  'First-time speakers getting a real chance at a meetup because someone helped them prepare',
+  'AI systems that explain themselves to the people they affect',
+  'Leaving every codebase, community, and collaboration in better shape than I found it',
 ]
 
 export const currentlyExploring = [
-  'How responsible AI can be integrated into everyday engineering and product decisions',
-  'Better ways to teach technical ideas through community events and developer education',
-  'Mobile and full stack delivery patterns that stay clear and maintainable as systems grow',
-  'A stronger long form writing practice around engineering judgement, ethics, and ecosystem contribution',
+  'How to make AI ethics a repeatable part of sprint planning, not a final review checkbox',
+  'What makes a 30-minute meetup talk genuinely change how someone writes code the next day',
+  'Flutter architecture patterns that hold up when an app goes from prototype to production',
+  'Whether long-form technical writing can build the same kind of trust that merged PRs do',
 ]
 
 export const education = [
   {
-    degree: 'Master\'s degree in Computer Science',
+    degree: 'MSc Computer Science',
     institution: 'Birmingham City University',
     period: '2022 - 2023',
     description:
-      'Deepened my understanding of software development, software analysis and design, AI fundamentals, and research methods through advanced study and project work.',
+      'AI fundamentals, software analysis and design, research methods. Published research on SSRN. Built an ML project as the individual Masters dissertation.',
   },
   {
-    degree: 'Bachelor of Engineering degree',
+    degree: 'BEng Computer Engineering',
     institution: 'University of Benin',
     period: '2009 - 2015',
     description:
-      'Built a broad engineering foundation across computer systems, hardware, software, networks, and practical laboratory work, including SIWES industrial experience.',
+      'Hardware, software, networks, embedded systems. Completed a SIWES industrial placement and a final-year project in computer systems.',
   },
   {
-    degree: 'British Computer Society Certificate in IT',
+    degree: 'BCS Certificate in IT',
     institution: 'Compunet Limited',
     period: '2021',
     description:
-      'Covered computer and network technology, data management, requirements analysis, database design, programming fundamentals, algorithm design, and testing principles.',
+      'Networking, data management, requirements analysis, and programming fundamentals. The professional stepping stone between support work and the MSc.',
   },
 ]

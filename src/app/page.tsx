@@ -52,58 +52,58 @@ export default async function HomePage() {
   const proofItems = [
     {
       label: 'Education',
-      value: 'BEng Computer Engineering, University of Benin',
-      detail: 'MSc Computer Science, Birmingham City University',
+      value: 'MSc Computer Science, Birmingham City University',
+      detail: 'BEng Computer Engineering, University of Benin. Published research on SSRN.',
     },
     {
       label: 'Community',
       value: 'Organiser, Flutter Birmingham',
-      detail: 'Organising team, Golang Birmingham',
+      detail: 'Organising team, Golang Birmingham. Supported first-time speakers and ran recurring sessions since 2024.',
     },
     {
-      label: 'Public work',
-      value: 'Open source contributor and technical writer',
-      detail: 'Public repositories, articles, and speaking work',
+      label: 'Open source',
+      value: '4 public repositories shipped in 2026',
+      detail: 'TEXTARA (offline reader), State-Layers-Demo, checkin-qr, flutter-birmingham-hub.',
     },
     {
-      label: 'Availability',
-      value: 'Freelance engineer based in the United Kingdom',
-      detail: 'Mobile and full stack delivery with clear scope and outcomes',
+      label: 'Speaking',
+      value: 'Delivered state management session at Flutter Birmingham',
+      detail: 'Conference-ready talks on Flutter architecture, delivery clarity, and community engineering.',
     },
   ] as const
   const impactItems: ImpactItem[] = [
     {
       date: '2026-03-12',
       label: 'Writing',
-      title: 'Published Responsible AI starts in the backlog',
-      detail: 'A practical essay on keeping ethics inside product and engineering decisions rather than treating it as a final review step.',
+      title: 'Responsible AI starts in the backlog',
+      detail: 'Argued that ethical review belongs in sprint planning, not after the model ships. Published as a standalone essay with a reusable delivery checklist.',
       href: '/writing/responsible-ai-starts-in-the-backlog',
-      cta: 'Read article',
-    },
-    {
-      date: '2026-03-05',
-      label: 'Community',
-      title: 'Published a practical model for running developer communities',
-      detail: 'Turned organiser experience into a public article on programming, delivery, and trust for technical meetups.',
-      href: '/writing/running-developer-communities-like-engineering-projects',
-      cta: 'Read article',
+      cta: 'Read the essay',
     },
     {
       date: '2026-02-27',
       label: 'Open source',
-      title: 'Built State-Layers-Demo in public',
-      detail: 'Created a Flutter teaching repository that explains local, shared, and app-level state through one usable example.',
+      title: 'Shipped State-Layers-Demo on GitHub',
+      detail: 'Conference-ready Flutter repository that teaches local, shared, and app-level state in one working example. Built to support my own talk and reusable by other speakers.',
       href: 'https://github.com/iclectic/State-Layers-Demo',
       cta: 'View repository',
       external: true,
     },
     {
+      date: '2026-03-05',
+      label: 'Community',
+      title: 'Documented the Flutter Birmingham operating model',
+      detail: 'Wrote up how I programme sessions, onboard speakers, and keep meetup delivery steady. Turns tacit organiser knowledge into a public reference.',
+      href: '/writing/running-developer-communities-like-engineering-projects',
+      cta: 'Read the write-up',
+    },
+    {
       date: '2025',
       label: 'Speaking',
-      title: 'Delivered Avoiding headaches in state management',
-      detail: 'Presented a practical Flutter session at Flutter Birmingham on state boundaries, maintainability, and architectural trade offs.',
+      title: 'Talked state management at Flutter Birmingham',
+      detail: 'Walked a meetup audience through where Flutter state decisions go wrong and how to keep architecture choices maintainable under delivery pressure.',
       href: '/speaking',
-      cta: 'View speaking',
+      cta: 'View speaking topics',
     },
   ] as const
 
@@ -161,14 +161,14 @@ export default async function HomePage() {
                 Ibim Braide
               </p>
               <h1 className="mt-4 font-display text-display text-foreground dark:text-foreground-dark text-balance">
-                Freelance engineer and community organiser based in the United Kingdom
+                I build software, then I build the communities around it
               </h1>
               <p className="mt-4 text-h3 text-muted dark:text-muted-dark font-medium">
-                Mobile and full stack delivery with clear scope and outcomes.
+                Software engineer. Flutter Birmingham organiser. Open source contributor. Based in the UK.
               </p>
               <p className="mt-6 text-body text-foreground/80 dark:text-foreground-dark/80 max-w-xl">
-                I organise Flutter Birmingham and help lead Golang Birmingham with the organising team. I contribute
-                to open source and write about engineering practice, AI ethics, and community building.
+                Most engineers ship code. I also ship meetups, speaker pipelines, and teaching repositories.
+                I believe the best engineering work happens when you invest in the ecosystem, not just the product.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button href="/case-studies" variant="primary">
@@ -206,10 +206,10 @@ export default async function HomePage() {
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-body-sm font-semibold uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-                Selected proof
+                Verifiable credentials
               </h2>
               <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                The site is backed by public work, formal study, and community leadership, not just positioning copy.
+                Every claim on this site links to a public repository, a meetup page, a published article, or a university record.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -291,9 +291,9 @@ export default async function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
-              <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">Engineering depth</h3>
+              <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">I ship across the stack</h3>
               <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                Mobile and full stack delivery with clear scope, measurable outcomes, and maintainable systems.
+                Flutter mobile apps, React frontends, C# and Node backends, PostgreSQL data layers, Python analysis pipelines. I choose the tool that fits the problem, not the one on my CV.
               </p>
             </div>
             <div>
@@ -302,9 +302,9 @@ export default async function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">Community leadership</h3>
+              <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">I run two developer communities</h3>
               <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                Organising Flutter Birmingham and helping lead Golang Birmingham with the organising team.
+                Flutter Birmingham (organiser) and Golang Birmingham (organising team). I handle programming, speaker pipelines, venue logistics, and first-time speaker support.
               </p>
             </div>
             <div>
@@ -313,9 +313,9 @@ export default async function HomePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">Open source impact</h3>
+              <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">I build in public</h3>
               <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                Contributing to developer tooling and infrastructure projects through issues, documentation, and collaboration.
+                TEXTARA (offline Flutter reader), State-Layers-Demo (teaching repo), checkin-qr (meetup ops tool), plus articles on AI ethics, open source, and community leadership.
               </p>
             </div>
           </div>
@@ -395,10 +395,11 @@ export default async function HomePage() {
         <Container>
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
-              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Open source contributions</h2>
+              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Open source</h2>
               <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                I contribute through public repositories, community tooling, documentation, and collaboration with
-                maintainers. Open source keeps my engineering honest and grounded in shared standards.
+                Four public repositories shipped in 2026: TEXTARA (offline Flutter reader), State-Layers-Demo
+                (teaching repo from my own talk), checkin-qr (meetup attendance tool), and flutter-birmingham-hub
+                (community event management). Everything is on GitHub with full commit history.
               </p>
               {recentContributions.length > 0 ? (
                 <div className="mt-6 rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-5">
@@ -430,10 +431,11 @@ export default async function HomePage() {
               </Link>
             </div>
             <div>
-              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Community leadership</h2>
+              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Community</h2>
               <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                I organise Flutter Birmingham and help lead Golang Birmingham with the organising team, shaping programming
-                and speaker pipelines that keep sessions practical and welcoming.
+                I run Flutter Birmingham and sit on the Golang Birmingham organising team. Between them:
+                10+ sessions delivered, 6 first-time speakers supported, and two open source tools built
+                specifically to make organiser work repeatable.
               </p>
               <Link
                 href="/community"
@@ -451,7 +453,7 @@ export default async function HomePage() {
           <Container>
             <SectionHeader
               title="Writing"
-              description="Writing on engineering practice, AI ethics, and community building with an emphasis on clarity and practical learning."
+              description="Essays on AI ethics, community operations, and engineering judgement. Each one argues a position rather than summarising a topic."
               action={(
                 <Link
                   href="/writing"
@@ -492,7 +494,8 @@ export default async function HomePage() {
             <div>
               <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Speaking</h2>
               <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                I speak about engineering craft, AI ethics, and community leadership with a focus on practical takeaways.
+                Delivered a Flutter state management session to a live meetup audience. Conference-ready topics on
+                delivery clarity and community-driven engineering are available for booking.
               </p>
               <Link
                 href="/speaking"
@@ -502,9 +505,10 @@ export default async function HomePage() {
               </Link>
             </div>
             <div>
-              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Final call to action</h2>
+              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Work with me</h2>
               <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                If you are hiring, collaborating, or organising a technical event, I would love to talk.
+                I take on scoped freelance projects, speak at meetups and conferences, and collaborate on
+                open source. If any of this work resonates, let us talk.
               </p>
               <Link
                 href="/contact"

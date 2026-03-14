@@ -43,21 +43,6 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: 'AI Supplier Matching Platform',
-    description:
-      'Platform concept that uses structured project inputs and matching logic to help businesses find suitable suppliers.',
-    outcome:
-      'Explored a structured procurement flow that could reduce time spent matching suppliers to project needs.',
-    projectType: 'Concept',
-    role: 'Full stack support and architectural contribution',
-    scope: 'Supplier matching workflow, backend APIs, and structured project input model',
-    image: '/images/projects/placeholder-2.svg',
-    tags: ['React', 'C#', 'PostgreSQL', 'Azure'],
-    category: 'Full Stack',
-    link: '/projects/ai-supplier-matching-platform',
-    featured: true,
-  },
-  {
     title: 'Cumulative Expense Tracker',
     description:
       'Flutter based expense tracker that visualises cumulative spending through simple input flows and charts.',

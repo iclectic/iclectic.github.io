@@ -6,14 +6,11 @@ import { socialLinks } from './social'
 export { socialLinks } from './social'
 
 export const mainNavigation: NavItem[] = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Open Source', href: '/open-source' },
-  { label: 'Community', href: '/community' },
+  { label: 'Work', href: '/projects' },
   { label: 'Writing', href: '/writing' },
-  { label: 'Speaking', href: '/speaking' },
-  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Community', href: '/community' },
+  { label: 'About', href: '/about' },
+  { label: 'CV', href: '/cv' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -40,7 +37,7 @@ export const siteSettings: SiteSettings = {
   url: 'https://ibimbraide.com',
   title: 'Ibim Braide',
   description:
-    'Freelance engineer and community organiser based in the United Kingdom. Mobile and full stack delivery with clear scope and outcomes.',
+    'Software engineer, community organiser, and open source contributor based in the UK. I build software, then I build the communities around it.',
   locale: 'en-GB',
   author: {
     name: 'Ibim Braide',

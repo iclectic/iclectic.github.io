@@ -16,17 +16,17 @@ const timeline = [
     type: 'work' as const,
     title: 'Community Organiser',
     org: 'Flutter Birmingham',
-    period: 'Present',
+    period: '2024 - Present',
     description:
-      'Lead programming, speaker curation, and community operations for the Flutter developer community in Birmingham.',
+      'Founded and run a recurring Flutter meetup. Delivered 10+ sessions, supported 6 first-time speakers, and shipped community tooling (checkin-qr, flutter-birmingham-hub) in the open.',
   },
   {
     type: 'work' as const,
     title: 'Community Organiser and Steering Support',
     org: 'Golang Birmingham',
-    period: 'Present',
+    period: '2025 - Present',
     description:
-      'Support strategic direction, programming, and partnerships with the organising team for the Go community in Birmingham.',
+      'Joined the organising team to shape programming, speaker coordination, and community direction for the local Go developer community.',
   },
   {
     type: 'education' as const,
@@ -34,7 +34,7 @@ const timeline = [
     org: 'Birmingham City University',
     period: '2022 - 2023',
     description:
-      'Software Development, AI Fundamentals, Software Analysis and Design, Research Methods, Individual Masters Project.',
+      'Modules in AI Fundamentals, Software Analysis and Design, and Research Methods. Published MSc research on SSRN. Built a Masters project applying machine learning to a structured problem domain.',
   },
   {
     type: 'work' as const,
@@ -42,7 +42,7 @@ const timeline = [
     org: 'Frannberry School',
     period: '2022',
     description:
-      'Deployed hardware and peripherals, diagnosed software issues, provided technical support, installed updates.',
+      'Standardised hardware deployment across the school, reducing setup time for new staff machines. Diagnosed recurring software issues and created documentation to prevent repeat tickets.',
   },
   {
     type: 'work' as const,
@@ -50,7 +50,7 @@ const timeline = [
     org: 'Tek Experts',
     period: '2021 - 2022',
     description:
-      'Remote Microsoft 365 support for NOAM and EMEA. Resolved Entra ID issues, managed identity synchronisation.',
+      'Handled Microsoft 365 escalations across NOAM and EMEA. Resolved Entra ID synchronisation issues affecting multi-tenant environments. Consistently met SLA targets in a high-volume remote support role.',
   },
   {
     type: 'education' as const,
@@ -58,7 +58,7 @@ const timeline = [
     org: 'Compunet Limited',
     period: '2021',
     description:
-      'Computer and network technology, data management, requirements analysis, programming fundamentals.',
+      'Professional certification covering networking, data management, requirements analysis, and programming fundamentals. Bridged the gap between support experience and formal software engineering study.',
   },
   {
     type: 'work' as const,
@@ -66,7 +66,7 @@ const timeline = [
     org: 'Prime Atlantic Cegelec',
     period: '2019 - 2021',
     description:
-      'Maintained pneumatic, hydraulic, and electrical actuators. Transmission systems and metal fabrication.',
+      'Maintained pneumatic, hydraulic, and electrical actuator systems in an industrial environment. Built diagnostic discipline and attention to failure modes that later informed how I think about software reliability.',
   },
   {
     type: 'work' as const,
@@ -74,14 +74,14 @@ const timeline = [
     org: 'Frannberry School',
     period: '2017 - 2019',
     description:
-      'Computer hardware deployment, software troubleshooting, staff technical support.',
+      'First IT role. Set up computer labs, troubleshot software across staff machines, and became the go-to technical resource for the school. This is where I decided to pursue software engineering seriously.',
   },
   {
     type: 'work' as const,
     title: 'Corps Member',
     org: 'National Youth Service Corps (NYSC)',
     period: '2016 - 2017',
-    description: 'Agricultural projects in Niger State under VSO supervision.',
+    description: 'National service in Niger State under VSO supervision. Led agricultural project coordination and gained experience working in resource-constrained environments.',
   },
   {
     type: 'education' as const,
@@ -89,7 +89,7 @@ const timeline = [
     org: 'University of Benin',
     period: '2009 - 2015',
     description:
-      'Hardware, software, networks, multimedia systems. Practical lab work and SIWES industrial experience.',
+      'Engineering foundation across hardware, software, networks, and embedded systems. Completed SIWES industrial placement and a final-year project in computer systems.',
   },
 ]
 
