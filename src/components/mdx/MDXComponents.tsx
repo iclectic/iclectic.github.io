@@ -65,7 +65,7 @@ function MDXImage({
   height,
   className,
 }: ComponentPropsWithoutRef<'img'>) {
-  if (!src) {
+  if (!src || typeof src !== 'string') {
     return null
   }
 
@@ -82,7 +82,6 @@ function MDXImage({
       height={resolvedHeight}
       sizes="(max-width: 768px) 100vw, 768px"
       className={className ?? 'h-auto w-full rounded-xl'}
-      unoptimized
     />
   )
 }

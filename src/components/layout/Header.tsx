@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Container from '@/components/primitives/Container'
 import { mainNavigation, siteSettings, socialLinks as siteSocialLinks } from '@/data/site'
 import SocialLinks from './SocialLinks'
@@ -61,14 +61,58 @@ function MobileMenu({
   onClose: () => void
 }) {
   const pathname = usePathname()
+  const navRef = useRef<HTMLElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose()
+        return
+      }
+
+      if (e.key !== 'Tab' || !navRef.current) return
+
+      const focusable = navRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button, [tabindex]:not([tabindex="-1"])'
+      )
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    },
+    [onClose]
+  )
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    document.addEventListener('keydown', handleKeyDown)
+    document.body.style.overflow = 'hidden'
+    closeButtonRef.current?.focus()
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [isOpen, handleKeyDown])
 
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 lg:hidden">
+    <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="Navigation menu">
       <div className="fixed inset-0 bg-foreground/20 backdrop-blur-sm dark:bg-background-dark/80" onClick={onClose} />
-      <nav className="fixed top-0 right-0 bottom-0 w-72 border-l border-border bg-background p-6 pt-20 dark:border-border-dark dark:bg-background-dark">
+      <nav ref={navRef} className="fixed top-0 right-0 bottom-0 w-72 border-l border-border bg-background p-6 pt-20 dark:border-border-dark dark:bg-background-dark">
         <button
+          ref={closeButtonRef}
           onClick={onClose}
           className="absolute top-6 right-6 p-2 text-muted hover:text-foreground dark:text-muted-dark dark:hover:text-foreground-dark"
           aria-label="Close menu"

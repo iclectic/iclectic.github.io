@@ -33,7 +33,7 @@ export const articleRecords: ArticleRecord[] = [
     series: 'Community leadership playbook',
     tags: ['Community Building', 'Developer Education', 'Leadership'],
     image: {
-      src: '/images/articles/featured-community.png',
+      src: '/images/articles/featured-community.jpg',
       alt: 'Abstract editorial artwork for the community leadership article',
     },
   },
@@ -51,7 +51,7 @@ export const articleRecords: ArticleRecord[] = [
     series: 'Open source practice',
     tags: ['Open Source', 'Developer Tooling', 'Engineering Practice'],
     image: {
-      src: '/images/articles/featured-open-source.png',
+      src: '/images/articles/featured-open-source.jpg',
       alt: 'Abstract editorial artwork for the open source article',
     },
   },

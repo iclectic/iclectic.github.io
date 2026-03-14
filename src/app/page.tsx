@@ -11,6 +11,8 @@ import { getGitHubActivity, getGitHubUsername } from '@/lib/github'
 import { getFeaturedProjectCards, getOpenSourcePublicWork } from '@/lib/content'
 import { getAllCaseStudies, getAllWriting } from '@/lib/mdx'
 
+export const revalidate = 3600
+
 function formatDate(dateString: string) {
   if (/^\d{4}$/.test(dateString)) {
     return dateString
