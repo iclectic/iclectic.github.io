@@ -1,9 +1,10 @@
 import Link from 'next/link'
-import Container from '@/components/Container'
-import Button from '@/components/ui/Button'
-import Section from '@/components/ui/Section'
-import SectionHeader from '@/components/ui/SectionHeader'
-import Tag from '@/components/ui/Tag'
+import PageHero from '@/components/layout/PageHero'
+import SectionHeader from '@/components/layout/SectionHeader'
+import Button from '@/components/primitives/Button'
+import Container from '@/components/primitives/Container'
+import Section from '@/components/primitives/Section'
+import Tag from '@/components/primitives/Tag'
 import { createMetadata } from '@/lib/seo'
 import { getAllCaseStudies } from '@/lib/mdx'
 
@@ -26,27 +27,15 @@ export default function CaseStudiesPage() {
 
   return (
     <>
-      <section className="pt-20 pb-16 md:pt-28 md:pb-20">
-        <Container>
-          <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-            Case Studies
-          </p>
-          <h1 className="mt-4 font-display text-h1 text-foreground dark:text-foreground-dark">
-            Deep dives into delivery decisions and outcomes
-          </h1>
-          <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            These case studies provide context on scope, constraints, and how I approached each build.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button href="/projects" variant="secondary">
-              View projects
-            </Button>
-            <Button href="/contact" variant="ghost">
-              Discuss a project
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Case Studies"
+        title="Deep dives into delivery decisions and outcomes"
+        description="These case studies provide context on scope, constraints, and how I approached each build."
+        actions={[
+          { label: 'View projects', href: '/projects', variant: 'secondary' },
+          { label: 'Discuss a project', href: '/contact', variant: 'ghost' },
+        ]}
+      />
 
       <Section>
         <Container>

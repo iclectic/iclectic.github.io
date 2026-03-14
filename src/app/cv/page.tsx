@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import Container from '@/components/Container'
-import Section from '@/components/ui/Section'
-import Card from '@/components/ui/Card'
-import Tag from '@/components/ui/Tag'
+import Card from '@/components/primitives/Card'
+import Container from '@/components/primitives/Container'
+import Section from '@/components/primitives/Section'
+import Tag from '@/components/primitives/Tag'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({

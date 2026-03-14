@@ -1,10 +1,10 @@
 import PageHero from '@/components/layout/PageHero'
 import SectionHeader from '@/components/layout/SectionHeader'
+import SpeakingCard from '@/components/cards/SpeakingCard'
 import Button from '@/components/primitives/Button'
 import Card from '@/components/primitives/Card'
 import Container from '@/components/primitives/Container'
 import Section from '@/components/primitives/Section'
-import Tag from '@/components/primitives/Tag'
 import { createMetadata } from '@/lib/seo'
 import { organiserExpectations, speakingEngagements, speakingTopics } from '@/data/speaking'
 
@@ -36,32 +36,7 @@ export default function SpeakingPage() {
           />
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {speakingTopics.map((topic) => (
-              <Card key={topic.title} className="p-6">
-                <div className="flex flex-wrap gap-1.5">
-                  <Tag>{topic.format}</Tag>
-                  <Tag tone="neutral">{topic.bestFor}</Tag>
-                </div>
-                <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">
-                  {topic.title}
-                </h3>
-                <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                  {topic.description}
-                </p>
-                <p className="mt-4 text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
-                  Audience
-                </p>
-                <p className="mt-1 text-body-sm text-foreground/80 dark:text-foreground-dark/80">
-                  {topic.audience}
-                </p>
-                <p className="mt-4 text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
-                  Key takeaways
-                </p>
-                <ul className="mt-2 space-y-2 pl-5 text-body-sm text-muted dark:text-muted-dark list-disc">
-                  {topic.takeaways.map((takeaway) => (
-                    <li key={takeaway}>{takeaway}</li>
-                  ))}
-                </ul>
-              </Card>
+              <SpeakingCard key={topic.title} variant="topic" item={topic} />
             ))}
           </div>
         </Container>
@@ -75,43 +50,7 @@ export default function SpeakingPage() {
           />
           <div className="mt-8 space-y-4">
             {speakingEngagements.map((item) => (
-              <Card key={`${item.title}-${item.date}`} className="p-6">
-                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                  <div>
-                    <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1 text-body-sm text-accent">{item.event}</p>
-                  </div>
-                  <span className="text-body-sm text-muted dark:text-muted-dark whitespace-nowrap">
-                    {item.date}
-                  </span>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  <Tag>{item.format}</Tag>
-                  <Tag tone="neutral">{item.audience}</Tag>
-                </div>
-                <p className="mt-3 text-body-sm text-muted dark:text-muted-dark max-w-2xl">
-                  {item.description}
-                </p>
-                <div className="mt-4">
-                  <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
-                    Session takeaways
-                  </p>
-                  <ul className="mt-2 space-y-2 pl-5 text-body-sm text-muted dark:text-muted-dark list-disc">
-                    {item.takeaways.map((takeaway) => (
-                      <li key={takeaway}>{takeaway}</li>
-                    ))}
-                  </ul>
-                </div>
-                {item.link ? (
-                  <div className="mt-4">
-                    <Button href={item.link} variant="link" external>
-                      Event link
-                    </Button>
-                  </div>
-                ) : null}
-              </Card>
+              <SpeakingCard key={`${item.title}-${item.date}`} variant="engagement" item={item} />
             ))}
           </div>
         </Container>

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
-import Container from '@/components/Container'
-import Section from '@/components/ui/Section'
-import RenderedMdx from '@/components/mdx/RenderedMdx'
+import MDXContent from '@/components/mdx/MDXContent'
+import Container from '@/components/primitives/Container'
+import Section from '@/components/primitives/Section'
 import { createMetadata } from '@/lib/seo'
 import { getContentBySlug } from '@/lib/mdx'
 
@@ -48,7 +48,7 @@ export default function MediaPage() {
       <Section>
         <Container>
           <div className="prose-custom mx-auto">
-            <RenderedMdx source={page.content} />
+            <MDXContent source={page.content} />
           </div>
         </Container>
       </Section>

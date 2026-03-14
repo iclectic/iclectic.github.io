@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import ArticleCard from '@/components/ui/ArticleCard'
+import ArticleCard from '@/components/cards/ArticleCard'
 
 export interface WritingSummary {
   slug: string

@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import Container from '@/components/Container'
-import Button from '@/components/ui/Button'
-import Section from '@/components/ui/Section'
-import ArticleCard from '@/components/ui/ArticleCard'
+import ArticleCard from '@/components/cards/ArticleCard'
+import PageHero from '@/components/layout/PageHero'
+import Button from '@/components/primitives/Button'
+import Container from '@/components/primitives/Container'
+import Section from '@/components/primitives/Section'
 import { createMetadata } from '@/lib/seo'
 import { getAllWriting } from '@/lib/mdx'
 import { writingSeries } from '@/data/writing'
@@ -35,28 +36,15 @@ export default function WritingSeriesPage() {
 
   return (
     <>
-      <section className="pt-20 pb-16 md:pt-28 md:pb-20">
-        <Container>
-          <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-            Writing series
-          </p>
-          <h1 className="mt-4 font-display text-h1 text-foreground dark:text-foreground-dark">
-            Curated bundles of writing by theme
-          </h1>
-          <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            Each series groups articles around a shared problem space so you can explore a topic in depth. I use series
-            to turn individual essays into coherent guidance.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button href="/writing" variant="secondary">
-              Back to writing
-            </Button>
-            <Button href="/contact" variant="ghost">
-              Suggest a topic
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Writing series"
+        title="Curated bundles of writing by theme"
+        description="Each series groups articles around a shared problem space so you can explore a topic in depth. I use series to turn individual essays into coherent guidance."
+        actions={[
+          { label: 'Back to writing', href: '/writing', variant: 'secondary' },
+          { label: 'Suggest a topic', href: '/contact', variant: 'ghost' },
+        ]}
+      />
 
       <Section>
         <Container>

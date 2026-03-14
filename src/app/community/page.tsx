@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import CommunityEventCard from '@/components/cards/CommunityEventCard'
+import SpeakerArchiveCard from '@/components/cards/SpeakerArchiveCard'
 import PageHero from '@/components/layout/PageHero'
 import SectionHeader from '@/components/layout/SectionHeader'
 import Button from '@/components/primitives/Button'
@@ -235,36 +237,11 @@ export default function CommunityPage() {
             />
             <div className="mt-8 space-y-4">
               {communityEvents.map((event) => (
-                <Card key={`${event.title}-${event.date}`} className="p-6">
-                  <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                    <div>
-                      <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-                        {event.group}
-                      </p>
-                      <h3 className="mt-3 font-display text-h3 text-foreground dark:text-foreground-dark">
-                        {event.title}
-                      </h3>
-                      <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                        {event.focus}
-                      </p>
-                      <div className="mt-3 flex flex-wrap gap-3 text-caption text-muted dark:text-muted-dark">
-                        <span>{formatEventDate(event.date)}</span>
-                        <span aria-hidden="true">&middot;</span>
-                        <span>{event.location}</span>
-                        <span aria-hidden="true">&middot;</span>
-                        <span>{event.format}</span>
-                      </div>
-                    </div>
-                    <a
-                      href={event.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-caption font-medium text-accent hover:underline underline-offset-2"
-                    >
-                      Meetup details
-                    </a>
-                  </div>
-                </Card>
+                <CommunityEventCard
+                  key={`${event.title}-${event.date}`}
+                  event={event}
+                  displayDate={formatEventDate(event.date)}
+                />
               ))}
             </div>
           </Container>
@@ -280,25 +257,11 @@ export default function CommunityPage() {
             />
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {communitySpeakers.map((speaker) => (
-                <Card key={`${speaker.name}-${speaker.date}`} className="p-6">
-                  <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-                    {speaker.group}
-                  </p>
-                  <h3 className="mt-3 font-display text-h3 text-foreground dark:text-foreground-dark">
-                    {speaker.name}
-                  </h3>
-                  <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                    {speaker.topic}
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-3 text-caption text-muted dark:text-muted-dark">
-                    <span>{formatEventDate(speaker.date)}</span>
-                    <span aria-hidden="true">&middot;</span>
-                    <span>{speaker.format}</span>
-                  </div>
-                  <p className="mt-3 text-body-sm text-foreground/70 dark:text-foreground-dark/70">
-                    {speaker.note}
-                  </p>
-                </Card>
+                <SpeakerArchiveCard
+                  key={`${speaker.name}-${speaker.date}`}
+                  speaker={speaker}
+                  displayDate={formatEventDate(speaker.date)}
+                />
               ))}
             </div>
           </Container>
