@@ -1,8 +1,7 @@
-import { MDXRemote } from 'next-mdx-remote/rsc'
 import { notFound } from 'next/navigation'
 import Container from '@/components/Container'
 import Section from '@/components/ui/Section'
-import { mdxComponents } from '@/components/mdx/MDXComponents'
+import RenderedMdx from '@/components/mdx/RenderedMdx'
 import { createMetadata } from '@/lib/seo'
 import { getContentBySlug } from '@/lib/mdx'
 
@@ -49,7 +48,7 @@ export default function UsesPage() {
       <Section>
         <Container>
           <div className="prose-custom mx-auto">
-            <MDXRemote source={page.content} components={mdxComponents} />
+            <RenderedMdx source={page.content} />
           </div>
         </Container>
       </Section>

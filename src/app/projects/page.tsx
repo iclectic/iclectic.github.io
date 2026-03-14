@@ -73,6 +73,14 @@ export default function ProjectsPage() {
                   <p className="mt-2 text-body-sm text-muted dark:text-muted-dark line-clamp-3">
                     {project.description}
                   </p>
+                  <div className="mt-4 rounded-lg bg-accent/5 px-3 py-2">
+                    <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+                      Outcome
+                    </p>
+                    <p className="mt-1 text-body-sm text-foreground/80 dark:text-foreground-dark/80 line-clamp-2">
+                      {project.outcome}
+                    </p>
+                  </div>
                   <div className="mt-4 flex items-center justify-between">
                     <span className="text-caption text-muted dark:text-muted-dark">{project.category}</span>
                     {project.link.startsWith('/') ? (

@@ -6,7 +6,11 @@ import { useEffect, useState } from 'react'
 import { siteConfig } from '@/lib/siteConfig'
 import Container from './Container'
 
-const isActive = (href: string, pathname: string) => {
+const isActive = (href: string, pathname: string | null) => {
+  if (!pathname) {
+    return false
+  }
+
   if (href === '/') return pathname === '/'
   return pathname.startsWith(href)
 }

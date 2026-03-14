@@ -1,4 +1,54 @@
-export const communityRoles = [
+export interface CommunityRole {
+  name: string
+  role: string
+  link: string
+  summary: string
+}
+
+export interface CommunityMetric {
+  label: string
+  value: string
+  description: string
+}
+
+export interface CommunityItem {
+  title: string
+  description: string
+}
+
+export interface CommunityMilestone {
+  title: string
+  date: string
+  description: string
+}
+
+export interface CommunityGalleryItem {
+  title: string
+  description: string
+  type: 'Photo' | 'Poster'
+  image: string
+}
+
+export interface CommunityEvent {
+  title: string
+  date: string
+  location: string
+  format: string
+  focus: string
+  group: string
+  link: string
+}
+
+export interface CommunitySpeaker {
+  name: string
+  topic: string
+  date: string
+  group: string
+  format: string
+  note: string
+}
+
+export const communityRoles: CommunityRole[] = [
   {
     name: 'Flutter Birmingham',
     role: 'Organiser',
@@ -15,44 +65,24 @@ export const communityRoles = [
   },
 ]
 
-export const communityMetrics = [
-  {
-    label: 'Events organised',
-    value: '[Placeholder] 18+',
-    description: 'Across Flutter Birmingham and Golang Birmingham since [Placeholder] 2022.',
-  },
-  {
-    label: 'Speakers supported',
-    value: '[Placeholder] 30+',
-    description: 'Including first time speakers and returning practitioners.',
-  },
-  {
-    label: 'Average attendance',
-    value: '[Placeholder] 40 to 60',
-    description: 'Consistent turnout for practical technical sessions.',
-  },
-  {
-    label: 'Community reach',
-    value: '[Placeholder] 600+',
-    description: 'Meetup membership across both groups.',
-  },
-]
+// Add only real metrics here. Leave empty until you have confirmed numbers.
+export const communityMetrics: CommunityMetric[] = []
 
-export const communityWorkstreams = [
+export const communityWorkstreams: CommunityItem[] = [
   {
     title: 'Programming strategy',
     description:
-      'Shape quarterly themes and session formats that balance depth with clarity.',
+      'Shape themes and session formats that balance technical depth with clarity and real developer needs.',
   },
   {
     title: 'Speaker outreach',
     description:
-      'Invite engineers and community members who can share practical lessons and real delivery stories.',
+      'Invite engineers and community members who can share practical lessons and credible delivery experience.',
   },
   {
     title: 'First time speaker support',
     description:
-      'Help new speakers with abstracts, rehearsal, and confidence building so they can shine.',
+      'Help new speakers with abstracts, rehearsal, and confidence building so more people can contribute publicly.',
   },
   {
     title: 'Community partnerships',
@@ -61,29 +91,29 @@ export const communityWorkstreams = [
   },
 ]
 
-export const communityOperations = [
+export const communityOperations: CommunityItem[] = [
   {
     title: 'Event logistics',
     description:
-      'Venue planning, scheduling, and coordination so sessions run smoothly.',
+      'Venue planning, scheduling, and coordination so sessions run smoothly and attendees can focus on learning.',
   },
   {
     title: 'Session formats',
     description:
-      'Talks, panels, workshops, and open Q and A with time for practical questions.',
+      'Talks, panels, workshops, and open Q and A with time for practical questions and discussion.',
   },
   {
     title: 'Feedback loop',
     description:
-      'Post event notes to capture learnings and improve the next session.',
+      'Post event reflection and iteration so each session improves the next one.',
   },
 ]
 
-export const communityHighlights = [
+export const communityHighlights: CommunityItem[] = [
   {
     title: 'Event delivery',
     description:
-      'Consistent meetups that keep developer learning practical and relevant.',
+      'Consistent meetups that keep developer learning practical, relevant, and welcoming.',
   },
   {
     title: 'Speaker pipeline',
@@ -93,7 +123,7 @@ export const communityHighlights = [
   {
     title: 'Community growth',
     description:
-      'Focused on inclusive, welcoming meetups with clear learning outcomes.',
+      'Focused on inclusive meetups with strong technical value and clear learning outcomes.',
   },
   {
     title: 'Collaborative leadership',
@@ -102,121 +132,31 @@ export const communityHighlights = [
   },
 ]
 
-export const communityMilestones = [
-  {
-    title: '[Placeholder] Flutter Birmingham milestone',
-    date: '[Placeholder] May 2025',
-    description: 'Hosted a well attended session on production Flutter patterns.',
-  },
-  {
-    title: '[Placeholder] Golang Birmingham milestone',
-    date: '[Placeholder] November 2024',
-    description: 'Delivered a Go focused panel on reliability and system design.',
-  },
-  {
-    title: '[Placeholder] Cross community collaboration',
-    date: '[Placeholder] February 2026',
-    description: 'Co hosted a joint session on mobile and backend integration.',
-  },
-]
+// Add dated public evidence here only when each entry is real and verifiable.
+export const communityMilestones: CommunityMilestone[] = []
 
-export const communityGallery = [
-  {
-    title: '[Placeholder] Flutter Birmingham meetup',
-    description: 'Talks, networking, and Q and A.',
-    type: 'Photo',
-    image: '/images/community/flutter-birmingham-meetup.png',
-  },
-  {
-    title: '[Placeholder] Golang Birmingham session',
-    description: 'Backend engineering discussion and live demos.',
-    type: 'Photo',
-    image: '/images/community/golang-birmingham-session.png',
-  },
-  {
-    title: '[Placeholder] Event poster',
-    description: 'Speaker announcement and topic highlight.',
-    type: 'Poster',
-    image: '/images/community/community-poster.png',
-  },
-  {
-    title: '[Placeholder] Community workshop',
-    description: 'Hands on learning with guided exercises.',
-    type: 'Photo',
-    image: '/images/community/community-workshop.png',
-  },
-]
+// Add real event photos or posters here when available.
+export const communityGallery: CommunityGalleryItem[] = []
 
-export const communityEvents = [
+export const communityEvents: CommunityEvent[] = [
   {
-    title: '[Placeholder] Flutter Birmingham meetup',
-    date: '[Placeholder] 2026-05-12',
-    location: '[Placeholder] Birmingham',
-    format: 'Talks and Q and A',
-    focus: 'Flutter architecture and product delivery',
+    title: 'Avoiding headaches in state management',
+    date: '2025',
+    location: 'Birmingham, United Kingdom',
+    format: 'Talk',
+    focus: 'Practical approaches to state management in Flutter applications.',
     group: 'Flutter Birmingham',
     link: 'https://www.meetup.com/flutter-birmingham/',
   },
-  {
-    title: '[Placeholder] Flutter workshop',
-    date: '[Placeholder] 2026-06-09',
-    location: '[Placeholder] Birmingham',
-    format: 'Workshop',
-    focus: 'State management and testing',
-    group: 'Flutter Birmingham',
-    link: 'https://www.meetup.com/flutter-birmingham/',
-  },
-  {
-    title: '[Placeholder] Golang Birmingham meetup',
-    date: '[Placeholder] 2026-05-22',
-    location: '[Placeholder] Birmingham',
-    format: 'Talks and Q and A',
-    focus: 'Go for backend services',
-    group: 'Golang Birmingham',
-    link: 'https://www.meetup.com/birminghamgodevs/',
-  },
-  {
-    title: '[Placeholder] Go systems session',
-    date: '[Placeholder] 2026-06-19',
-    location: '[Placeholder] Birmingham',
-    format: 'Panel and discussion',
-    focus: 'Reliability and system design',
-    group: 'Golang Birmingham',
-    link: 'https://www.meetup.com/birminghamgodevs/',
-  },
 ]
 
-export const communitySpeakers = [
+export const communitySpeakers: CommunitySpeaker[] = [
   {
-    name: '[Placeholder] Speaker name',
-    topic: '[Placeholder] Talk title or topic',
-    date: '[Placeholder] 2026-02-14',
+    name: 'Ibim Braide',
+    topic: 'Avoiding headaches in state management',
+    date: '2025',
     group: 'Flutter Birmingham',
     format: 'Talk',
-    note: 'First time speaker supported with rehearsal and feedback.',
-  },
-  {
-    name: '[Placeholder] Speaker name',
-    topic: '[Placeholder] Talk title or topic',
-    date: '[Placeholder] 2026-03-10',
-    group: 'Flutter Birmingham',
-    format: 'Workshop',
-    note: 'Hands on session with practical exercises.',
-  },
-  {
-    name: '[Placeholder] Speaker name',
-    topic: '[Placeholder] Talk title or topic',
-    date: '[Placeholder] 2026-01-21',
-    group: 'Golang Birmingham',
-    format: 'Talk',
-    note: 'Focused on backend architecture and delivery trade offs.',
-  },
-  {
-    name: '[Placeholder] Speaker name',
-    topic: '[Placeholder] Talk title or topic',
-    date: '[Placeholder] 2025-12-12',
-    group: 'Golang Birmingham',
-    format: 'Panel',
-    note: 'Collaborative session with multiple perspectives.',
+    note: 'A practical session on state management challenges, architectural patterns, and maintainable Flutter codebases.',
   },
 ]

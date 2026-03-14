@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Container from '@/components/Container'
 import Button from '@/components/ui/Button'
 import Section from '@/components/ui/Section'
@@ -44,8 +43,8 @@ export default async function OpenSourcePage() {
             Open source work rooted in clarity and respect for maintainers
           </h1>
           <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            I contribute through issue triage, documentation improvements, and targeted fixes. My goal is to reduce
-            friction for users and maintainers while learning in public.
+            I contribute through public repositories, documentation improvements, community tooling, and targeted fixes.
+            My goal is to reduce friction for users and maintainers while learning in public.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button href={siteConfig.author.github} variant="primary" external>
@@ -77,35 +76,46 @@ export default async function OpenSourcePage() {
       <Section>
         <Container>
           <SectionHeader
-            title="Recent contributions"
-            description="A curated snapshot of issues, PRs, and discussions. Each item links to the original context."
+            title="Recent public work"
+            description="Live GitHub activity when available, otherwise curated repository work that shows how I build in public."
             action={
               <Button href={siteConfig.author.github} variant="link" external>
                 See more on GitHub
               </Button>
             }
           />
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            {contributions.map((item) => (
-              <ContributionCard key={`${item.project}-${item.title}`} {...item} />
-            ))}
-          </div>
+          {contributions.length > 0 ? (
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+              {contributions.map((item) => (
+                <ContributionCard key={`${item.project}-${item.title}`} {...item} />
+              ))}
+            </div>
+          ) : (
+            <Card className="mt-8 p-6">
+              <p className="text-body text-muted dark:text-muted-dark">
+                Live GitHub activity will appear here when recent contribution data is available. Until then, the page
+                only shows sections backed by real evidence.
+              </p>
+            </Card>
+          )}
         </Container>
       </Section>
 
-      <Section>
-        <Container>
-          <SectionHeader
-            title="Repositories and ecosystems"
-            description="Projects where I have focused my attention and why they matter."
-          />
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {repositories.map((repo) => (
-              <RepoCard key={repo.name} {...repo} />
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {repositories.length > 0 && (
+        <Section>
+          <Container>
+            <SectionHeader
+              title="Selected public repositories"
+              description="Repositories that reflect the kind of software, tooling, and community infrastructure I build in the open."
+            />
+            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {repositories.map((repo) => (
+                <RepoCard key={repo.name} {...repo} />
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
 
       <Section>
         <Container>
@@ -145,40 +155,6 @@ export default async function OpenSourcePage() {
                 strengthens tooling, and improves my own engineering judgement.
               </p>
             </Card>
-          </div>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <SectionHeader
-            title="Proof and consistency"
-            description="A visible trail of work, not a highlight reel. Replace the placeholder graph with a real snapshot."
-          />
-          <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="text-body text-muted dark:text-muted-dark">
-                I keep my contributions steady and focused on clarity, maintainability, and real user outcomes. When the
-                work is small, I make the impact explicit so the value is honest and easy to assess.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button href={siteConfig.author.github} variant="secondary" external>
-                  GitHub profile
-                </Button>
-                <Button href="/contact" variant="ghost">
-                  Collaborate with me
-                </Button>
-              </div>
-            </div>
-            <div className="relative w-full overflow-hidden rounded-2xl border border-border dark:border-border-dark">
-              <Image
-                src="/images/open-source/contribution-graph-placeholder.svg"
-                alt="Placeholder GitHub contribution graph"
-                width={800}
-                height={360}
-                className="h-auto w-full"
-              />
-            </div>
           </div>
         </Container>
       </Section>

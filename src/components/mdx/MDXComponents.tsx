@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import type { ComponentPropsWithoutRef } from 'react'
 
@@ -57,8 +58,33 @@ function Heading3(props: ComponentPropsWithoutRef<'h3'>) {
   return <h3 {...props} />
 }
 
-function Image(props: ComponentPropsWithoutRef<'img'>) {
-  return <img loading="lazy" {...props} />
+function MDXImage({
+  src = '',
+  alt = '',
+  width,
+  height,
+  className,
+}: ComponentPropsWithoutRef<'img'>) {
+  if (!src) {
+    return null
+  }
+
+  const parsedWidth = typeof width === 'string' ? Number.parseInt(width, 10) : width
+  const parsedHeight = typeof height === 'string' ? Number.parseInt(height, 10) : height
+  const resolvedWidth = Number.isFinite(parsedWidth) ? Number(parsedWidth) : 1200
+  const resolvedHeight = Number.isFinite(parsedHeight) ? Number(parsedHeight) : 675
+
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={resolvedWidth}
+      height={resolvedHeight}
+      sizes="(max-width: 768px) 100vw, 768px"
+      className={className ?? 'h-auto w-full rounded-xl'}
+      unoptimized
+    />
+  )
 }
 
 export const mdxComponents = {
@@ -71,5 +97,5 @@ export const mdxComponents = {
   ul: UnorderedList,
   ol: OrderedList,
   li: ListItem,
-  img: Image,
+  img: MDXImage,
 }

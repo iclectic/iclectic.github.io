@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { MDXRemote } from 'next-mdx-remote/rsc'
 import Container from '@/components/Container'
 import Section from '@/components/ui/Section'
 import Tag from '@/components/ui/Tag'
-import { mdxComponents } from '@/components/mdx/MDXComponents'
+import RenderedMdx from '@/components/mdx/RenderedMdx'
 import { createMetadata } from '@/lib/seo'
 import { getAllSlugs, getContentBySlug } from '@/lib/mdx'
 
@@ -91,7 +90,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
       <Section>
         <Container>
           <div className="prose-custom mx-auto">
-            <MDXRemote source={article.content} components={mdxComponents} />
+            <RenderedMdx source={article.content} />
           </div>
         </Container>
       </Section>

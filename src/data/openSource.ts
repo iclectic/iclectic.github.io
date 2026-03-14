@@ -1,15 +1,38 @@
+export interface OpenSourceHighlight {
+  title: string
+  description: string
+}
+
+export interface OpenSourceContribution {
+  type: string
+  project: string
+  title: string
+  summary: string
+  date: string
+  link: string
+  impact?: string
+}
+
+export interface OpenSourceRepository {
+  name: string
+  description: string
+  why: string
+  link: string
+  tags: string[]
+}
+
 export const openSourceFocusAreas = [
-  'Developer tooling and infrastructure projects',
-  'Python ecosystems and libraries',
+  'Public Flutter repositories and product experiments',
+  'Community tooling and event infrastructure',
+  'Developer education through teaching demos and examples',
   'Documentation clarity and onboarding',
-  'Collaboration with maintainers to improve quality and usability',
 ]
 
-export const openSourceHighlights = [
+export const openSourceHighlights: OpenSourceHighlight[] = [
   {
     title: 'Issue reporting and triage',
     description:
-      'Documenting clear reproduction steps so maintainers can act quickly. [Placeholder] Add links to specific issues.',
+      'Documenting clear reproduction steps so maintainers can act quickly and confidently.',
   },
   {
     title: 'Documentation improvements',
@@ -23,74 +46,85 @@ export const openSourceHighlights = [
   },
 ]
 
-export const openSourceContributions = [
+export const openSourceContributions: OpenSourceContribution[] = [
   {
-    type: 'Pull request',
-    project: '[Placeholder] Project name',
-    title: 'Clarified installation steps for first time contributors',
+    type: 'Public repository',
+    project: 'iclectic/TEXTARA',
+    title: 'Built an offline EPUB and PDF reader in Flutter',
     summary:
-      'Updated the README to reduce setup friction and highlight required environment variables.',
-    date: '2026-02-12',
-    link: '[Placeholder] https://github.com/org/repo/pull/123',
+      'Public Flutter repository for a DRM free reader focused on offline use, accessibility, and a polished reading experience.',
+    date: '2026-03-05',
+    link: 'https://github.com/iclectic/TEXTARA',
     impact:
-      'Improved onboarding and reduced repeated setup questions in the issue tracker.',
+      'Shows product level Flutter work in the open, with a clear focus on offline reliability and user experience.',
   },
   {
-    type: 'Issue',
-    project: '[Placeholder] Project name',
-    title: 'Reported edge case in configuration loading',
+    type: 'Public repository',
+    project: 'iclectic/State-Layers-Demo',
+    title: 'Built a Flutter demo for teaching layered state management',
     summary:
-      'Shared a minimal reproduction and logs to help maintainers isolate the bug.',
-    date: '2026-01-18',
-    link: '[Placeholder] https://github.com/org/repo/issues/456',
+      'Small conference-ready demo that explains local, shared, and app-level state in one practical teaching example.',
+    date: '2026-02-27',
+    link: 'https://github.com/iclectic/State-Layers-Demo',
     impact:
-      'Enabled a faster fix and clearer release notes for affected users.',
+      'Turns a talk topic into a reusable learning asset for Flutter developers and community sessions.',
   },
   {
-    type: 'Discussion',
-    project: '[Placeholder] Project name',
-    title: 'Suggested a clearer roadmap for breaking changes',
+    type: 'Public repository',
+    project: 'iclectic/checkin-qr',
+    title: 'Built an offline friendly QR check in workflow for meetups',
     summary:
-      'Provided feedback on migration guidance to keep developer workflows stable.',
-    date: '2025-12-05',
-    link: '[Placeholder] https://github.com/org/repo/discussions/789',
+      'Community operations tool that creates events, scans QR codes, supports manual check ins, and exports attendance data.',
+    date: '2026-02-01',
+    link: 'https://github.com/iclectic/checkin-qr',
     impact:
-      'Helped align documentation with real world upgrade paths.',
+      'Converts meetup administration into maintainable software instead of a repeated spreadsheet process.',
   },
   {
-    type: 'Pull request',
-    project: '[Placeholder] Project name',
-    title: 'Improved error message for failed authentication',
+    type: 'Public repository',
+    project: 'iclectic/flutter-birmingham-hub',
+    title: 'Created a community hub for event management and impact tracking',
     summary:
-      'Adjusted error handling to surface actionable messages for users.',
-    date: '2025-11-20',
-    link: '[Placeholder] https://github.com/org/repo/pull/321',
+      'Public repository for organiser workflows, event management, and community reporting around Flutter Birmingham.',
+    date: '2026-01-26',
+    link: 'https://github.com/iclectic/flutter-birmingham-hub',
     impact:
-      'Reduced ambiguity and improved debugging experience.',
+      'Connects community leadership with measurable organiser workflows and a clearer operational record.',
   },
 ]
 
-export const openSourceRepositories = [
+export const openSourceRepositories: OpenSourceRepository[] = [
   {
-    name: '[Placeholder] Repository name',
-    description: 'Developer tooling library used by teams to automate routine tasks.',
-    why: 'Contributed documentation updates and bug triage to improve onboarding.',
-    link: '[Placeholder] https://github.com/org/repo',
-    tags: ['Tooling', 'Documentation'],
+    name: 'State-Layers-Demo',
+    description:
+      'Flutter demo application that illustrates local widget state, shared state with Provider, and app-level state in one clear teaching example.',
+    why: 'Useful as a practical reference for talks, workshops, and onboarding around Flutter state management.',
+    link: 'https://github.com/iclectic/State-Layers-Demo',
+    tags: ['Flutter', 'State Management', 'Developer Education'],
   },
   {
-    name: '[Placeholder] Repository name',
-    description: 'Infrastructure utility focused on reliability and observability.',
-    why: 'Provided issue reproduction steps and reviewed configuration defaults.',
-    link: '[Placeholder] https://github.com/org/repo',
-    tags: ['Infrastructure', 'Reliability'],
+    name: 'checkin-qr',
+    description:
+      'Offline friendly Flutter check in tool for community events with QR scanning, manual check ins, and attendance export.',
+    why: 'Shows how community operations can be turned into focused software rather than handled manually each time.',
+    link: 'https://github.com/iclectic/checkin-qr',
+    tags: ['Flutter', 'Community Tools', 'QR'],
   },
   {
-    name: '[Placeholder] Repository name',
-    description: 'Python library supporting developer productivity workflows.',
-    why: 'Contributed to API clarity and improved error messaging.',
-    link: '[Placeholder] https://github.com/org/repo',
-    tags: ['Python', 'Developer Experience'],
+    name: 'flutter-birmingham-hub',
+    description:
+      'Community hub repository focused on event workflows, programme support, and data-informed community operations.',
+    why: 'Connects organising work with product thinking and measurable community delivery.',
+    link: 'https://github.com/iclectic/flutter-birmingham-hub',
+    tags: ['Flutter', 'Community', 'Firebase'],
+  },
+  {
+    name: 'TEXTARA',
+    description:
+      'Flutter reading application for EPUB and PDF files with offline access, accessibility concerns, and a premium product feel.',
+    why: 'Demonstrates product quality, offline handling, and user experience work in a public codebase.',
+    link: 'https://github.com/iclectic/TEXTARA',
+    tags: ['Flutter', 'Offline', 'Product'],
   },
 ]
 

@@ -24,6 +24,14 @@ export const metadata = createMetadata({
 })
 
 function formatEventDate(dateString: string) {
+  if (/^\d{4}$/.test(dateString)) {
+    return dateString
+  }
+
+  if (/^[A-Za-z]+\s+\d{4}$/.test(dateString)) {
+    return dateString
+  }
+
   const date = new Date(dateString)
   if (Number.isNaN(date.getTime())) {
     return dateString
@@ -69,29 +77,31 @@ export default function CommunityPage() {
         </Container>
       </section>
 
-      <Section>
-        <Container>
-          <SectionHeader
-            title="Leadership snapshot"
-            description="Evidence of consistent delivery and collaborative leadership."
-          />
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {communityMetrics.map((metric) => (
-              <Card key={metric.label} className="p-6">
-                <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-                  {metric.label}
-                </p>
-                <p className="mt-3 font-display text-h2 text-foreground dark:text-foreground-dark">
-                  {metric.value}
-                </p>
-                <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                  {metric.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {communityMetrics.length > 0 ? (
+        <Section>
+          <Container>
+            <SectionHeader
+              title="Leadership snapshot"
+              description="Evidence of consistent delivery and collaborative leadership."
+            />
+            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {communityMetrics.map((metric) => (
+                <Card key={metric.label} className="p-6">
+                  <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+                    {metric.label}
+                  </p>
+                  <p className="mt-3 font-display text-h2 text-foreground dark:text-foreground-dark">
+                    {metric.value}
+                  </p>
+                  <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
+                    {metric.description}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
       <Section>
         <Container>
@@ -186,137 +196,145 @@ export default function CommunityPage() {
         </Container>
       </Section>
 
-      <Section>
-        <Container>
-          <SectionHeader
-            title="Events calendar"
-            description="A running list of recent and upcoming sessions across both communities."
-          />
-          <div className="mt-8 space-y-4">
-            {communityEvents.map((event) => (
-              <Card key={`${event.title}-${event.date}`} className="p-6">
-                <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                  <div>
-                    <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-                      {event.group}
-                    </p>
-                    <h3 className="mt-3 font-display text-h3 text-foreground dark:text-foreground-dark">
-                      {event.title}
-                    </h3>
-                    <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                      {event.focus}
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-3 text-caption text-muted dark:text-muted-dark">
-                      <span>{formatEventDate(event.date)}</span>
-                      <span aria-hidden="true">&middot;</span>
-                      <span>{event.location}</span>
-                      <span aria-hidden="true">&middot;</span>
-                      <span>{event.format}</span>
+      {communityEvents.length > 0 ? (
+        <Section>
+          <Container>
+            <SectionHeader
+              title="Events calendar"
+              description="A running list of recent and upcoming sessions across both communities."
+            />
+            <div className="mt-8 space-y-4">
+              {communityEvents.map((event) => (
+                <Card key={`${event.title}-${event.date}`} className="p-6">
+                  <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                    <div>
+                      <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+                        {event.group}
+                      </p>
+                      <h3 className="mt-3 font-display text-h3 text-foreground dark:text-foreground-dark">
+                        {event.title}
+                      </h3>
+                      <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
+                        {event.focus}
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-3 text-caption text-muted dark:text-muted-dark">
+                        <span>{formatEventDate(event.date)}</span>
+                        <span aria-hidden="true">&middot;</span>
+                        <span>{event.location}</span>
+                        <span aria-hidden="true">&middot;</span>
+                        <span>{event.format}</span>
+                      </div>
                     </div>
+                    <a
+                      href={event.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-caption font-medium text-accent hover:underline underline-offset-2"
+                    >
+                      Meetup details
+                    </a>
                   </div>
-                  <a
-                    href={event.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-caption font-medium text-accent hover:underline underline-offset-2"
-                  >
-                    Meetup details
-                  </a>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
-      <Section>
-        <Container>
-          <SectionHeader
-            title="Speaker archive"
-            description="A record of speakers and sessions I have supported."
-          />
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {communitySpeakers.map((speaker) => (
-              <Card key={`${speaker.name}-${speaker.date}`} className="p-6">
-                <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-                  {speaker.group}
-                </p>
-                <h3 className="mt-3 font-display text-h3 text-foreground dark:text-foreground-dark">
-                  {speaker.name}
-                </h3>
-                <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                  {speaker.topic}
-                </p>
-                <div className="mt-3 flex flex-wrap gap-3 text-caption text-muted dark:text-muted-dark">
-                  <span>{formatEventDate(speaker.date)}</span>
-                  <span aria-hidden="true">&middot;</span>
-                  <span>{speaker.format}</span>
-                </div>
-                <p className="mt-3 text-body-sm text-foreground/70 dark:text-foreground-dark/70">
-                  {speaker.note}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {communitySpeakers.length > 0 ? (
+        <Section>
+          <Container>
+            <SectionHeader
+              title="Speaker archive"
+              description="A record of speakers and sessions I have supported."
+            />
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {communitySpeakers.map((speaker) => (
+                <Card key={`${speaker.name}-${speaker.date}`} className="p-6">
+                  <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+                    {speaker.group}
+                  </p>
+                  <h3 className="mt-3 font-display text-h3 text-foreground dark:text-foreground-dark">
+                    {speaker.name}
+                  </h3>
+                  <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
+                    {speaker.topic}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-3 text-caption text-muted dark:text-muted-dark">
+                    <span>{formatEventDate(speaker.date)}</span>
+                    <span aria-hidden="true">&middot;</span>
+                    <span>{speaker.format}</span>
+                  </div>
+                  <p className="mt-3 text-body-sm text-foreground/70 dark:text-foreground-dark/70">
+                    {speaker.note}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
-      <Section tone="subtle">
-        <Container>
-          <SectionHeader
-            title="Milestones and momentum"
-            description="A short record of community moments worth noting."
-          />
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {communityMilestones.map((item) => (
-              <Card key={item.title} className="p-6">
-                <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-                  {item.date}
-                </p>
-                <h3 className="mt-3 font-display text-h3 text-foreground dark:text-foreground-dark">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                  {item.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {communityMilestones.length > 0 ? (
+        <Section tone="subtle">
+          <Container>
+            <SectionHeader
+              title="Milestones and momentum"
+              description="A short record of community moments worth noting."
+            />
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {communityMilestones.map((item) => (
+                <Card key={item.title} className="p-6">
+                  <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+                    {item.date}
+                  </p>
+                  <h3 className="mt-3 font-display text-h3 text-foreground dark:text-foreground-dark">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
+                    {item.description}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
-      <Section>
-        <Container>
-          <SectionHeader
-            title="Gallery and media"
-            description="Use photos, posters, and highlights to show the communities in action."
-          />
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {communityGallery.map((item) => (
-              <Card key={item.title} className="p-5">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border dark:border-border-dark">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  />
-                  <span className="absolute left-3 top-3 rounded-full bg-background/90 px-3 py-1 text-caption font-medium text-foreground shadow-sm backdrop-blur dark:bg-background-dark/90 dark:text-foreground-dark">
-                    {item.type}
-                  </span>
-                </div>
-                <h3 className="mt-4 font-display text-h3 text-foreground dark:text-foreground-dark">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                  {item.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {communityGallery.length > 0 ? (
+        <Section>
+          <Container>
+            <SectionHeader
+              title="Gallery and media"
+              description="Photos, posters, and highlights from community activity."
+            />
+            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {communityGallery.map((item) => (
+                <Card key={item.title} className="p-5">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border dark:border-border-dark">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    />
+                    <span className="absolute left-3 top-3 rounded-full bg-background/90 px-3 py-1 text-caption font-medium text-foreground shadow-sm backdrop-blur dark:bg-background-dark/90 dark:text-foreground-dark">
+                      {item.type}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-display text-h3 text-foreground dark:text-foreground-dark">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
+                    {item.description}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
       <Section tone="subtle">
         <Container>

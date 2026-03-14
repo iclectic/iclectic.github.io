@@ -240,6 +240,14 @@ export default async function HomePage() {
                     <p className="mt-2 text-body-sm text-muted dark:text-muted-dark line-clamp-3">
                       {project.description}
                     </p>
+                    <div className="mt-4 rounded-lg bg-accent/5 px-3 py-2">
+                      <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+                        Outcome
+                      </p>
+                      <p className="mt-1 text-body-sm text-foreground/80 dark:text-foreground-dark/80 line-clamp-2">
+                        {project.outcome}
+                      </p>
+                    </div>
                   </div>
                 </article>
               ))}
@@ -299,22 +307,31 @@ export default async function HomePage() {
             <div>
               <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Open source contributions</h2>
               <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                I contribute to developer tooling and infrastructure projects through issues, documentation, and collaboration
-                with maintainers. Open source keeps my engineering honest and grounded in shared standards.
+                I contribute through public repositories, community tooling, documentation, and collaboration with
+                maintainers. Open source keeps my engineering honest and grounded in shared standards.
               </p>
-              <div className="mt-6 rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-5">
-                <p className="text-body-sm font-semibold text-foreground dark:text-foreground-dark">
-                  Recent contributions
-                </p>
-                <ul className="mt-3 space-y-3 text-body-sm text-muted dark:text-muted-dark list-disc pl-5">
-                  {recentContributions.map((item) => (
-                    <li key={`${item.project}-${item.title}`}>
-                      <span className="font-medium text-foreground dark:text-foreground-dark">{item.type}</span>{' '}
-                      in {item.project}: {item.title}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {recentContributions.length > 0 ? (
+                <div className="mt-6 rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-5">
+                  <p className="text-body-sm font-semibold text-foreground dark:text-foreground-dark">
+                    Recent contributions
+                  </p>
+                  <ul className="mt-3 space-y-3 text-body-sm text-muted dark:text-muted-dark list-disc pl-5">
+                    {recentContributions.map((item) => (
+                      <li key={`${item.project}-${item.title}`}>
+                        <span className="font-medium text-foreground dark:text-foreground-dark">{item.type}</span>{' '}
+                        in {item.project}: {item.title}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <div className="mt-6 rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-5">
+                  <p className="text-body-sm text-muted dark:text-muted-dark">
+                    I publish open source work here when there is a clear contribution trail to show, rather than
+                    padding the page with filler.
+                  </p>
+                </div>
+              )}
               <Link
                 href="/open-source"
                 className="mt-4 inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"

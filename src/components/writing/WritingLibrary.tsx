@@ -87,15 +87,15 @@ export default function WritingLibrary({ articles }: WritingLibraryProps) {
         activeCategory === 'All' || article.tags?.includes(activeCategory)
       const seriesMatch = activeSeries === 'All' || article.series === activeSeries
       const queryMatch = normalisedQuery.length === 0
-        ? true
-        : [
-            article.title,
-            article.description,
-            article.series,
-            ...(article.tags ?? []),
-          ]
-            .filter(Boolean)
-            .some((value) => value.toLowerCase().includes(normalisedQuery))
+          ? true
+          : [
+              article.title,
+              article.description,
+              article.series,
+              ...(article.tags ?? []),
+            ]
+              .filter((value): value is string => Boolean(value))
+              .some((value) => value.toLowerCase().includes(normalisedQuery))
       return categoryMatch && seriesMatch && queryMatch
     })
   }, [articles, activeCategory, activeSeries, query])

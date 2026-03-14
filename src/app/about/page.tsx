@@ -38,7 +38,7 @@ export default function AboutPage() {
               </h1>
               <p className="mt-5 max-w-2xl text-body text-foreground/80 dark:text-foreground-dark/80">
                 I am Ibim Braide, a freelance software engineer and community organiser based in the United Kingdom. I
-                hold a Bachelor of Engineering degree from the University of Benin and a Master's degree in Computer
+                hold a Bachelor of Engineering degree from the University of Benin and a Master&apos;s degree in Computer
                 Science from Birmingham City University.
               </p>
               <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
