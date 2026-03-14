@@ -1,6 +1,6 @@
-import Container from '@/components/Container'
-import ContactForm from '@/components/ContactForm'
-import Button from '@/components/ui/Button'
+import ContactForm from '@/components/forms/ContactForm'
+import Button from '@/components/primitives/Button'
+import Container from '@/components/primitives/Container'
 import { createMetadata } from '@/lib/seo'
 import { siteConfig } from '@/lib/siteConfig'
 

@@ -1,9 +1,10 @@
-import Container from '@/components/Container'
-import Button from '@/components/ui/Button'
-import Card from '@/components/ui/Card'
-import Section from '@/components/ui/Section'
-import SectionHeader from '@/components/ui/SectionHeader'
-import ArticleCard from '@/components/ui/ArticleCard'
+import PageHero from '@/components/layout/PageHero'
+import SectionHeader from '@/components/layout/SectionHeader'
+import Button from '@/components/primitives/Button'
+import Card from '@/components/primitives/Card'
+import Container from '@/components/primitives/Container'
+import Section from '@/components/primitives/Section'
+import ArticleCard from '@/components/cards/ArticleCard'
 import WritingLibrary from '@/components/writing/WritingLibrary'
 import { createMetadata } from '@/lib/seo'
 import { getAllWriting } from '@/lib/mdx'
@@ -76,28 +77,20 @@ export default function WritingPage() {
 
   return (
     <>
-      <section className="pt-20 pb-16 md:pt-28 md:pb-20">
-        <Container>
-          <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-            Writing
-          </p>
-          <h1 className="mt-4 font-display text-h1 text-foreground dark:text-foreground-dark">
-            Writing that turns engineering work into shared learning
-          </h1>
-          <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            I write about software delivery, responsible technology, open source, and community leadership. The goal
-            is clarity, practical takeaways, and a point of view shaped by real delivery work.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button href="https://dev.to/intelgreatnez" variant="secondary" external>
-              Dev.to profile
-            </Button>
-            <Button href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6153030" variant="ghost" external>
-              SSRN research
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Writing"
+        title="Writing that turns engineering work into shared learning"
+        description="I write about software delivery, responsible technology, open source, and community leadership. The goal is clarity, practical takeaways, and a point of view shaped by real delivery work."
+        actions={[
+          { label: 'Dev.to profile', href: 'https://dev.to/intelgreatnez', variant: 'secondary', external: true },
+          {
+            label: 'SSRN research',
+            href: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6153030',
+            variant: 'ghost',
+            external: true,
+          },
+        ]}
+      />
 
       <Section>
         <Container>

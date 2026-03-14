@@ -1,9 +1,10 @@
-import Container from '@/components/Container'
-import Button from '@/components/ui/Button'
-import Section from '@/components/ui/Section'
-import SectionHeader from '@/components/ui/SectionHeader'
-import Card from '@/components/ui/Card'
-import Tag from '@/components/ui/Tag'
+import PageHero from '@/components/layout/PageHero'
+import SectionHeader from '@/components/layout/SectionHeader'
+import Button from '@/components/primitives/Button'
+import Card from '@/components/primitives/Card'
+import Container from '@/components/primitives/Container'
+import Section from '@/components/primitives/Section'
+import Tag from '@/components/primitives/Tag'
 import { createMetadata } from '@/lib/seo'
 import { organiserExpectations, speakingEngagements, speakingTopics } from '@/data/speaking'
 
@@ -16,31 +17,16 @@ export const metadata = createMetadata({
 export default function SpeakingPage() {
   return (
     <>
-      <section className="pt-20 pb-16 md:pt-28 md:pb-20">
-        <Container>
-          <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-            Speaking
-          </p>
-          <h1 className="mt-4 font-display text-h1 text-foreground dark:text-foreground-dark">
-            Talks focused on practical engineering and community impact
-          </h1>
-          <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            I speak about engineering craft, Flutter, delivery clarity, and community leadership. Sessions are designed
-            to be practical, grounded in real work, and useful for teams or meetup audiences rather than performative.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button href="/contact" variant="primary">
-              Invite me to speak
-            </Button>
-            <Button href="/community" variant="secondary">
-              View community work
-            </Button>
-            <Button href="/writing" variant="ghost">
-              Read my writing
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Speaking"
+        title="Talks focused on practical engineering and community impact"
+        description="I speak about engineering craft, Flutter, delivery clarity, and community leadership. Sessions are designed to be practical, grounded in real work, and useful for teams or meetup audiences rather than performative."
+        actions={[
+          { label: 'Invite me to speak', href: '/contact', variant: 'primary' },
+          { label: 'View community work', href: '/community', variant: 'secondary' },
+          { label: 'Read my writing', href: '/writing', variant: 'ghost' },
+        ]}
+      />
 
       <Section>
         <Container>

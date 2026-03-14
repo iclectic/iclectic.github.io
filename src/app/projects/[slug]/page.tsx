@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import Container from '@/components/Container'
-import Section from '@/components/ui/Section'
-import Tag from '@/components/ui/Tag'
-import RelatedLinks from '@/components/ui/RelatedLinks'
-import RenderedMdx from '@/components/mdx/RenderedMdx'
+import RelatedLinks from '@/components/blocks/RelatedLinks'
+import MDXContent from '@/components/mdx/MDXContent'
+import Container from '@/components/primitives/Container'
+import Section from '@/components/primitives/Section'
+import Tag from '@/components/primitives/Tag'
 import { projects } from '@/data/projects'
 import { relatedProjectLinks } from '@/data/relatedContent'
 import { createMetadata } from '@/lib/seo'
@@ -147,7 +147,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       <Section>
         <Container>
           <div className="prose-custom mx-auto">
-            <RenderedMdx source={project.content} />
+            <MDXContent source={project.content} />
           </div>
         </Container>
       </Section>

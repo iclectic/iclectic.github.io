@@ -1,10 +1,11 @@
-import Container from '@/components/Container'
-import Button from '@/components/ui/Button'
-import Section from '@/components/ui/Section'
-import SectionHeader from '@/components/ui/SectionHeader'
-import Card from '@/components/ui/Card'
-import ContributionCard from '@/components/ui/ContributionCard'
-import RepoCard from '@/components/ui/RepoCard'
+import PageHero from '@/components/layout/PageHero'
+import SectionHeader from '@/components/layout/SectionHeader'
+import Button from '@/components/primitives/Button'
+import Card from '@/components/primitives/Card'
+import Container from '@/components/primitives/Container'
+import Section from '@/components/primitives/Section'
+import ContributionCard from '@/components/cards/ContributionCard'
+import RepoCard from '@/components/cards/RepoCard'
 import { createMetadata } from '@/lib/seo'
 import { getGitHubActivity, getGitHubUsername } from '@/lib/github'
 import {
@@ -33,28 +34,15 @@ export default async function OpenSourcePage() {
 
   return (
     <>
-      <section className="pt-20 pb-16 md:pt-28 md:pb-20">
-        <Container>
-          <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-            Open Source
-          </p>
-          <h1 className="mt-4 font-display text-h1 text-foreground dark:text-foreground-dark">
-            Open source work rooted in clarity and respect for maintainers
-          </h1>
-          <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            I separate the work I maintain in public from contributions to other projects. That keeps the page honest
-            and makes it easier to assess how I build, document, and collaborate.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button href={siteConfig.author.github} variant="primary" external>
-              View GitHub profile
-            </Button>
-            <Button href="/contact" variant="secondary">
-              Collaborate on open source
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Open Source"
+        title="Open source work rooted in clarity and respect for maintainers"
+        description="I separate the work I maintain in public from contributions to other projects. That keeps the page honest and makes it easier to assess how I build, document, and collaborate."
+        actions={[
+          { label: 'View GitHub profile', href: siteConfig.author.github, variant: 'primary', external: true },
+          { label: 'Collaborate on open source', href: '/contact', variant: 'secondary' },
+        ]}
+      />
 
       <Section>
         <Container>

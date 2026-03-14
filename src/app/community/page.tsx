@@ -1,9 +1,10 @@
 import Image from 'next/image'
-import Container from '@/components/Container'
-import Button from '@/components/ui/Button'
-import Section from '@/components/ui/Section'
-import SectionHeader from '@/components/ui/SectionHeader'
-import Card from '@/components/ui/Card'
+import PageHero from '@/components/layout/PageHero'
+import SectionHeader from '@/components/layout/SectionHeader'
+import Button from '@/components/primitives/Button'
+import Card from '@/components/primitives/Card'
+import Container from '@/components/primitives/Container'
+import Section from '@/components/primitives/Section'
 import {
   communityGallery,
   communityEvents,
@@ -48,35 +49,27 @@ function formatEventDate(dateString: string) {
 export default function CommunityPage() {
   return (
     <>
-      <section className="pt-20 pb-16 md:pt-28 md:pb-20">
-        <Container>
-          <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-            Community
-          </p>
-          <h1 className="mt-4 font-display text-h1 text-foreground dark:text-foreground-dark">
-            Community leadership grounded in practical engineering
-          </h1>
-          <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            I organise Flutter Birmingham and help lead Golang Birmingham with the organising team. I focus on
-            practical learning, inclusive communities, and creating space for engineers to share honest delivery
-            lessons.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button href="https://www.meetup.com/flutter-birmingham/" variant="secondary" external>
-              Flutter Birmingham meetup
-            </Button>
-            <Button href="https://www.meetup.com/birminghamgodevs/" variant="secondary" external>
-              Golang Birmingham meetup
-            </Button>
-            <Button href="/speaking" variant="secondary">
-              View speaking work
-            </Button>
-            <Button href="/contact" variant="ghost">
-              Partner with the community
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Community"
+        title="Community leadership grounded in practical engineering"
+        description="I organise Flutter Birmingham and help lead Golang Birmingham with the organising team. I focus on practical learning, inclusive communities, and creating space for engineers to share honest delivery lessons."
+        actions={[
+          {
+            label: 'Flutter Birmingham meetup',
+            href: 'https://www.meetup.com/flutter-birmingham/',
+            variant: 'secondary',
+            external: true,
+          },
+          {
+            label: 'Golang Birmingham meetup',
+            href: 'https://www.meetup.com/birminghamgodevs/',
+            variant: 'secondary',
+            external: true,
+          },
+          { label: 'View speaking work', href: '/speaking', variant: 'secondary' },
+          { label: 'Partner with the community', href: '/contact', variant: 'ghost' },
+        ]}
+      />
 
       {communityMetrics.length > 0 ? (
         <Section>

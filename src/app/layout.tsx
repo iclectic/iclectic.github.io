@@ -1,9 +1,9 @@
 import '../styles/globals.css'
 import type { Metadata } from 'next'
 import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
-import Header from '@/components/Header'
-import FooterNew from '@/components/FooterNew'
-import SkipToContent from '@/components/SkipToContent'
+import Footer from '@/components/layout/Footer'
+import Header from '@/components/layout/Header'
+import SkipToContent from '@/components/layout/SkipToContent'
 import { siteConfig } from '@/lib/siteConfig'
 
 const plexSans = IBM_Plex_Sans({
@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SkipToContent />
         <Header />
         <main id="main-content">{children}</main>
-        <FooterNew />
+        <Footer />
       </body>
     </html>
   )
