@@ -28,6 +28,28 @@ export default async function HomePage() {
   const recentContributions = githubActivity.length > 0
     ? githubActivity
     : openSourceContributions.slice(0, 3)
+  const proofItems = [
+    {
+      label: 'Education',
+      value: 'BEng Computer Engineering, University of Benin',
+      detail: 'MSc Computer Science, Birmingham City University',
+    },
+    {
+      label: 'Community',
+      value: 'Organiser, Flutter Birmingham',
+      detail: 'Organising team, Golang Birmingham',
+    },
+    {
+      label: 'Public work',
+      value: 'Open source contributor and technical writer',
+      detail: 'Public repositories, articles, and speaking work',
+    },
+    {
+      label: 'Availability',
+      value: 'Freelance engineer based in the United Kingdom',
+      detail: 'Mobile and full stack delivery with clear scope and outcomes',
+    },
+  ] as const
 
   const personSchema = {
     '@context': 'https://schema.org',
@@ -93,11 +115,14 @@ export default async function HomePage() {
                 to open source and write about engineering practice, AI ethics, and community building.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <Button href="/projects" variant="primary">
-                  View projects
-                </Button>
-                <Button href="/case-studies" variant="secondary">
+                <Button href="/case-studies" variant="primary">
                   Read case studies
+                </Button>
+                <Button href="/cv" variant="secondary">
+                  View CV
+                </Button>
+                <Button href="/projects" variant="ghost">
+                  View projects
                 </Button>
                 <Button href="/contact" variant="link">
                   Get in touch
@@ -122,21 +147,41 @@ export default async function HomePage() {
 
       <Section tone="subtle">
         <Container>
-          <h2 className="mb-4 text-body-sm font-semibold uppercase tracking-[0.2em] text-muted dark:text-muted-dark text-center">
-            Proof and highlights
-          </h2>
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-caption text-muted dark:text-muted-dark">
-            <span>MSc Computer Science, Birmingham City University</span>
-            <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
-            <span>BCS Certified</span>
-            <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
-            <span>Organiser, Flutter Birmingham</span>
-            <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
-            <span>Organiser, Golang Birmingham</span>
-            <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
-            <span>Open source contributor</span>
-            <span className="hidden sm:inline" aria-hidden="true">&middot;</span>
-            <span>Freelance engineer in the United Kingdom</span>
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <h2 className="text-body-sm font-semibold uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+                Selected proof
+              </h2>
+              <p className="mt-3 text-body text-muted dark:text-muted-dark">
+                The site is backed by public work, formal study, and community leadership, not just positioning copy.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Button href="/cv" variant="secondary">
+                View CV
+              </Button>
+              <Button href="/IBIM_BRAIDE_CURRICULUM_VITAE.pdf" variant="ghost" external>
+                Download PDF
+              </Button>
+            </div>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {proofItems.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-5"
+              >
+                <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+                  {item.label}
+                </p>
+                <p className="mt-3 text-body-sm font-medium text-foreground dark:text-foreground-dark">
+                  {item.value}
+                </p>
+                <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
+                  {item.detail}
+                </p>
+              </div>
+            ))}
           </div>
         </Container>
       </Section>
