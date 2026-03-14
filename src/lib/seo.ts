@@ -16,10 +16,15 @@ export function createMetadata({ title, description, path = '', image, type = 'w
   return {
     title,
     description,
+    authors: [{ name: siteConfig.author.name, url: siteConfig.url }],
+    creator: siteConfig.author.name,
+    publisher: siteConfig.author.name,
     alternates: { canonical: url },
     openGraph: {
       type,
       url,
+      siteName: siteConfig.name,
+      locale: siteConfig.locale,
       title: `${title} | ${siteConfig.name}`,
       description,
       images: imageUrl ? [{ url: imageUrl }] : undefined,
@@ -28,6 +33,7 @@ export function createMetadata({ title, description, path = '', image, type = 'w
       card: 'summary_large_image',
       title: `${title} | ${siteConfig.name}`,
       description,
+      creator: siteConfig.author.twitter,
       images: imageUrl ? [imageUrl] : undefined,
     },
   }

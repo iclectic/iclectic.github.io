@@ -5,6 +5,7 @@ import Card from '@/components/ui/Card'
 import Section from '@/components/ui/Section'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { createMetadata } from '@/lib/seo'
+import { createProfilePageStructuredData } from '@/lib/structuredData'
 import {
   careAbout,
   currentlyExploring,
@@ -23,9 +24,20 @@ export const metadata = createMetadata({
   path: '/about',
 })
 
+const profilePageSchema = createProfilePageStructuredData({
+  title: 'About Ibim Braide',
+  description:
+    'Profile page for Ibim Braide, a freelance software engineer, community organiser, and open source contributor based in the United Kingdom.',
+  path: '/about',
+})
+
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
+      />
       <section className="pt-20 pb-16 md:pt-28 md:pb-20">
         <Container>
           <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">

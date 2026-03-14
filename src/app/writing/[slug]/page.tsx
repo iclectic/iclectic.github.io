@@ -3,9 +3,15 @@ import { notFound } from 'next/navigation'
 import Container from '@/components/Container'
 import Section from '@/components/ui/Section'
 import Tag from '@/components/ui/Tag'
+import RelatedLinks from '@/components/ui/RelatedLinks'
 import RenderedMdx from '@/components/mdx/RenderedMdx'
+import { relatedWritingLinks } from '@/data/relatedContent'
 import { createMetadata } from '@/lib/seo'
 import { getAllSlugs, getContentBySlug } from '@/lib/mdx'
+import {
+  createArticleStructuredData,
+  createBreadcrumbStructuredData,
+} from '@/lib/structuredData'
 
 interface ArticlePageProps {
   params: { slug: string }
@@ -51,8 +57,33 @@ export default function ArticlePage({ params }: ArticlePageProps) {
     notFound()
   }
 
+  const path = `/writing/${article.slug}`
+  const articleSchema = createArticleStructuredData({
+    title: article.frontMatter.title,
+    description: article.frontMatter.description,
+    path,
+    datePublished: article.frontMatter.date,
+    image: article.frontMatter.image,
+    tags: article.frontMatter.tags,
+    type: 'BlogPosting',
+  })
+  const breadcrumbSchema = createBreadcrumbStructuredData([
+    { name: 'Home', path: '/' },
+    { name: 'Writing', path: '/writing' },
+    { name: article.frontMatter.title, path },
+  ])
+  const relatedLinks = relatedWritingLinks[article.slug] ?? []
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="pt-20 pb-10 md:pt-28 border-b border-border dark:border-border-dark">
         <Container>
           <Link
@@ -94,6 +125,18 @@ export default function ArticlePage({ params }: ArticlePageProps) {
           </div>
         </Container>
       </Section>
+
+      {relatedLinks.length > 0 ? (
+        <Section>
+          <Container>
+            <RelatedLinks
+              title="Related paths"
+              description="Continue into the parts of the site most closely connected to this article."
+              links={relatedLinks}
+            />
+          </Container>
+        </Section>
+      ) : null}
 
       <Section>
         <Container>

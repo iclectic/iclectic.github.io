@@ -3,10 +3,16 @@ import { notFound } from 'next/navigation'
 import Container from '@/components/Container'
 import Section from '@/components/ui/Section'
 import Tag from '@/components/ui/Tag'
+import RelatedLinks from '@/components/ui/RelatedLinks'
 import RenderedMdx from '@/components/mdx/RenderedMdx'
 import { projects } from '@/data/projects'
+import { relatedProjectLinks } from '@/data/relatedContent'
 import { createMetadata } from '@/lib/seo'
 import { getAllSlugs, getContentBySlug } from '@/lib/mdx'
+import {
+  createBreadcrumbStructuredData,
+  createCreativeWorkStructuredData,
+} from '@/lib/structuredData'
 
 interface ProjectPageProps {
   params: { slug: string }
@@ -45,8 +51,32 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     notFound()
   }
 
+  const path = `/projects/${project.slug}`
+  const projectSchema = createCreativeWorkStructuredData({
+    title: project.frontMatter.title,
+    description: project.frontMatter.description,
+    path,
+    datePublished: project.frontMatter.date as string | undefined,
+    image: project.frontMatter.image as string | undefined,
+    tags: project.frontMatter.tags,
+  })
+  const breadcrumbSchema = createBreadcrumbStructuredData([
+    { name: 'Home', path: '/' },
+    { name: 'Projects', path: '/projects' },
+    { name: project.frontMatter.title, path },
+  ])
+  const relatedLinks = relatedProjectLinks[project.slug] ?? []
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="pt-20 pb-10 md:pt-28 border-b border-border dark:border-border-dark">
         <Container>
           <Link
@@ -121,6 +151,18 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </Container>
       </Section>
+
+      {relatedLinks.length > 0 ? (
+        <Section>
+          <Container>
+            <RelatedLinks
+              title="Related paths"
+              description="Continue into the most relevant supporting pages for this project."
+              links={relatedLinks}
+            />
+          </Container>
+        </Section>
+      ) : null}
 
       <Section>
         <Container>

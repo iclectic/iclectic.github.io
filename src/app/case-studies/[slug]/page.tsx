@@ -3,9 +3,15 @@ import { notFound } from 'next/navigation'
 import Container from '@/components/Container'
 import Section from '@/components/ui/Section'
 import Tag from '@/components/ui/Tag'
+import RelatedLinks from '@/components/ui/RelatedLinks'
 import RenderedMdx from '@/components/mdx/RenderedMdx'
+import { relatedCaseStudyLinks } from '@/data/relatedContent'
 import { createMetadata } from '@/lib/seo'
 import { getAllSlugs, getContentBySlug } from '@/lib/mdx'
+import {
+  createArticleStructuredData,
+  createBreadcrumbStructuredData,
+} from '@/lib/structuredData'
 
 interface CaseStudyPageProps {
   params: { slug: string }
@@ -51,8 +57,33 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
     notFound()
   }
 
+  const path = `/case-studies/${study.slug}`
+  const studySchema = createArticleStructuredData({
+    title: study.frontMatter.title,
+    description: study.frontMatter.description,
+    path,
+    datePublished: study.frontMatter.date,
+    image: study.frontMatter.image,
+    tags: study.frontMatter.tags,
+    type: 'TechArticle',
+  })
+  const breadcrumbSchema = createBreadcrumbStructuredData([
+    { name: 'Home', path: '/' },
+    { name: 'Case Studies', path: '/case-studies' },
+    { name: study.frontMatter.title, path },
+  ])
+  const relatedLinks = relatedCaseStudyLinks[study.slug] ?? []
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(studySchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="pt-20 pb-10 md:pt-28 border-b border-border dark:border-border-dark">
         <Container>
           <Link
@@ -94,6 +125,18 @@ export default function CaseStudyPage({ params }: CaseStudyPageProps) {
           </div>
         </Container>
       </Section>
+
+      {relatedLinks.length > 0 ? (
+        <Section>
+          <Container>
+            <RelatedLinks
+              title="Related paths"
+              description="Continue into the project, article, or contact path most relevant to this case study."
+              links={relatedLinks}
+            />
+          </Container>
+        </Section>
+      ) : null}
 
       <Section>
         <Container>

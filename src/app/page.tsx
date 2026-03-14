@@ -27,6 +27,16 @@ function formatDate(dateString: string) {
   })
 }
 
+interface ImpactItem {
+  date: string
+  label: string
+  title: string
+  detail: string
+  href: string
+  cta: string
+  external?: boolean
+}
+
 export default async function HomePage() {
   const featuredProjects = projects.filter((project) => project.featured).slice(0, 3)
   const featuredCaseStudies = getAllCaseStudies().slice(0, 2)
@@ -58,7 +68,7 @@ export default async function HomePage() {
       detail: 'Mobile and full stack delivery with clear scope and outcomes',
     },
   ] as const
-  const impactItems = [
+  const impactItems: ImpactItem[] = [
     {
       date: '2026-03-12',
       label: 'Writing',
