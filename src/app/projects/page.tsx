@@ -63,7 +63,8 @@ export default function ProjectsPage() {
                 </div>
                 <div className="p-5">
                   <div className="flex flex-wrap gap-1.5">
-                    {project.tags.slice(0, 3).map((tag) => (
+                    <Tag>{project.projectType}</Tag>
+                    {project.tags.slice(0, 2).map((tag) => (
                       <Tag key={tag}>{tag}</Tag>
                     ))}
                   </div>
@@ -80,6 +81,24 @@ export default function ProjectsPage() {
                     <p className="mt-1 text-body-sm text-foreground/80 dark:text-foreground-dark/80 line-clamp-2">
                       {project.outcome}
                     </p>
+                  </div>
+                  <div className="mt-4 grid gap-3">
+                    <div>
+                      <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+                        Role
+                      </p>
+                      <p className="mt-1 text-body-sm text-foreground/80 dark:text-foreground-dark/80 line-clamp-2">
+                        {project.role}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+                        Scope
+                      </p>
+                      <p className="mt-1 text-body-sm text-foreground/80 dark:text-foreground-dark/80 line-clamp-2">
+                        {project.scope}
+                      </p>
+                    </div>
                   </div>
                   <div className="mt-4 flex items-center justify-between">
                     <span className="text-caption text-muted dark:text-muted-dark">{project.category}</span>

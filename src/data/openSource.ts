@@ -46,7 +46,7 @@ export const openSourceHighlights: OpenSourceHighlight[] = [
   },
 ]
 
-export const openSourceContributions: OpenSourceContribution[] = [
+export const openSourcePublicWork: OpenSourceContribution[] = [
   {
     type: 'Public repository',
     project: 'iclectic/TEXTARA',
@@ -92,6 +92,8 @@ export const openSourceContributions: OpenSourceContribution[] = [
       'Connects community leadership with measurable organiser workflows and a clearer operational record.',
   },
 ]
+
+export const openSourceExternalContributions: OpenSourceContribution[] = []
 
 export const openSourceRepositories: OpenSourceRepository[] = [
   {

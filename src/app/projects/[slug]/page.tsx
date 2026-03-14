@@ -4,6 +4,7 @@ import Container from '@/components/Container'
 import Section from '@/components/ui/Section'
 import Tag from '@/components/ui/Tag'
 import RenderedMdx from '@/components/mdx/RenderedMdx'
+import { projects } from '@/data/projects'
 import { createMetadata } from '@/lib/seo'
 import { getAllSlugs, getContentBySlug } from '@/lib/mdx'
 
@@ -38,6 +39,7 @@ export function generateMetadata({ params }: ProjectPageProps) {
 
 export default function ProjectPage({ params }: ProjectPageProps) {
   const project = getContentBySlug('projects', params.slug)
+  const projectMeta = projects.find((item) => item.link === `/projects/${params.slug}`)
 
   if (!project) {
     notFound()
@@ -72,6 +74,43 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
             {project.frontMatter.description}
           </p>
+
+          {projectMeta ? (
+            <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              <div className="rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-4">
+                <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+                  Project type
+                </p>
+                <p className="mt-2 text-body-sm font-medium text-foreground dark:text-foreground-dark">
+                  {projectMeta.projectType}
+                </p>
+              </div>
+              <div className="rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-4">
+                <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+                  Role
+                </p>
+                <p className="mt-2 text-body-sm text-foreground/80 dark:text-foreground-dark/80">
+                  {projectMeta.role}
+                </p>
+              </div>
+              <div className="rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-4">
+                <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+                  Scope
+                </p>
+                <p className="mt-2 text-body-sm text-foreground/80 dark:text-foreground-dark/80">
+                  {projectMeta.scope}
+                </p>
+              </div>
+              <div className="rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-4">
+                <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+                  Outcome
+                </p>
+                <p className="mt-2 text-body-sm text-foreground/80 dark:text-foreground-dark/80">
+                  {projectMeta.outcome}
+                </p>
+              </div>
+            </div>
+          ) : null}
         </Container>
       </section>
 

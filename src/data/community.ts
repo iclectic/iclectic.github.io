@@ -48,6 +48,16 @@ export interface CommunitySpeaker {
   note: string
 }
 
+export interface CommunityReference {
+  type: string
+  title: string
+  date: string
+  description: string
+  link: string
+  cta: string
+  external?: boolean
+}
+
 export const communityRoles: CommunityRole[] = [
   {
     name: 'Flutter Birmingham',
@@ -158,5 +168,46 @@ export const communitySpeakers: CommunitySpeaker[] = [
     group: 'Flutter Birmingham',
     format: 'Talk',
     note: 'A practical session on state management challenges, architectural patterns, and maintainable Flutter codebases.',
+  },
+]
+
+export const communityReferences: CommunityReference[] = [
+  {
+    type: 'Writing',
+    title: 'Running developer communities like engineering projects',
+    date: '2026-03-05',
+    description:
+      'A public write-up of the principles behind programming strategy, delivery discipline, and trust in technical communities.',
+    link: '/writing/running-developer-communities-like-engineering-projects',
+    cta: 'Read article',
+  },
+  {
+    type: 'Speaking',
+    title: 'Avoiding headaches in state management',
+    date: '2025',
+    description:
+      'A Flutter Birmingham session that turned engineering delivery lessons into a practical meetup talk on maintainable state decisions.',
+    link: '/speaking',
+    cta: 'View speaking work',
+  },
+  {
+    type: 'Meetup',
+    title: 'Flutter Birmingham',
+    date: 'Current',
+    description:
+      'Public meetup page for the community where I lead programming, speaker outreach, and event delivery.',
+    link: 'https://www.meetup.com/flutter-birmingham/',
+    cta: 'Visit meetup page',
+    external: true,
+  },
+  {
+    type: 'Meetup',
+    title: 'Golang Birmingham',
+    date: 'Current',
+    description:
+      'Public meetup page for the Go community where I work with the organising team on programming and community direction.',
+    link: 'https://www.meetup.com/birminghamgodevs/',
+    cta: 'Visit meetup page',
+    external: true,
   },
 ]

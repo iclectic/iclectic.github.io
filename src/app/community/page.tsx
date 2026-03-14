@@ -11,6 +11,7 @@ import {
   communityMetrics,
   communityMilestones,
   communityOperations,
+  communityReferences,
   communityRoles,
   communitySpeakers,
   communityWorkstreams,
@@ -196,12 +197,48 @@ export default function CommunityPage() {
         </Container>
       </Section>
 
+      {communityReferences.length > 0 ? (
+        <Section>
+          <Container>
+            <SectionHeader
+              title="Public documentation trail"
+              description="References that make the work easier to verify across meetup pages, speaking, and published writing."
+            />
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {communityReferences.map((item) => (
+                <Card key={`${item.type}-${item.title}`} className="p-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-accent/10 px-3 py-1 text-caption font-medium text-accent">
+                      {item.type}
+                    </span>
+                    <span className="text-caption text-muted dark:text-muted-dark">
+                      {formatEventDate(item.date)}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-display text-h3 text-foreground dark:text-foreground-dark">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
+                    {item.description}
+                  </p>
+                  <div className="mt-4">
+                    <Button href={item.link} variant="link" external={item.external}>
+                      {item.cta}
+                    </Button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
+
       {communityEvents.length > 0 ? (
         <Section>
           <Container>
             <SectionHeader
               title="Events calendar"
-              description="A running list of recent and upcoming sessions across both communities."
+              description="A dated record of sessions and community activity that can be tied back to public pages."
             />
             <div className="mt-8 space-y-4">
               {communityEvents.map((event) => (

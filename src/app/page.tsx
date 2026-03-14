@@ -6,12 +6,20 @@ import Section from '@/components/ui/Section'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Tag from '@/components/ui/Tag'
 import { projects } from '@/data/projects'
-import { openSourceContributions } from '@/data/openSource'
+import { openSourcePublicWork } from '@/data/openSource'
 import { getGitHubActivity, getGitHubUsername } from '@/lib/github'
 import { getAllCaseStudies, getAllWriting } from '@/lib/mdx'
 import { siteConfig } from '@/lib/siteConfig'
 
 function formatDate(dateString: string) {
+  if (/^\d{4}$/.test(dateString)) {
+    return dateString
+  }
+
+  if (/^[A-Za-z]+\s+\d{4}$/.test(dateString)) {
+    return dateString
+  }
+
   return new Date(dateString).toLocaleDateString('en-GB', {
     year: 'numeric',
     month: 'long',
@@ -27,7 +35,7 @@ export default async function HomePage() {
   const githubActivity = githubUsername ? await getGitHubActivity(githubUsername, 3) : []
   const recentContributions = githubActivity.length > 0
     ? githubActivity
-    : openSourceContributions.slice(0, 3)
+    : openSourcePublicWork.slice(0, 3)
   const proofItems = [
     {
       label: 'Education',
@@ -48,6 +56,41 @@ export default async function HomePage() {
       label: 'Availability',
       value: 'Freelance engineer based in the United Kingdom',
       detail: 'Mobile and full stack delivery with clear scope and outcomes',
+    },
+  ] as const
+  const impactItems = [
+    {
+      date: '2026-03-12',
+      label: 'Writing',
+      title: 'Published Responsible AI starts in the backlog',
+      detail: 'A practical essay on keeping ethics inside product and engineering decisions rather than treating it as a final review step.',
+      href: '/writing/responsible-ai-starts-in-the-backlog',
+      cta: 'Read article',
+    },
+    {
+      date: '2026-03-05',
+      label: 'Community',
+      title: 'Published a practical model for running developer communities',
+      detail: 'Turned organiser experience into a public article on programming, delivery, and trust for technical meetups.',
+      href: '/writing/running-developer-communities-like-engineering-projects',
+      cta: 'Read article',
+    },
+    {
+      date: '2026-02-27',
+      label: 'Open source',
+      title: 'Built State-Layers-Demo in public',
+      detail: 'Created a Flutter teaching repository that explains local, shared, and app-level state through one usable example.',
+      href: 'https://github.com/iclectic/State-Layers-Demo',
+      cta: 'View repository',
+      external: true,
+    },
+    {
+      date: '2025',
+      label: 'Speaking',
+      title: 'Delivered Avoiding headaches in state management',
+      detail: 'Presented a practical Flutter session at Flutter Birmingham on state boundaries, maintainability, and architectural trade offs.',
+      href: '/speaking',
+      cta: 'View speaking',
     },
   ] as const
 
@@ -188,6 +231,46 @@ export default async function HomePage() {
 
       <Section>
         <Container>
+          <SectionHeader
+            title="Selected impact"
+            description="A small set of dated proof points across engineering, writing, community leadership, and public technical work."
+            action={(
+              <Button href="/impact" variant="link">
+                View impact page
+              </Button>
+            )}
+          />
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {impactItems.map((item) => (
+              <article
+                key={`${item.date}-${item.title}`}
+                className="rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-6"
+              >
+                <div className="flex flex-wrap items-center gap-2">
+                  <Tag>{item.label}</Tag>
+                  <span className="text-caption text-muted dark:text-muted-dark">
+                    {formatDate(item.date)}
+                  </span>
+                </div>
+                <h3 className="mt-4 font-display text-h3 text-foreground dark:text-foreground-dark">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
+                  {item.detail}
+                </p>
+                <div className="mt-4">
+                  <Button href={item.href} variant="link" external={item.external}>
+                    {item.cta}
+                  </Button>
+                </div>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
           <div className="grid gap-8 md:grid-cols-3">
             <div>
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10">
@@ -275,6 +358,7 @@ export default async function HomePage() {
                   )}
                   <div className="p-5">
                     <div className="flex flex-wrap gap-1.5">
+                      <Tag>{project.projectType}</Tag>
                       {project.tags.slice(0, 2).map((tag) => (
                         <Tag key={tag}>{tag}</Tag>
                       ))}
@@ -292,6 +376,24 @@ export default async function HomePage() {
                       <p className="mt-1 text-body-sm text-foreground/80 dark:text-foreground-dark/80 line-clamp-2">
                         {project.outcome}
                       </p>
+                    </div>
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      <div>
+                        <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+                          Role
+                        </p>
+                        <p className="mt-1 text-body-sm text-foreground/80 dark:text-foreground-dark/80 line-clamp-2">
+                          {project.role}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+                          Scope
+                        </p>
+                        <p className="mt-1 text-body-sm text-foreground/80 dark:text-foreground-dark/80 line-clamp-2">
+                          {project.scope}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </article>

@@ -6,12 +6,13 @@ import Card from '@/components/ui/Card'
 import ContributionCard from '@/components/ui/ContributionCard'
 import RepoCard from '@/components/ui/RepoCard'
 import { createMetadata } from '@/lib/seo'
-import { getGitHubActivity, getGitHubRepos, getGitHubUsername } from '@/lib/github'
+import { getGitHubActivity, getGitHubUsername } from '@/lib/github'
 import {
-  openSourceContributions,
+  openSourceExternalContributions,
   openSourceFocusAreas,
   openSourceHighlights,
   openSourcePrinciples,
+  openSourcePublicWork,
   openSourceRepositories,
 } from '@/data/openSource'
 import { siteConfig } from '@/lib/siteConfig'
@@ -24,13 +25,11 @@ export const metadata = createMetadata({
 
 export default async function OpenSourcePage() {
   const githubUsername = getGitHubUsername(siteConfig.author.github)
-  const [githubActivity, githubRepos] = await Promise.all([
-    githubUsername ? getGitHubActivity(githubUsername, 6) : [],
-    githubUsername ? getGitHubRepos(githubUsername, 6) : [],
-  ])
+  const githubActivity = githubUsername ? await getGitHubActivity(githubUsername, 6) : []
 
-  const contributions = githubActivity.length > 0 ? githubActivity : openSourceContributions
-  const repositories = githubRepos.length > 0 ? githubRepos : openSourceRepositories
+  const recentActivity = githubActivity.length > 0 ? githubActivity : openSourcePublicWork
+  const maintainedRepositories = openSourceRepositories
+  const externalContributions = openSourceExternalContributions
 
   return (
     <>
@@ -43,8 +42,8 @@ export default async function OpenSourcePage() {
             Open source work rooted in clarity and respect for maintainers
           </h1>
           <p className="mt-4 max-w-2xl text-body text-muted dark:text-muted-dark">
-            I contribute through public repositories, documentation improvements, community tooling, and targeted fixes.
-            My goal is to reduce friction for users and maintainers while learning in public.
+            I separate the work I maintain in public from contributions to other projects. That keeps the page honest
+            and makes it easier to assess how I build, document, and collaborate.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button href={siteConfig.author.github} variant="primary" external>
@@ -76,17 +75,17 @@ export default async function OpenSourcePage() {
       <Section>
         <Container>
           <SectionHeader
-            title="Recent public work"
-            description="Live GitHub activity when available, otherwise curated repository work that shows how I build in public."
+            title="Recent GitHub activity"
+            description="Live public activity when available, otherwise a curated snapshot of recent work I maintain in public."
             action={
               <Button href={siteConfig.author.github} variant="link" external>
                 See more on GitHub
               </Button>
             }
           />
-          {contributions.length > 0 ? (
+          {recentActivity.length > 0 ? (
             <div className="mt-8 grid gap-6 lg:grid-cols-2">
-              {contributions.map((item) => (
+              {recentActivity.map((item) => (
                 <ContributionCard key={`${item.project}-${item.title}`} {...item} />
               ))}
             </div>
@@ -101,21 +100,45 @@ export default async function OpenSourcePage() {
         </Container>
       </Section>
 
-      {repositories.length > 0 && (
+      {maintainedRepositories.length > 0 && (
         <Section>
           <Container>
             <SectionHeader
-              title="Selected public repositories"
-              description="Repositories that reflect the kind of software, tooling, and community infrastructure I build in the open."
+              title="Repositories I maintain"
+              description="Selected public repositories that reflect the kind of software, tooling, and community infrastructure I build in the open."
             />
             <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {repositories.map((repo) => (
+              {maintainedRepositories.map((repo) => (
                 <RepoCard key={repo.name} {...repo} />
               ))}
             </div>
           </Container>
         </Section>
       )}
+
+      <Section>
+        <Container>
+          <SectionHeader
+            title="Contributions to other projects"
+            description="A separate record of issues, pull requests, discussions, and documentation work on repositories I do not maintain."
+          />
+          {externalContributions.length > 0 ? (
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+              {externalContributions.map((item) => (
+                <ContributionCard key={`${item.project}-${item.title}`} {...item} />
+              ))}
+            </div>
+          ) : (
+            <Card className="mt-8 p-6">
+              <p className="text-body text-muted dark:text-muted-dark">
+                I keep external open source contribution separate from my own public repositories. As that body of work
+                grows, I will list specific issues, pull requests, and discussions here rather than padding the page
+                with weak examples.
+              </p>
+            </Card>
+          )}
+        </Container>
+      </Section>
 
       <Section>
         <Container>
