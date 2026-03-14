@@ -1,40 +1,12 @@
 import Link from 'next/link'
 import Container from '@/components/primitives/Container'
-import { siteConfig } from '@/lib/siteConfig'
+import { footerNavigation, siteSettings, socialLinks as siteSocialLinks } from '@/data/site'
 import SocialLinks from './SocialLinks'
 
 export default function Footer() {
-  const socialLinks = [
-    {
-      label: 'GitHub',
-      href: siteConfig.author.github,
-      icon: 'github' as const,
-      external: true,
-    },
-    {
-      label: 'LinkedIn',
-      href: siteConfig.author.linkedin,
-      icon: 'linkedin' as const,
-      external: true,
-    },
-    {
-      label: 'Email',
-      href: `mailto:${siteConfig.author.email}`,
-      icon: 'email' as const,
-    },
-    {
-      label: 'RSS',
-      href: '/rss.xml',
-      icon: 'rss' as const,
-      display: 'text' as const,
-    },
-    {
-      label: 'Atom',
-      href: '/atom.xml',
-      icon: 'atom' as const,
-      display: 'text' as const,
-    },
-  ]
+  const socialLinks = siteSocialLinks.filter((item) =>
+    ['github', 'linkedin', 'email', 'rss', 'atom'].includes(item.id)
+  )
 
   return (
     <footer className="mt-24 border-t border-border dark:border-border-dark">
@@ -45,7 +17,7 @@ export default function Footer() {
               href="/"
               className="font-display text-lg font-bold text-foreground dark:text-foreground-dark"
             >
-              Ibim Braide
+              {siteSettings.author.name}
             </Link>
             <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
               Freelance engineer and community organiser based in the United Kingdom. Open source contributor and technical writer.
@@ -53,7 +25,7 @@ export default function Footer() {
           </div>
 
           <nav className="grid grid-cols-2 gap-x-12 gap-y-3 sm:grid-cols-3" aria-label="Footer navigation">
-            {siteConfig.footerNav.map((item) => (
+            {footerNavigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

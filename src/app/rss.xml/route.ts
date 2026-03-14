@@ -1,4 +1,4 @@
-import { siteConfig } from '@/lib/siteConfig'
+import { siteSettings } from '@/data/site'
 import { getAllWriting } from '@/lib/mdx'
 
 export const revalidate = 3600
@@ -11,8 +11,8 @@ export async function GET() {
       (article) => `    <item>
       <title><![CDATA[${article.frontMatter.title}]]></title>
       <description><![CDATA[${article.frontMatter.description}]]></description>
-      <link>${siteConfig.url}/writing/${article.slug}</link>
-      <guid isPermaLink="true">${siteConfig.url}/writing/${article.slug}</guid>
+      <link>${siteSettings.url}/writing/${article.slug}</link>
+      <guid isPermaLink="true">${siteSettings.url}/writing/${article.slug}</guid>
       <pubDate>${new Date(article.frontMatter.date).toUTCString()}</pubDate>
     </item>`
     )
@@ -21,11 +21,11 @@ export async function GET() {
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${siteConfig.name}</title>
-    <description>${siteConfig.description}</description>
-    <link>${siteConfig.url}</link>
-    <language>${siteConfig.locale}</language>
-    <atom:link href="${siteConfig.url}/rss.xml" rel="self" type="application/rss+xml" />
+    <title>${siteSettings.name}</title>
+    <description>${siteSettings.description}</description>
+    <link>${siteSettings.url}</link>
+    <language>${siteSettings.locale}</language>
+    <atom:link href="${siteSettings.url}/rss.xml" rel="self" type="application/rss+xml" />
 ${items}
   </channel>
 </rss>`

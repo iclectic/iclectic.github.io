@@ -8,17 +8,17 @@ import Card from '@/components/primitives/Card'
 import Container from '@/components/primitives/Container'
 import Section from '@/components/primitives/Section'
 import {
-  communityGallery,
-  communityEvents,
-  communityHighlights,
-  communityMetrics,
-  communityMilestones,
-  communityOperations,
-  communityReferences,
-  communityRoles,
-  communitySpeakers,
-  communityWorkstreams,
-} from '@/data/community'
+  getCommunityEvents,
+  getCommunityGallery,
+  getCommunityHighlights,
+  getCommunityMetrics,
+  getCommunityMilestones,
+  getCommunityOperations,
+  getCommunityReferences,
+  getCommunityRoles,
+  getCommunitySpeakers,
+  getCommunityWorkstreams,
+} from '@/lib/content'
 import { createMetadata } from '@/lib/seo'
 
 export const metadata = createMetadata({
@@ -49,6 +49,17 @@ function formatEventDate(dateString: string) {
 }
 
 export default function CommunityPage() {
+  const communityRoles = getCommunityRoles()
+  const communityMetrics = getCommunityMetrics()
+  const communityWorkstreams = getCommunityWorkstreams()
+  const communityOperations = getCommunityOperations()
+  const communityHighlights = getCommunityHighlights()
+  const communityReferences = getCommunityReferences()
+  const communityEvents = getCommunityEvents()
+  const communitySpeakers = getCommunitySpeakers()
+  const communityMilestones = getCommunityMilestones()
+  const communityGallery = getCommunityGallery()
+
   return (
     <>
       <PageHero

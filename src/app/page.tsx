@@ -6,11 +6,10 @@ import Button from '@/components/primitives/Button'
 import Section from '@/components/primitives/Section'
 import Tag from '@/components/primitives/Tag'
 import SectionHeader from '@/components/layout/SectionHeader'
-import { projects } from '@/data/projects'
-import { openSourcePublicWork } from '@/data/openSource'
+import { siteSettings } from '@/data/site'
 import { getGitHubActivity, getGitHubUsername } from '@/lib/github'
+import { getFeaturedProjectCards, getOpenSourcePublicWork } from '@/lib/content'
 import { getAllCaseStudies, getAllWriting } from '@/lib/mdx'
-import { siteConfig } from '@/lib/siteConfig'
 
 function formatDate(dateString: string) {
   if (/^\d{4}$/.test(dateString)) {
@@ -39,14 +38,15 @@ interface ImpactItem {
 }
 
 export default async function HomePage() {
-  const featuredProjects = projects.filter((project) => project.featured).slice(0, 3)
+  const featuredProjects = getFeaturedProjectCards().slice(0, 3)
   const featuredCaseStudies = getAllCaseStudies().slice(0, 2)
   const latestWriting = getAllWriting().slice(0, 2)
-  const githubUsername = getGitHubUsername(siteConfig.author.github)
+  const githubUsername = getGitHubUsername(siteSettings.author.github)
   const githubActivity = githubUsername ? await getGitHubActivity(githubUsername, 3) : []
+  const fallbackOpenSourceWork = getOpenSourcePublicWork()
   const recentContributions = githubActivity.length > 0
     ? githubActivity
-    : openSourcePublicWork.slice(0, 3)
+    : fallbackOpenSourceWork.slice(0, 3)
   const proofItems = [
     {
       label: 'Education',
@@ -108,9 +108,9 @@ export default async function HomePage() {
   const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: siteConfig.author.name,
-    url: siteConfig.url,
-    email: siteConfig.author.email,
+    name: siteSettings.author.name,
+    url: siteSettings.url,
+    email: siteSettings.author.email,
     jobTitle: 'Freelance Engineer and Community Organiser',
     knowsAbout: [
       'Software Engineering',
@@ -128,9 +128,9 @@ export default async function HomePage() {
       'Machine Learning',
     ],
     sameAs: [
-      siteConfig.author.github,
-      siteConfig.author.linkedin,
-      siteConfig.author.twitter,
+      siteSettings.author.github,
+      siteSettings.author.linkedin,
+      siteSettings.author.twitter,
     ],
     alumniOf: [
       {

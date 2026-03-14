@@ -1,16 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import type { Project } from '@/data/projects'
 import Card from '@/components/primitives/Card'
 import Tag from '@/components/primitives/Tag'
+import type { ProjectCardData } from '@/lib/content'
 
 interface ProjectCardProps {
-  project: Project
+  project: ProjectCardData
   variant?: 'featured' | 'listing'
 }
 
-function ProjectImage({ project }: { project: Project }) {
+function ProjectImage({ project }: { project: ProjectCardData }) {
   const image = (
     <Image
       src={project.image}
@@ -41,7 +41,7 @@ function ProjectImage({ project }: { project: Project }) {
   )
 }
 
-function ProjectLink({ project }: { project: Project }) {
+function ProjectLink({ project }: { project: ProjectCardData }) {
   if (project.link.startsWith('/')) {
     return (
       <Link

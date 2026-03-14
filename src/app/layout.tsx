@@ -4,7 +4,7 @@ import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
 import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import SkipToContent from '@/components/layout/SkipToContent'
-import { siteConfig } from '@/lib/siteConfig'
+import { siteSettings } from '@/data/site'
 
 const plexSans = IBM_Plex_Sans({
   subsets: ['latin'],
@@ -28,18 +28,18 @@ const plexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(siteSettings.url),
   title: {
-    default: siteConfig.title,
-    template: `%s | ${siteConfig.name}`,
+    default: siteSettings.title,
+    template: `%s | ${siteSettings.name}`,
   },
-  description: siteConfig.description,
-  applicationName: siteConfig.name,
-  authors: [{ name: siteConfig.author.name, url: siteConfig.url }],
-  creator: siteConfig.author.name,
-  publisher: siteConfig.author.name,
+  description: siteSettings.description,
+  applicationName: siteSettings.name,
+  authors: [{ name: siteSettings.author.name, url: siteSettings.url }],
+  creator: siteSettings.author.name,
+  publisher: siteSettings.author.name,
   alternates: {
-    canonical: siteConfig.url,
+    canonical: siteSettings.url,
     types: {
       'application/rss+xml': '/rss.xml',
       'application/atom+xml': '/atom.xml',
@@ -47,17 +47,17 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: siteConfig.locale,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: siteConfig.title,
-    description: siteConfig.description,
+    locale: siteSettings.locale,
+    url: siteSettings.url,
+    siteName: siteSettings.name,
+    title: siteSettings.title,
+    description: siteSettings.description,
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.title,
-    description: siteConfig.description,
-    creator: siteConfig.author.twitter,
+    title: siteSettings.title,
+    description: siteSettings.description,
+    creator: siteSettings.author.twitter,
   },
   robots: {
     index: true,

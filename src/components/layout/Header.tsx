@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Container from '@/components/primitives/Container'
-import { siteConfig } from '@/lib/siteConfig'
+import { mainNavigation, siteSettings, socialLinks as siteSocialLinks } from '@/data/site'
 import SocialLinks from './SocialLinks'
 
 const isActive = (href: string, pathname: string | null) => {
@@ -78,7 +78,7 @@ function MobileMenu({
           </svg>
         </button>
         <ul className="space-y-4">
-          {siteConfig.nav.map((item) => (
+          {mainNavigation.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
@@ -103,22 +103,13 @@ function MobileMenu({
 export default function Header() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
-  const socialLinks = [
-    {
-      label: 'GitHub profile',
-      href: siteConfig.author.github,
-      icon: 'github' as const,
-      external: true,
+  const socialLinks = siteSocialLinks
+    .filter((item) => item.id === 'github' || item.id === 'linkedin')
+    .map((item) => ({
+      ...item,
+      label: `${item.label} profile`,
       className: 'hidden sm:block',
-    },
-    {
-      label: 'LinkedIn profile',
-      href: siteConfig.author.linkedin,
-      icon: 'linkedin' as const,
-      external: true,
-      className: 'hidden sm:block',
-    },
-  ]
+    }))
 
   useEffect(() => {
     setMobileOpen(false)
@@ -130,13 +121,13 @@ export default function Header() {
         <Link
           href="/"
           className="font-display text-lg font-bold text-foreground transition-colors hover:text-accent dark:text-foreground-dark"
-          aria-label="Ibim Braide home"
+          aria-label={`${siteSettings.author.name} home`}
         >
-          IB
+          {siteSettings.author.shortName ?? 'IB'}
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary navigation">
-          {siteConfig.nav.map((item) => (
+          {mainNavigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}

@@ -6,17 +6,17 @@ import Container from '@/components/primitives/Container'
 import Section from '@/components/primitives/Section'
 import ContributionCard from '@/components/cards/ContributionCard'
 import RepoCard from '@/components/cards/RepoCard'
+import { siteSettings } from '@/data/site'
 import { createMetadata } from '@/lib/seo'
-import { getGitHubActivity, getGitHubUsername } from '@/lib/github'
 import {
-  openSourceExternalContributions,
-  openSourceFocusAreas,
-  openSourceHighlights,
-  openSourcePrinciples,
-  openSourcePublicWork,
-  openSourceRepositories,
-} from '@/data/openSource'
-import { siteConfig } from '@/lib/siteConfig'
+  getOpenSourceExternalContributions,
+  getOpenSourceFocusAreas,
+  getOpenSourceHighlights,
+  getOpenSourcePrinciples,
+  getOpenSourcePublicWork,
+  getOpenSourceRepositoryCards,
+} from '@/lib/content'
+import { getGitHubActivity, getGitHubUsername } from '@/lib/github'
 
 export const metadata = createMetadata({
   title: 'Open Source',
@@ -25,12 +25,15 @@ export const metadata = createMetadata({
 })
 
 export default async function OpenSourcePage() {
-  const githubUsername = getGitHubUsername(siteConfig.author.github)
+  const githubUsername = getGitHubUsername(siteSettings.author.github)
   const githubActivity = githubUsername ? await getGitHubActivity(githubUsername, 6) : []
 
-  const recentActivity = githubActivity.length > 0 ? githubActivity : openSourcePublicWork
-  const maintainedRepositories = openSourceRepositories
-  const externalContributions = openSourceExternalContributions
+  const focusAreas = getOpenSourceFocusAreas()
+  const highlights = getOpenSourceHighlights()
+  const principles = getOpenSourcePrinciples()
+  const recentActivity = githubActivity.length > 0 ? githubActivity : getOpenSourcePublicWork()
+  const maintainedRepositories = getOpenSourceRepositoryCards()
+  const externalContributions = getOpenSourceExternalContributions()
 
   return (
     <>
@@ -39,7 +42,7 @@ export default async function OpenSourcePage() {
         title="Open source work rooted in clarity and respect for maintainers"
         description="I separate the work I maintain in public from contributions to other projects. That keeps the page honest and makes it easier to assess how I build, document, and collaborate."
         actions={[
-          { label: 'View GitHub profile', href: siteConfig.author.github, variant: 'primary', external: true },
+          { label: 'View GitHub profile', href: siteSettings.author.github, variant: 'primary', external: true },
           { label: 'Collaborate on open source', href: '/contact', variant: 'secondary' },
         ]}
       />
@@ -51,7 +54,7 @@ export default async function OpenSourcePage() {
             description="Where I spend the most time contributing and learning."
           />
           <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {openSourceFocusAreas.map((item) => (
+            {focusAreas.map((item) => (
               <Card key={item} className="p-5 text-body-sm text-muted dark:text-muted-dark">
                 {item}
               </Card>
@@ -66,7 +69,7 @@ export default async function OpenSourcePage() {
             title="Recent GitHub activity"
             description="Live public activity when available, otherwise a curated snapshot of recent work I maintain in public."
             action={
-              <Button href={siteConfig.author.github} variant="link" external>
+              <Button href={siteSettings.author.github} variant="link" external>
                 See more on GitHub
               </Button>
             }
@@ -135,7 +138,7 @@ export default async function OpenSourcePage() {
             description="Small contributions can still remove friction, clarify behaviour, and improve reliability."
           />
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {openSourceHighlights.map((item) => (
+            {highlights.map((item) => (
               <Card key={item.title} className="p-6">
                 <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">
                   {item.title}
@@ -152,7 +155,7 @@ export default async function OpenSourcePage() {
                 How I contribute
               </h3>
               <ul className="mt-4 space-y-2 text-body-sm text-muted dark:text-muted-dark list-disc pl-5">
-                {openSourcePrinciples.map((item) => (
+                {principles.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>

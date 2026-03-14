@@ -5,8 +5,8 @@ import MDXContent from '@/components/mdx/MDXContent'
 import Container from '@/components/primitives/Container'
 import Section from '@/components/primitives/Section'
 import Tag from '@/components/primitives/Tag'
-import { projects } from '@/data/projects'
 import { relatedProjectLinks } from '@/data/relatedContent'
+import { getProjectCardBySlug } from '@/lib/content'
 import { createMetadata } from '@/lib/seo'
 import { getAllSlugs, getContentBySlug } from '@/lib/mdx'
 import {
@@ -45,7 +45,7 @@ export function generateMetadata({ params }: ProjectPageProps) {
 
 export default function ProjectPage({ params }: ProjectPageProps) {
   const project = getContentBySlug('projects', params.slug)
-  const projectMeta = projects.find((item) => item.link === `/projects/${params.slug}`)
+  const projectMeta = getProjectCardBySlug(params.slug)
 
   if (!project) {
     notFound()

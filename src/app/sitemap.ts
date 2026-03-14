@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import type { MetadataRoute } from 'next'
-import { siteConfig } from '@/lib/siteConfig'
+import { siteSettings } from '@/data/site'
 import { getAllCaseStudies, getAllContent, getAllWriting } from '@/lib/mdx'
 
 const appDirectory = path.join(process.cwd(), 'src', 'app')
@@ -31,28 +31,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   const staticRoutes: MetadataRoute.Sitemap = staticPages.map((page) => ({
-    url: `${siteConfig.url}${page.route}`,
+    url: `${siteSettings.url}${page.route}`,
     lastModified: getFileLastModified(page.file),
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }))
 
   const writingRoutes: MetadataRoute.Sitemap = getAllWriting().map((article) => ({
-    url: `${siteConfig.url}/writing/${article.slug}`,
+    url: `${siteSettings.url}/writing/${article.slug}`,
     lastModified: new Date(article.frontMatter.date),
     changeFrequency: 'monthly',
     priority: 0.8,
   }))
 
   const caseStudyRoutes: MetadataRoute.Sitemap = getAllCaseStudies().map((study) => ({
-    url: `${siteConfig.url}/case-studies/${study.slug}`,
+    url: `${siteSettings.url}/case-studies/${study.slug}`,
     lastModified: new Date(study.frontMatter.date),
     changeFrequency: 'monthly',
     priority: 0.8,
   }))
 
   const projectRoutes: MetadataRoute.Sitemap = getAllContent('projects').map((project) => ({
-    url: `${siteConfig.url}/projects/${project.slug}`,
+    url: `${siteSettings.url}/projects/${project.slug}`,
     lastModified: new Date(project.frontMatter.date),
     changeFrequency: 'monthly',
     priority: 0.75,

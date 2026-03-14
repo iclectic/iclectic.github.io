@@ -5,7 +5,7 @@ import Button from '@/components/primitives/Button'
 import Container from '@/components/primitives/Container'
 import Section from '@/components/primitives/Section'
 import { createMetadata } from '@/lib/seo'
-import { projects } from '@/data/projects'
+import { getProjectCards } from '@/lib/content'
 
 export const metadata = createMetadata({
   title: 'Projects',
@@ -14,6 +14,8 @@ export const metadata = createMetadata({
 })
 
 export default function ProjectsPage() {
+  const projects = getProjectCards()
+
   return (
     <>
       <PageHero

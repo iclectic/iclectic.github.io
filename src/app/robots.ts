@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { siteConfig } from '@/lib/siteConfig'
+import { siteSettings } from '@/data/site'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    host: siteConfig.url,
-    sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteSettings.url,
+    sitemap: `${siteSettings.url}/sitemap.xml`,
   }
 }

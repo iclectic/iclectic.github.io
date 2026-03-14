@@ -1,8 +1,8 @@
 import Card from '@/components/primitives/Card'
-import type { CommunitySpeaker } from '@/data/community'
+import type { CommunitySpeakerCardData } from '@/lib/content'
 
 interface SpeakerArchiveCardProps {
-  speaker: CommunitySpeaker
+  speaker: CommunitySpeakerCardData
   displayDate?: string
 }
 

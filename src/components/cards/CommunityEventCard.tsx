@@ -1,8 +1,8 @@
 import Card from '@/components/primitives/Card'
-import type { CommunityEvent } from '@/data/community'
+import type { CommunityEventCardData } from '@/lib/content'
 
 interface CommunityEventCardProps {
-  event: CommunityEvent
+  event: CommunityEventCardData
   displayDate?: string
 }
 

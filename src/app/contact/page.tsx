@@ -1,8 +1,8 @@
 import ContactForm from '@/components/forms/ContactForm'
 import Button from '@/components/primitives/Button'
 import Container from '@/components/primitives/Container'
+import { siteSettings } from '@/data/site'
 import { createMetadata } from '@/lib/seo'
-import { siteConfig } from '@/lib/siteConfig'
 
 export const metadata = createMetadata({
   title: 'Contact',
@@ -35,13 +35,13 @@ export default function ContactPage() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href={`mailto:${siteConfig.author.email}`} variant="secondary">
-              {siteConfig.author.email}
+            <Button href={`mailto:${siteSettings.author.email}`} variant="secondary">
+              {siteSettings.author.email}
             </Button>
-            <Button href={siteConfig.author.linkedin} variant="ghost" external>
+            <Button href={siteSettings.author.linkedin} variant="ghost" external>
               LinkedIn
             </Button>
-            <Button href={siteConfig.author.github} variant="ghost" external>
+            <Button href={siteSettings.author.github} variant="ghost" external>
               GitHub
             </Button>
           </div>

@@ -5,8 +5,12 @@ import Button from '@/components/primitives/Button'
 import Card from '@/components/primitives/Card'
 import Container from '@/components/primitives/Container'
 import Section from '@/components/primitives/Section'
+import {
+  getOrganiserExpectations,
+  getSpeakingEngagements,
+  getSpeakingTopics,
+} from '@/lib/content'
 import { createMetadata } from '@/lib/seo'
-import { organiserExpectations, speakingEngagements, speakingTopics } from '@/data/speaking'
 
 export const metadata = createMetadata({
   title: 'Speaking',
@@ -15,6 +19,10 @@ export const metadata = createMetadata({
 })
 
 export default function SpeakingPage() {
+  const speakingTopics = getSpeakingTopics()
+  const speakingEngagements = getSpeakingEngagements()
+  const organiserExpectations = getOrganiserExpectations()
+
   return (
     <>
       <PageHero

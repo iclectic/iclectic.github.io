@@ -1,4 +1,4 @@
-import { siteConfig } from '@/lib/siteConfig'
+import { siteSettings } from '@/data/site'
 import { getAllWriting } from '@/lib/mdx'
 
 export const revalidate = 3600
@@ -18,7 +18,7 @@ export async function GET() {
 
   const entries = articles
     .map((article) => {
-      const url = `${siteConfig.url}/writing/${article.slug}`
+      const url = `${siteSettings.url}/writing/${article.slug}`
       return `  <entry>
     <title>${escapeXml(article.frontMatter.title)}</title>
     <link href="${url}" />
@@ -31,12 +31,12 @@ export async function GET() {
 
   const feed = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>${escapeXml(siteConfig.name)}</title>
-  <subtitle>${escapeXml(siteConfig.description)}</subtitle>
-  <link href="${siteConfig.url}" />
-  <link href="${siteConfig.url}/atom.xml" rel="self" />
+  <title>${escapeXml(siteSettings.name)}</title>
+  <subtitle>${escapeXml(siteSettings.description)}</subtitle>
+  <link href="${siteSettings.url}" />
+  <link href="${siteSettings.url}/atom.xml" rel="self" />
   <updated>${new Date(updated).toISOString()}</updated>
-  <id>${siteConfig.url}</id>
+  <id>${siteSettings.url}</id>
 ${entries}
 </feed>`
 

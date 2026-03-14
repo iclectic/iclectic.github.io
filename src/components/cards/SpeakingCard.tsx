@@ -1,16 +1,16 @@
 import Button from '@/components/primitives/Button'
 import Card from '@/components/primitives/Card'
 import Tag from '@/components/primitives/Tag'
-import type { SpeakingEngagement, SpeakingTopic } from '@/data/speaking'
+import type { SpeakingEngagementCardData, SpeakingTopicCardData } from '@/lib/content'
 
 type TopicCardProps = {
   variant: 'topic'
-  item: SpeakingTopic
+  item: SpeakingTopicCardData
 }
 
 type EngagementCardProps = {
   variant: 'engagement'
-  item: SpeakingEngagement
+  item: SpeakingEngagementCardData
 }
 
 type SpeakingCardProps = TopicCardProps | EngagementCardProps

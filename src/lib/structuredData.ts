@@ -1,4 +1,4 @@
-import { siteConfig } from './siteConfig'
+import { siteSettings } from '@/data/site'
 
 interface BreadcrumbItem {
   name: string
@@ -25,22 +25,22 @@ interface CreativeWorkArgs {
 }
 
 function toAbsoluteUrl(path: string) {
-  return path.startsWith('http') ? path : new URL(path, siteConfig.url).toString()
+  return path.startsWith('http') ? path : new URL(path, siteSettings.url).toString()
 }
 
 export function createPersonStructuredData() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: siteConfig.author.name,
-    url: siteConfig.url,
+    name: siteSettings.author.name,
+    url: siteSettings.url,
     image: toAbsoluteUrl('/images/profile/ibim_photo.jpg'),
-    email: siteConfig.author.email,
+    email: siteSettings.author.email,
     jobTitle: 'Freelance Software Engineer and Community Organiser',
     sameAs: [
-      siteConfig.author.github,
-      siteConfig.author.linkedin,
-      siteConfig.author.twitter,
+      siteSettings.author.github,
+      siteSettings.author.linkedin,
+      siteSettings.author.twitter,
     ],
     alumniOf: [
       {
