@@ -45,6 +45,20 @@ export const metadata: Metadata = {
       'application/atom+xml': '/atom.xml',
     },
   },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', type: 'image/png', sizes: '180x180' },
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/favicon-monochrome.svg', color: '#0B0F14' },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: siteSettings.locale,
