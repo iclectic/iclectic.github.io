@@ -487,25 +487,59 @@ export interface TableWrapperProps {
 }
 ```
 
-## Mapping From Current Files
+## Migration Status
 
-Current files already in the repo should map like this:
+The component-system migration is now past the wrapper stage for the core layers.
 
-- `src/components/Container.tsx` -> `src/components/primitives/Container.tsx`
-- `src/components/Header.tsx` -> `src/components/layout/Header.tsx`
-- `src/components/FooterNew.tsx` -> `src/components/layout/Footer.tsx`
-- `src/components/SkipToContent.tsx` -> `src/components/layout/SkipToContent.tsx`
-- `src/components/ui/Button.tsx` -> `src/components/primitives/Button.tsx`
-- `src/components/ui/Card.tsx` -> `src/components/primitives/Card.tsx`
-- `src/components/ui/Section.tsx` -> `src/components/primitives/Section.tsx`
-- `src/components/ui/SectionHeader.tsx` -> `src/components/layout/SectionHeader.tsx`
-- `src/components/ui/Tag.tsx` -> `src/components/primitives/Tag.tsx`
-- `src/components/ui/ArticleCard.tsx` -> `src/components/cards/ArticleCard.tsx`
-- `src/components/ui/ContributionCard.tsx` -> `src/components/cards/ContributionCard.tsx`
-- `src/components/ui/RepoCard.tsx` -> `src/components/cards/RepoCard.tsx`
-- `src/components/ui/RelatedLinks.tsx` -> `src/components/blocks/RelatedLinks.tsx`
-- `src/components/ContactForm.tsx` -> `src/components/forms/ContactForm.tsx`
-- `src/components/mdx/RenderedMdx.tsx` -> `src/components/mdx/MDXContent.tsx`
+### Current source-of-truth paths
+
+- `src/components/primitives/Container.tsx`
+- `src/components/primitives/Button.tsx`
+- `src/components/primitives/Card.tsx`
+- `src/components/primitives/Section.tsx`
+- `src/components/primitives/Tag.tsx`
+- `src/components/layout/Header.tsx`
+- `src/components/layout/Footer.tsx`
+- `src/components/layout/SkipToContent.tsx`
+- `src/components/layout/SectionHeader.tsx`
+- `src/components/layout/PageHero.tsx`
+- `src/components/layout/SocialLinks.tsx`
+- `src/components/blocks/RelatedLinks.tsx`
+- `src/components/forms/ContactForm.tsx`
+- `src/components/mdx/MDXContent.tsx`
+- `src/components/cards/ArticleCard.tsx`
+- `src/components/cards/ContributionCard.tsx`
+- `src/components/cards/RepoCard.tsx`
+- `src/components/cards/ProjectCard.tsx`
+- `src/components/cards/SpeakingCard.tsx`
+- `src/components/cards/CommunityEventCard.tsx`
+- `src/components/cards/SpeakerArchiveCard.tsx`
+
+### Legacy files already removed
+
+- `src/components/Container.tsx`
+- `src/components/Header.tsx`
+- `src/components/FooterNew.tsx`
+- `src/components/SkipToContent.tsx`
+- `src/components/ContactForm.tsx`
+- `src/components/ui/Button.tsx`
+- `src/components/ui/Card.tsx`
+- `src/components/ui/Section.tsx`
+- `src/components/ui/SectionHeader.tsx`
+- `src/components/ui/Tag.tsx`
+- `src/components/ui/ArticleCard.tsx`
+- `src/components/ui/ContributionCard.tsx`
+- `src/components/ui/RepoCard.tsx`
+- `src/components/ui/RelatedLinks.tsx`
+- `src/components/mdx/RenderedMdx.tsx`
+- `src/components/StructuredData.tsx`
+- `src/components/support/StructuredData.tsx`
+
+### Remaining extraction work
+
+- move `ThemeToggle` out of `src/components/layout/Header.tsx` if it needs reuse
+- add missing planned components such as `CTABlock`, `ProofStrip`, `StatsBlock`, `FilterBar`, `ArticleMetaBar`, and `Note`
+- decide whether `MobileMenu` should stay private to `Header` or become `src/components/layout/MobileMenu.tsx`
 
 ## Extraction Priority
 
