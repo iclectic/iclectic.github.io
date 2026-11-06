@@ -14,7 +14,7 @@ import {
 } from '@/lib/structuredData'
 
 interface ArticlePageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export function generateStaticParams() {
@@ -22,14 +22,15 @@ export function generateStaticParams() {
   return slugs.map((slug) => ({ slug }))
 }
 
-export function generateMetadata({ params }: ArticlePageProps) {
-  const article = getContentBySlug('writing', params.slug)
+export async function generateMetadata({ params }: ArticlePageProps) {
+  const { slug } = await params
+  const article = getContentBySlug('writing', slug)
 
   if (!article) {
     return createMetadata({
       title: 'Writing',
       description: 'Writing on engineering practice and community building.',
-      path: `/writing/${params.slug}`,
+      path: `/writing/${slug}`,
     })
   }
 
@@ -50,8 +51,9 @@ function formatDate(dateString: string) {
   })
 }
 
-export default function ArticlePage({ params }: ArticlePageProps) {
-  const article = getContentBySlug('writing', params.slug)
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  const { slug } = await params
+  const article = getContentBySlug('writing', slug)
 
   if (!article) {
     notFound()

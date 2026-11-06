@@ -1,7 +1,7 @@
 import { siteSettings } from '@/data/site'
 import { getAllWriting } from '@/lib/mdx'
 
-export const revalidate = 3600
+export const dynamic = 'force-static'
 
 export async function GET() {
   const articles = getAllWriting()

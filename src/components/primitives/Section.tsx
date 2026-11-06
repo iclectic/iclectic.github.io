@@ -25,7 +25,7 @@ export default function Section({
 }: SectionProps) {
   return (
     <Component
-      className={`py-16 ${tones[tone]} ${borders[border]} ${className}`}
+      className={`py-16 md:py-20 ${tones[tone]} ${borders[border]} ${className}`}
       {...props}
     />
   )

@@ -4,6 +4,8 @@ import type { MetadataRoute } from 'next'
 import { siteSettings } from '@/data/site'
 import { getAllCaseStudies, getAllContent, getAllWriting } from '@/lib/mdx'
 
+export const dynamic = 'force-static'
+
 const appDirectory = path.join(process.cwd(), 'src', 'app')
 
 function getFileLastModified(filePath: string) {

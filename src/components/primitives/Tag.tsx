@@ -5,14 +5,14 @@ interface TagProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 const tones = {
-  accent: 'bg-accent/10 text-accent',
-  neutral: 'bg-foreground/5 text-muted dark:text-muted-dark dark:bg-foreground-dark/10',
+  accent: 'border-accent/40 text-accent dark:border-accent-dark/40 dark:text-accent-dark',
+  neutral: 'border-border text-muted dark:border-border-dark dark:text-muted-dark',
 }
 
-export default function Tag({ tone = 'accent', className = '', ...props }: TagProps) {
+export default function Tag({ tone = 'neutral', className = '', ...props }: TagProps) {
   return (
     <span
-      className={`rounded-full px-2.5 py-0.5 text-caption font-medium ${tones[tone]} ${className}`}
+      className={`inline-flex items-center border px-2 py-0.5 font-mono text-[0.68rem] uppercase tracking-[0.14em] ${tones[tone]} ${className}`}
       {...props}
     />
   )
