@@ -102,9 +102,12 @@ async function githubFetch<T>(endpoint: string, params?: Record<string, string>)
     })
   }
 
+  const isStaticExport = process.env.NEXT_OUTPUT === 'export'
   const response = await fetch(url.toString(), {
     headers: getAuthHeaders(),
-    next: { revalidate: DEFAULT_REVALIDATE_SECONDS },
+    ...(isStaticExport
+      ? { cache: 'force-cache' as const }
+      : { next: { revalidate: DEFAULT_REVALIDATE_SECONDS } }),
   })
 
   if (!response.ok) {

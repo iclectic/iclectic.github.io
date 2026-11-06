@@ -12,10 +12,17 @@
   body {
     @apply bg-background text-foreground dark:bg-background-dark dark:text-foreground-dark;
     font-family: var(--font-sans), system-ui, sans-serif;
+    font-feature-settings: 'ss01' on, 'cv11' on;
   }
 
   ::selection {
-    @apply bg-accent/20 text-foreground dark:text-foreground-dark;
+    background: #8f3d2b;
+    color: #f3f0e8;
+  }
+
+  .dark ::selection {
+    background: #e4a08f;
+    color: #110f0c;
   }
 
   *:focus-visible {
@@ -35,6 +42,18 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .text-display-xl {
+    font-family: var(--font-display), Georgia, serif;
+    font-size: clamp(3.15rem, 7.4vw, 5.6rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+  }
+
+  .kicker {
+    @apply font-mono text-caption uppercase tracking-[0.18em] text-accent;
   }
 
   .prose-custom {

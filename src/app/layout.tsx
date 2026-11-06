@@ -30,8 +30,8 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteSettings.url),
   title: {
-    default: siteSettings.title,
-    template: `%s | ${siteSettings.name}`,
+    default: 'Ibim Braide · Software engineer and community organiser',
+    template: `%s | ${siteSettings.author.name}`,
   },
   description: siteSettings.description,
   applicationName: siteSettings.name,
@@ -64,12 +64,12 @@ export const metadata: Metadata = {
     locale: siteSettings.locale,
     url: siteSettings.url,
     siteName: siteSettings.name,
-    title: siteSettings.title,
+    title: 'Ibim Braide · Software engineer and community organiser',
     description: siteSettings.description,
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteSettings.title,
+    title: 'Ibim Braide · Software engineer and community organiser',
     description: siteSettings.description,
     creator: siteSettings.author.twitter,
   },

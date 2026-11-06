@@ -34,15 +34,15 @@ export default function PageHero({
   const alignmentClass = align === 'center' ? 'mx-auto text-center' : ''
 
   return (
-    <section className={`pt-20 pb-16 md:pt-28 md:pb-20 ${className}`}>
+    <section className={`border-b border-border pt-16 pb-14 dark:border-border-dark md:pt-24 md:pb-16 ${className}`}>
       <Container className={containerClassName}>
-        <div className={`max-w-2xl ${alignmentClass} ${contentClassName}`.trim()}>
+        <div className={`max-w-3xl ${alignmentClass} ${contentClassName}`.trim()}>
           {eyebrow ? (
-            <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+            <p className="kicker">
               {eyebrow}
             </p>
           ) : null}
-          <h1 className={`mt-4 font-display text-h1 text-foreground dark:text-foreground-dark ${titleClassName}`.trim()}>
+          <h1 className={`mt-4 text-balance font-display text-[2.15rem] font-semibold leading-[1.08] tracking-tight text-foreground dark:text-foreground-dark sm:text-h1 ${titleClassName}`.trim()}>
             {title}
           </h1>
           <p className={`mt-4 text-body text-muted dark:text-muted-dark ${descriptionClassName}`.trim()}>

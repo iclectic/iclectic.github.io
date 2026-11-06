@@ -42,7 +42,7 @@ export default function AboutPage() {
         <Container>
           <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
             <div className="max-w-xl lg:max-w-2xl">
-              <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
+              <p className="kicker">
                 About
               </p>
               <h1 className="mt-4 font-display text-h1 text-foreground dark:text-foreground-dark">
@@ -59,30 +59,37 @@ export default function AboutPage() {
                 that strengthens the wider developer ecosystem.
               </p>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {heroHighlights.map((item) => (
-                  <div
+              <ul className="mt-8 divide-y divide-border border-y border-border dark:divide-border-dark dark:border-border-dark">
+                {heroHighlights.map((item, index) => (
+                  <li
                     key={item}
-                    className="rounded-lg border border-border dark:border-border-dark px-4 py-3 text-body-sm text-muted dark:text-muted-dark"
+                    className="grid grid-cols-[2.5rem_1fr] gap-3 py-3 text-body-sm text-foreground/80 dark:text-foreground-dark/80"
                   >
-                    {item}
-                  </div>
+                    <span className="font-mono text-[0.68rem] tracking-[0.14em] text-accent dark:text-accent-dark">
+                      0{index + 1}
+                    </span>
+                    <span>{item}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            <div className="flex-shrink-0 lg:sticky lg:top-24 lg:self-start">
-              <div className="relative h-72 w-72 overflow-hidden rounded-2xl border border-border dark:border-border-dark lg:h-80 lg:w-80">
+            <figure className="flex-shrink-0 lg:sticky lg:top-24 lg:self-start">
+              <div className="relative aspect-[4/5] w-72 overflow-hidden border border-border dark:border-border-dark lg:w-80">
                 <Image
                   src="/images/profile/ibim_photo.jpg"
                   alt="Ibim Braide"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   priority
                   sizes="(max-width: 1024px) 288px, 320px"
                 />
               </div>
-            </div>
+              <figcaption className="mt-3 flex items-baseline justify-between font-mono text-[0.68rem] uppercase tracking-[0.14em] text-muted dark:text-muted-dark">
+                <span>Ibim Braide</span>
+                <span>United Kingdom</span>
+              </figcaption>
+            </figure>
           </div>
         </Container>
       </section>

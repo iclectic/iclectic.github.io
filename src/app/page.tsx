@@ -1,17 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import ProjectCard from '@/components/cards/ProjectCard'
 import Container from '@/components/primitives/Container'
 import Button from '@/components/primitives/Button'
-import Section from '@/components/primitives/Section'
-import Tag from '@/components/primitives/Tag'
-import SectionHeader from '@/components/layout/SectionHeader'
 import { siteSettings } from '@/data/site'
 import { getGitHubActivity, getGitHubUsername } from '@/lib/github'
 import { getFeaturedProjectCards, getOpenSourcePublicWork } from '@/lib/content'
 import { getAllCaseStudies, getAllWriting } from '@/lib/mdx'
-
-export const revalidate = 3600
 
 function formatDate(dateString: string) {
   if (/^\d{4}$/.test(dateString)) {
@@ -24,7 +18,7 @@ function formatDate(dateString: string) {
 
   return new Date(dateString).toLocaleDateString('en-GB', {
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
   })
 }
@@ -39,73 +33,101 @@ interface ImpactItem {
   external?: boolean
 }
 
+const proofItems = [
+  {
+    index: '01',
+    label: 'Education',
+    href: '/about',
+    value: 'MSc Computer Science, Birmingham City University',
+    detail: 'BEng Computer Engineering, University of Benin. Published research on SSRN.',
+  },
+  {
+    index: '02',
+    label: 'Community',
+    href: '/community',
+    value: 'Organiser, Flutter Birmingham',
+    detail: 'Organising team, Golang Birmingham. Supported first-time speakers and ran recurring sessions since 2024.',
+  },
+  {
+    index: '03',
+    label: 'Open source',
+    href: '/open-source',
+    value: '4 public repositories shipped in 2026',
+    detail: 'TEXTARA, State-Layers-Demo, checkin-qr, and flutter-birmingham-hub.',
+  },
+  {
+    index: '04',
+    label: 'Speaking',
+    href: '/speaking',
+    value: 'State management at Flutter Birmingham',
+    detail: 'A delivered meetup session, with conference-ready talks on architecture, delivery, and community engineering.',
+  },
+] as const
+
+const practices = [
+  {
+    index: '01',
+    title: 'I ship across the stack',
+    body: 'Flutter mobile apps, React frontends, C# and Node backends, PostgreSQL, and Python analysis. The tool follows the problem.',
+  },
+  {
+    index: '02',
+    title: 'I run two communities',
+    body: 'Flutter Birmingham as organiser, and the Golang Birmingham organising team. Programming, speaker pipelines, venues, and first-time speakers.',
+  },
+  {
+    index: '03',
+    title: 'I build in public',
+    body: 'Teaching repositories, meetup tooling, and essays on AI ethics, open source, and how a community is actually run.',
+  },
+] as const
+
 export default async function HomePage() {
   const featuredProjects = getFeaturedProjectCards().slice(0, 3)
-  const featuredCaseStudies = getAllCaseStudies().slice(0, 2)
-  const latestWriting = getAllWriting().slice(0, 2)
+  const featuredCaseStudies = getAllCaseStudies().slice(0, 3)
+  const latestWriting = getAllWriting().slice(0, 3)
   const githubUsername = getGitHubUsername(siteSettings.author.github)
   const githubActivity = githubUsername ? await getGitHubActivity(githubUsername, 3) : []
   const fallbackOpenSourceWork = getOpenSourcePublicWork()
   const recentContributions = githubActivity.length > 0
     ? githubActivity
     : fallbackOpenSourceWork.slice(0, 3)
-  const proofItems = [
-    {
-      label: 'Education',
-      value: 'MSc Computer Science, Birmingham City University',
-      detail: 'BEng Computer Engineering, University of Benin. Published research on SSRN.',
-    },
-    {
-      label: 'Community',
-      value: 'Organiser, Flutter Birmingham',
-      detail: 'Organising team, Golang Birmingham. Supported first-time speakers and ran recurring sessions since 2024.',
-    },
-    {
-      label: 'Open source',
-      value: '4 public repositories shipped in 2026',
-      detail: 'TEXTARA (offline reader), State-Layers-Demo, checkin-qr, flutter-birmingham-hub.',
-    },
-    {
-      label: 'Speaking',
-      value: 'Delivered state management session at Flutter Birmingham',
-      detail: 'Conference-ready talks on Flutter architecture, delivery clarity, and community engineering.',
-    },
-  ] as const
+
   const impactItems: ImpactItem[] = [
     {
       date: '2026-03-12',
       label: 'Writing',
       title: 'Responsible AI starts in the backlog',
-      detail: 'Argued that ethical review belongs in sprint planning, not after the model ships. Published as a standalone essay with a reusable delivery checklist.',
+      detail: 'Ethical review belongs in sprint planning, not after the model ships. The essay includes a reusable delivery checklist.',
       href: '/writing/responsible-ai-starts-in-the-backlog',
       cta: 'Read the essay',
     },
     {
+      date: '2026-03-05',
+      label: 'Community',
+      title: 'The Flutter Birmingham operating model',
+      detail: 'How sessions are programmed, speakers are onboarded, and meetup delivery stays steady.',
+      href: '/writing/running-developer-communities-like-engineering-projects',
+      cta: 'Read the write-up',
+    },
+    {
       date: '2026-02-27',
       label: 'Open source',
-      title: 'Shipped State-Layers-Demo on GitHub',
-      detail: 'Conference-ready Flutter repository that teaches local, shared, and app-level state in one working example. Built to support my own talk and reusable by other speakers.',
+      title: 'State-Layers-Demo',
+      detail: 'A Flutter repository that teaches local, shared, and app-level state in one working example, built for a live talk.',
       href: 'https://github.com/iclectic/State-Layers-Demo',
       cta: 'View repository',
       external: true,
     },
     {
-      date: '2026-03-05',
-      label: 'Community',
-      title: 'Documented the Flutter Birmingham operating model',
-      detail: 'Wrote up how I programme sessions, onboard speakers, and keep meetup delivery steady. Turns tacit organiser knowledge into a public reference.',
-      href: '/writing/running-developer-communities-like-engineering-projects',
-      cta: 'Read the write-up',
-    },
-    {
       date: '2025',
       label: 'Speaking',
-      title: 'Talked state management at Flutter Birmingham',
-      detail: 'Walked a meetup audience through where Flutter state decisions go wrong and how to keep architecture choices maintainable under delivery pressure.',
+      title: 'State management, delivered live',
+      detail: 'A meetup walkthrough of where Flutter state decisions go wrong, and how to keep them maintainable under delivery pressure.',
       href: '/speaking',
-      cta: 'View speaking topics',
+      cta: 'View speaking',
     },
-  ] as const
+  ]
 
   const personSchema = {
     '@context': 'https://schema.org',
@@ -113,7 +135,11 @@ export default async function HomePage() {
     name: siteSettings.author.name,
     url: siteSettings.url,
     email: siteSettings.author.email,
-    jobTitle: 'Freelance Engineer and Community Organiser',
+    jobTitle: 'Software Engineer and Community Organiser',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'GB',
+    },
     knowsAbout: [
       'Software Engineering',
       'Open Source',
@@ -153,373 +179,309 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
 
-      <section className="pt-20 pb-16 md:pt-28 md:pb-24">
-        <Container>
-          <div className="flex flex-col-reverse gap-12 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="text-caption uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-                Ibim Braide
-              </p>
-              <h1 className="mt-4 font-display text-display text-foreground dark:text-foreground-dark text-balance">
-                I build software, then I build the communities around it
-              </h1>
-              <p className="mt-4 text-h3 text-muted dark:text-muted-dark font-medium">
-                Software engineer. Flutter Birmingham organiser. Open source contributor. Based in the UK.
-              </p>
-              <p className="mt-6 text-body text-foreground/80 dark:text-foreground-dark/80 max-w-xl">
-                Most engineers ship code. I also ship meetups, speaker pipelines, and teaching repositories.
-                I believe the best engineering work happens when you invest in the ecosystem, not just the product.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Button href="/case-studies" variant="primary">
-                  Read case studies
-                </Button>
-                <Button href="/cv" variant="secondary">
-                  View CV
-                </Button>
-                <Button href="/projects" variant="ghost">
-                  View projects
-                </Button>
-                <Button href="/contact" variant="link">
-                  Get in touch
-                </Button>
-              </div>
+      <section className="border-b border-border dark:border-border-dark">
+        <Container className="grid items-end gap-12 py-16 md:py-24 lg:grid-cols-[minmax(0,1.35fr)_17rem] lg:gap-16">
+          <div>
+            <p className="kicker">Software engineer · United Kingdom</p>
+            <h1 className="text-display-xl mt-5 max-w-4xl text-foreground dark:text-foreground-dark">
+              I build software, then the communities around it.
+            </h1>
+            <p className="mt-6 max-w-xl text-body text-muted dark:text-muted-dark">
+              Most engineers ship a product. I also ship meetups, speaker pipelines, and teaching repositories.
+              The public record is the point: code, writing, and rooms other people can use.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Button href="/case-studies">Read the case studies</Button>
+              <Button href="/contact" variant="secondary">Get in touch</Button>
+              <Button href="/cv" variant="ghost">CV</Button>
             </div>
-            <div className="flex-shrink-0">
-              <div className="relative h-48 w-48 overflow-hidden rounded-full border-2 border-border dark:border-border-dark lg:h-64 lg:w-64">
-                <Image
-                  src="/images/profile/ibim_photo.jpg"
-                  alt="Ibim Braide"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 1024px) 192px, 256px"
-                />
+          </div>
+
+          <figure>
+            <div className="relative aspect-[4/5] overflow-hidden border border-border bg-paper dark:border-border-dark dark:bg-paper-dark">
+              <Image
+                src="/images/profile/ibim_photo.jpg"
+                alt="Portrait of Ibim Braide"
+                fill
+                className="object-cover object-center"
+                priority
+                sizes="272px"
+              />
+            </div>
+            <figcaption className="mt-3 flex items-baseline justify-between font-mono text-[0.68rem] uppercase tracking-[0.14em] text-muted dark:text-muted-dark">
+              <span>Ibim Braide</span>
+              <span>Birmingham</span>
+            </figcaption>
+          </figure>
+        </Container>
+      </section>
+
+      <section aria-labelledby="record-heading">
+        <Container>
+          <div className="flex flex-col gap-3 border-b border-border py-8 dark:border-border-dark sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 id="record-heading" className="kicker">Public record</h2>
+              <p className="mt-3 max-w-xl font-display text-h2 text-foreground dark:text-foreground-dark">
+                Four claims. Each one has a page behind it.
+              </p>
+            </div>
+            <Button href="/IBIM_BRAIDE_CURRICULUM_VITAE.pdf" variant="link" external>
+              Download the CV
+            </Button>
+          </div>
+          <ol>
+            {proofItems.map((item) => (
+              <li key={item.index} className="border-b border-border dark:border-border-dark">
+                <Link
+                  href={item.href}
+                  className="group grid gap-3 py-6 md:grid-cols-[4.5rem_1fr_8rem] md:items-baseline md:gap-8"
+                >
+                  <span className="font-mono text-[0.68rem] tracking-[0.16em] text-accent dark:text-accent-dark">
+                    {item.index}
+                  </span>
+                  <span>
+                    <span className="block font-display text-h3 text-foreground transition-colors group-hover:text-accent dark:text-foreground-dark dark:group-hover:text-accent-dark">
+                      {item.value}
+                    </span>
+                    <span className="mt-1 block text-body-sm text-muted dark:text-muted-dark">
+                      {item.detail}
+                    </span>
+                  </span>
+                  <span className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted group-hover:text-foreground dark:text-muted-dark dark:group-hover:text-foreground-dark">
+                    {item.label}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      <section className="border-t border-border dark:border-border-dark" aria-labelledby="practice-heading">
+        <Container className="py-16 md:py-20">
+          <h2 id="practice-heading" className="kicker">Practice</h2>
+          <div className="mt-8 grid gap-10 md:grid-cols-3">
+            {practices.map((item) => (
+              <div key={item.index} className="border-t border-border pt-5 dark:border-border-dark">
+                <p className="font-mono text-[0.68rem] tracking-[0.16em] text-accent dark:text-accent-dark">
+                  {item.index}
+                </p>
+                <h3 className="mt-3 font-display text-h3 text-foreground dark:text-foreground-dark">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-body-sm text-muted dark:text-muted-dark">{item.body}</p>
               </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {featuredProjects.length > 0 && (
+        <section className="border-t border-border dark:border-border-dark" aria-labelledby="work-heading">
+          <Container className="py-16 md:py-20">
+            <div className="flex items-end justify-between gap-6">
+              <h2 id="work-heading" className="font-display text-h2 text-foreground dark:text-foreground-dark">
+                Selected work
+              </h2>
+              <Button href="/projects" variant="link">All projects</Button>
+            </div>
+            <div className="mt-8 divide-y divide-border border-y border-border dark:divide-border-dark dark:border-border-dark">
+              {featuredProjects.map((project) => (
+                <article key={project.title} className="grid gap-4 py-8 lg:grid-cols-[1fr_16rem] lg:gap-12">
+                  <div>
+                    <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-accent dark:text-accent-dark">
+                      {project.projectType} · {project.category}
+                    </p>
+                    <h3 className="mt-3 font-display text-h2 text-foreground dark:text-foreground-dark">
+                      <Link href={project.link.startsWith('/') ? project.link : project.github ?? project.link} className="hover:text-accent dark:hover:text-accent-dark">
+                        {project.title}
+                      </Link>
+                    </h3>
+                    <p className="mt-3 max-w-2xl text-body text-muted dark:text-muted-dark">
+                      {project.description}
+                    </p>
+                  </div>
+                  <dl className="grid content-start gap-4 text-body-sm">
+                    <div>
+                      <dt className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted dark:text-muted-dark">Outcome</dt>
+                      <dd className="mt-1 text-foreground/85 dark:text-foreground-dark/85">{project.outcome}</dd>
+                    </div>
+                    <div>
+                      <dt className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted dark:text-muted-dark">Role</dt>
+                      <dd className="mt-1 text-foreground/85 dark:text-foreground-dark/85">{project.role}</dd>
+                    </div>
+                  </dl>
+                </article>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      <section className="border-t border-border dark:border-border-dark" aria-labelledby="impact-heading">
+        <Container className="py-16 md:py-20">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="kicker">Dated proof</p>
+              <h2 id="impact-heading" className="mt-3 font-display text-h2 text-foreground dark:text-foreground-dark">
+                What changed, and when
+              </h2>
+            </div>
+            <Button href="/impact" variant="link">Impact</Button>
+          </div>
+          <ol className="mt-8">
+            {impactItems.map((item) => (
+              <li key={`${item.date}-${item.title}`} className="border-t border-border py-6 dark:border-border-dark">
+                <div className="grid gap-3 md:grid-cols-[7.5rem_8rem_1fr] md:gap-8">
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-muted dark:text-muted-dark">
+                    {formatDate(item.date)}
+                  </p>
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-accent dark:text-accent-dark">
+                    {item.label}
+                  </p>
+                  <div>
+                    <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">{item.title}</h3>
+                    <p className="mt-2 max-w-2xl text-body-sm text-muted dark:text-muted-dark">{item.detail}</p>
+                    <div className="mt-3">
+                      <Button href={item.href} variant="link" external={item.external}>
+                        {item.cta}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      {(featuredCaseStudies.length > 0 || latestWriting.length > 0) && (
+        <section className="border-t border-border dark:border-border-dark">
+          <Container className="grid gap-16 py-16 md:py-20 lg:grid-cols-2">
+            {featuredCaseStudies.length > 0 && (
+              <div>
+                <div className="flex items-end justify-between gap-4">
+                  <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Case studies</h2>
+                  <Button href="/case-studies" variant="link">All</Button>
+                </div>
+                <ul className="mt-6 divide-y divide-border border-t border-border dark:divide-border-dark dark:border-border-dark">
+                  {featuredCaseStudies.map((study) => (
+                    <li key={study.slug}>
+                      <Link href={`/case-studies/${study.slug}`} className="group block py-5">
+                        <p className="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-muted dark:text-muted-dark">
+                          {formatDate(study.frontMatter.date)} · {study.readingTime}
+                        </p>
+                        <h3 className="mt-2 font-display text-h3 text-foreground group-hover:text-accent dark:text-foreground-dark dark:group-hover:text-accent-dark">
+                          {study.frontMatter.title}
+                        </h3>
+                        <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
+                          {study.frontMatter.description}
+                        </p>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {latestWriting.length > 0 && (
+              <div>
+                <div className="flex items-end justify-between gap-4">
+                  <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Writing</h2>
+                  <Button href="/writing" variant="link">All</Button>
+                </div>
+                <ul className="mt-6 divide-y divide-border border-t border-border dark:divide-border-dark dark:border-border-dark">
+                  {latestWriting.map((article) => (
+                    <li key={article.slug}>
+                      <Link href={`/writing/${article.slug}`} className="group block py-5">
+                        <p className="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-muted dark:text-muted-dark">
+                          {formatDate(article.frontMatter.date)} · {article.readingTime}
+                        </p>
+                        <h3 className="mt-2 font-display text-h3 text-foreground group-hover:text-accent dark:text-foreground-dark dark:group-hover:text-accent-dark">
+                          {article.frontMatter.title}
+                        </h3>
+                        <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
+                          {article.frontMatter.description}
+                        </p>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </Container>
+        </section>
+      )}
+
+      <section className="border-t border-border dark:border-border-dark">
+        <Container className="grid gap-12 py-16 md:py-20 lg:grid-cols-2">
+          <div>
+            <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Open source</h2>
+            <p className="mt-3 max-w-xl text-body text-muted dark:text-muted-dark">
+              TEXTARA, State-Layers-Demo, checkin-qr, and flutter-birmingham-hub. Full commit history, not a README and a promise.
+            </p>
+            {recentContributions.length > 0 && (
+              <ul className="mt-6 space-y-4 border-t border-border pt-6 dark:border-border-dark">
+                {recentContributions.map((item) => (
+                  <li key={`${item.project}-${item.title}`} className="text-body-sm">
+                    <a
+                      href={item.link}
+                      className="font-medium text-foreground underline decoration-border underline-offset-4 hover:decoration-accent dark:text-foreground-dark dark:decoration-border-dark"
+                      target={item.link.startsWith('http') ? '_blank' : undefined}
+                      rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    >
+                      {item.title}
+                    </a>
+                    <p className="mt-1 text-muted dark:text-muted-dark">
+                      {item.type} · {item.project}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div className="mt-6">
+              <Button href="/open-source" variant="link">Open source record</Button>
+            </div>
+          </div>
+          <div>
+            <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Community</h2>
+            <p className="mt-3 max-w-xl text-body text-muted dark:text-muted-dark">
+              Flutter Birmingham and the Golang Birmingham organising team. Ten or more sessions, six first-time speakers supported, and tools built so the work can be repeated.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <Button href="/community" variant="link">Community</Button>
+              <Button href="/speaking" variant="link">Speaking</Button>
             </div>
           </div>
         </Container>
       </section>
 
-      <Section tone="subtle">
-        <Container>
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <h2 className="text-body-sm font-semibold uppercase tracking-[0.2em] text-muted dark:text-muted-dark">
-                Verifiable credentials
-              </h2>
-              <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                Every claim on this site links to a public repository, a meetup page, a published article, or a university record.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Button href="/cv" variant="secondary">
-                View CV
-              </Button>
-              <Button href="/IBIM_BRAIDE_CURRICULUM_VITAE.pdf" variant="ghost" external>
-                Download PDF
-              </Button>
-            </div>
+      <section className="border-t border-border bg-foreground text-background dark:border-border-dark dark:bg-foreground-dark dark:text-background-dark">
+        <Container className="grid gap-8 py-16 md:grid-cols-[1.4fr_auto] md:items-end md:py-20">
+          <div>
+            <p className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-background/60 dark:text-background-dark/60">
+              Available
+            </p>
+            <h2 className="mt-4 max-w-xl font-display text-[2.15rem] font-semibold leading-[1.08] tracking-tight text-background dark:text-background-dark sm:text-h1">
+              Scoped freelance work, talks, and collaborations.
+            </h2>
           </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {proofItems.map((item) => (
-              <div
-                key={item.label}
-                className="rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-5"
-              >
-                <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
-                  {item.label}
-                </p>
-                <p className="mt-3 text-body-sm font-medium text-foreground dark:text-foreground-dark">
-                  {item.value}
-                </p>
-                <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                  {item.detail}
-                </p>
-              </div>
-            ))}
+          <div className="flex flex-col items-start gap-3">
+            <a
+              href={`mailto:${siteSettings.author.email}`}
+              className="font-display text-h3 text-background underline decoration-background/30 underline-offset-4 hover:decoration-background dark:text-background-dark dark:decoration-background-dark/30"
+            >
+              {siteSettings.author.email}
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex border border-background/40 px-5 py-2.5 text-body-sm text-background transition-colors hover:bg-background hover:text-foreground dark:border-background-dark/40 dark:text-background-dark dark:hover:bg-background-dark dark:hover:text-foreground-dark"
+            >
+              Contact
+            </Link>
           </div>
         </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <SectionHeader
-            title="Selected impact"
-            description="A small set of dated proof points across engineering, writing, community leadership, and public technical work."
-            action={(
-              <Button href="/impact" variant="link">
-                View impact page
-              </Button>
-            )}
-          />
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {impactItems.map((item) => (
-              <article
-                key={`${item.date}-${item.title}`}
-                className="rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-6"
-              >
-                <div className="flex flex-wrap items-center gap-2">
-                  <Tag>{item.label}</Tag>
-                  <span className="text-caption text-muted dark:text-muted-dark">
-                    {formatDate(item.date)}
-                  </span>
-                </div>
-                <h3 className="mt-4 font-display text-h3 text-foreground dark:text-foreground-dark">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                  {item.detail}
-                </p>
-                <div className="mt-4">
-                  <Button href={item.href} variant="link" external={item.external}>
-                    {item.cta}
-                  </Button>
-                </div>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <div className="grid gap-8 md:grid-cols-3">
-            <div>
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10">
-                <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-              </div>
-              <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">I ship across the stack</h3>
-              <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                Flutter mobile apps, React frontends, C# and Node backends, PostgreSQL data layers, Python analysis pipelines. I choose the tool that fits the problem, not the one on my CV.
-              </p>
-            </div>
-            <div>
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10">
-                <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">I run two developer communities</h3>
-              <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                Flutter Birmingham (organiser) and Golang Birmingham (organising team). I handle programming, speaker pipelines, venue logistics, and first-time speaker support.
-              </p>
-            </div>
-            <div>
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10">
-                <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark">I build in public</h3>
-              <p className="mt-2 text-body-sm text-muted dark:text-muted-dark">
-                TEXTARA (offline Flutter reader), State-Layers-Demo (teaching repo), checkin-qr (meetup ops tool), plus articles on AI ethics, open source, and community leadership.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {featuredProjects.length > 0 && (
-        <Section>
-          <Container>
-            <SectionHeader
-              title="Featured work"
-              description="A focused selection of work that shows how I frame problems, build useful products, and deliver outcomes with care."
-              action={(
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"
-                >
-                  See all projects
-                </Link>
-              )}
-            />
-            <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {featuredProjects.map((project) => (
-                <ProjectCard key={project.title} project={project} variant="featured" />
-              ))}
-            </div>
-          </Container>
-        </Section>
-      )}
-
-      {featuredCaseStudies.length > 0 && (
-        <Section>
-          <Container>
-            <SectionHeader
-              title="Case studies"
-              description="Detailed write ups covering context, decisions, and measurable impact."
-              action={(
-                <Link
-                  href="/case-studies"
-                  className="inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"
-                >
-                  Read all case studies
-                </Link>
-              )}
-            />
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              {featuredCaseStudies.map((study) => (
-                <Link
-                  key={study.slug}
-                  href={`/case-studies/${study.slug}`}
-                  className="group rounded-xl border border-border dark:border-border-dark p-6 hover:border-accent/30 transition-colors"
-                >
-                  {study.frontMatter.tags && (
-                    <div className="flex flex-wrap gap-1.5 mb-3">
-                      {study.frontMatter.tags.map((tag) => (
-                        <Tag key={tag}>{tag}</Tag>
-                      ))}
-                    </div>
-                  )}
-                  <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark group-hover:text-accent transition-colors">
-                    {study.frontMatter.title}
-                  </h3>
-                  <p className="mt-2 text-body-sm text-muted dark:text-muted-dark line-clamp-3">
-                    {study.frontMatter.description}
-                  </p>
-                  <p className="mt-4 text-caption text-muted dark:text-muted-dark">
-                    {formatDate(study.frontMatter.date)} · {study.readingTime}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </Container>
-        </Section>
-      )}
-
-      <Section>
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Open source</h2>
-              <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                Four public repositories shipped in 2026: TEXTARA (offline Flutter reader), State-Layers-Demo
-                (teaching repo from my own talk), checkin-qr (meetup attendance tool), and flutter-birmingham-hub
-                (community event management). Everything is on GitHub with full commit history.
-              </p>
-              {recentContributions.length > 0 ? (
-                <div className="mt-6 rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-5">
-                  <p className="text-body-sm font-semibold text-foreground dark:text-foreground-dark">
-                    Recent contributions
-                  </p>
-                  <ul className="mt-3 space-y-3 text-body-sm text-muted dark:text-muted-dark list-disc pl-5">
-                    {recentContributions.map((item) => (
-                      <li key={`${item.project}-${item.title}`}>
-                        <span className="font-medium text-foreground dark:text-foreground-dark">{item.type}</span>{' '}
-                        in {item.project}: {item.title}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <div className="mt-6 rounded-xl border border-border dark:border-border-dark bg-background dark:bg-background-dark p-5">
-                  <p className="text-body-sm text-muted dark:text-muted-dark">
-                    I publish open source work here when there is a clear contribution trail to show, rather than
-                    padding the page with filler.
-                  </p>
-                </div>
-              )}
-              <Link
-                href="/open-source"
-                className="mt-4 inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"
-              >
-                Explore open source work
-              </Link>
-            </div>
-            <div>
-              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Community</h2>
-              <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                I run Flutter Birmingham and sit on the Golang Birmingham organising team. Between them:
-                10+ sessions delivered, 6 first-time speakers supported, and two open source tools built
-                specifically to make organiser work repeatable.
-              </p>
-              <Link
-                href="/community"
-                className="mt-4 inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"
-              >
-                See community work
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {latestWriting.length > 0 && (
-        <Section>
-          <Container>
-            <SectionHeader
-              title="Writing"
-              description="Essays on AI ethics, community operations, and engineering judgement. Each one argues a position rather than summarising a topic."
-              action={(
-                <Link
-                  href="/writing"
-                  className="inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"
-                >
-                  Read all articles
-                </Link>
-              )}
-            />
-            <div className="mt-8 divide-y divide-border dark:divide-border-dark">
-              {latestWriting.map((article) => (
-                <Link
-                  key={article.slug}
-                  href={`/writing/${article.slug}`}
-                  className="block py-6 first:pt-0 last:pb-0 group"
-                >
-                  <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                    <h3 className="font-display text-h3 text-foreground dark:text-foreground-dark group-hover:text-accent transition-colors">
-                      {article.frontMatter.title}
-                    </h3>
-                    <span className="text-caption text-muted dark:text-muted-dark whitespace-nowrap">
-                      {formatDate(article.frontMatter.date)}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-body-sm text-muted dark:text-muted-dark">
-                    {article.frontMatter.description}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </Container>
-        </Section>
-      )}
-
-      <Section>
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Speaking</h2>
-              <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                Delivered a Flutter state management session to a live meetup audience. Conference-ready topics on
-                delivery clarity and community-driven engineering are available for booking.
-              </p>
-              <Link
-                href="/speaking"
-                className="mt-4 inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"
-              >
-                View speaking topics
-              </Link>
-            </div>
-            <div>
-              <h2 className="font-display text-h2 text-foreground dark:text-foreground-dark">Work with me</h2>
-              <p className="mt-3 text-body text-muted dark:text-muted-dark">
-                I take on scoped freelance projects, speak at meetups and conferences, and collaborate on
-                open source. If any of this work resonates, let us talk.
-              </p>
-              <Link
-                href="/contact"
-                className="mt-4 inline-flex items-center text-body-sm font-medium text-accent hover:underline underline-offset-2"
-              >
-                Get in touch
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      </section>
     </>
   )
 }

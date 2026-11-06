@@ -20,7 +20,6 @@ It is also a living home for my writing. I care about AI ethics, software engine
 - TypeScript
 - Tailwind CSS
 - MDX for long form content
-- Framer Motion for restrained, purposeful motion
 
 ## Content structure
 - Content lives in `content/` as MDX
@@ -33,6 +32,11 @@ It is also a living home for my writing. I care about AI ethics, software engine
 npm install
 npm run dev
 ```
+
+## Deployment
+The live domain is [ibimbraide.com](https://ibimbraide.com). GitHub Pages must use **GitHub Actions** as the source, not the branch itself. A branch deploy publishes this README through Jekyll, which is why the domain was showing the repository notes instead of the site.
+
+Pushes to `main` run `.github/workflows/nextjs.yml`. That workflow builds a static export (`NEXT_OUTPUT=export`) and deploys the `out` directory, including the `CNAME` file.
 
 ## Why this exists
 I want a portfolio that feels elite and trustworthy. It should be easy to scan, but rewarding to read slowly. It should speak to recruiters, engineering managers, conference organisers, open source maintainers, and reviewers who care about impact and credibility.

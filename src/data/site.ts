@@ -33,11 +33,11 @@ export const footerNavigation: NavItem[] = [
 ]
 
 export const siteSettings: SiteSettings = {
-  name: 'ibimbraide.com',
+  name: 'Ibim Braide',
   url: 'https://ibimbraide.com',
   title: 'Ibim Braide',
   description:
-    'Software engineer, community organiser, and open source contributor based in the UK. I build software, then I build the communities around it.',
+    'Ibim Braide is a software engineer and community organiser in the United Kingdom. He builds production software, runs Flutter Birmingham, and publishes the work in the open.',
   locale: 'en-GB',
   author: {
     name: 'Ibim Braide',
@@ -53,7 +53,7 @@ export const siteSettings: SiteSettings = {
     defaultTitle: 'Ibim Braide',
     titleTemplate: '%s | Ibim Braide',
     defaultDescription:
-      'Software engineering, open source, community leadership, and technical writing by Ibim Braide.',
+      'Software engineering, open source, community leadership, and technical writing by Ibim Braide, based in the United Kingdom.',
     defaultOgImage: '/og/default.png',
   },
   feeds: {

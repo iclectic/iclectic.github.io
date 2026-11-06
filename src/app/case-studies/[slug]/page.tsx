@@ -14,7 +14,7 @@ import {
 } from '@/lib/structuredData'
 
 interface CaseStudyPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export function generateStaticParams() {
@@ -22,14 +22,15 @@ export function generateStaticParams() {
   return slugs.map((slug) => ({ slug }))
 }
 
-export function generateMetadata({ params }: CaseStudyPageProps) {
-  const study = getContentBySlug('case-studies', params.slug)
+export async function generateMetadata({ params }: CaseStudyPageProps) {
+  const { slug } = await params
+  const study = getContentBySlug('case-studies', slug)
 
   if (!study) {
     return createMetadata({
       title: 'Case Studies',
       description: 'Case study details for Ibim Braide.',
-      path: `/case-studies/${params.slug}`,
+      path: `/case-studies/${slug}`,
     })
   }
 
@@ -50,8 +51,9 @@ function formatDate(dateString: string) {
   })
 }
 
-export default function CaseStudyPage({ params }: CaseStudyPageProps) {
-  const study = getContentBySlug('case-studies', params.slug)
+export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
+  const { slug } = await params
+  const study = getContentBySlug('case-studies', slug)
 
   if (!study) {
     notFound()

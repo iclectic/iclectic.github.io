@@ -10,7 +10,38 @@ interface ProjectCardProps {
   variant?: 'featured' | 'listing'
 }
 
+function isPlaceholder(src: string) {
+  return src.includes('placeholder-')
+}
+
 function ProjectImage({ project }: { project: ProjectCardData }) {
+  if (isPlaceholder(project.image)) {
+    const panel = (
+      <div className="flex aspect-[16/10] flex-col justify-between bg-paper p-5 dark:bg-paper-dark">
+        <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-accent dark:text-accent-dark">
+          {project.category}
+        </p>
+        <p className="font-display text-2xl tracking-tight text-foreground dark:text-foreground-dark">
+          {project.projectType}
+        </p>
+      </div>
+    )
+
+    if (project.link.startsWith('/')) {
+      return <Link href={project.link}>{panel}</Link>
+    }
+
+    if (project.link.startsWith('http')) {
+      return (
+        <a href={project.link} target="_blank" rel="noopener noreferrer">
+          {panel}
+        </a>
+      )
+    }
+
+    return panel
+  }
+
   const image = (
     <Image
       src={project.image}
@@ -81,7 +112,7 @@ export default function ProjectCard({
       <ProjectImage project={project} />
       <div className="p-5">
         <div className="flex flex-wrap gap-1.5">
-          <Tag>{project.projectType}</Tag>
+          <Tag tone="accent">{project.projectType}</Tag>
           {project.tags.slice(0, 2).map((tag) => (
             <Tag key={tag}>{tag}</Tag>
           ))}
@@ -92,8 +123,8 @@ export default function ProjectCard({
         <p className="mt-2 text-body-sm text-muted dark:text-muted-dark line-clamp-3">
           {project.description}
         </p>
-        <div className="mt-4 rounded-lg bg-accent/5 px-3 py-2">
-          <p className="text-caption uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
+        <div className="mt-4 border-t border-border pt-3 dark:border-border-dark">
+          <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted dark:text-muted-dark">
             Outcome
           </p>
           <p className="mt-1 text-body-sm text-foreground/80 dark:text-foreground-dark/80 line-clamp-2">

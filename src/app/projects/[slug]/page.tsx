@@ -15,7 +15,7 @@ import {
 } from '@/lib/structuredData'
 
 interface ProjectPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export function generateStaticParams() {
@@ -23,14 +23,15 @@ export function generateStaticParams() {
   return slugs.map((slug) => ({ slug }))
 }
 
-export function generateMetadata({ params }: ProjectPageProps) {
-  const project = getContentBySlug('projects', params.slug)
+export async function generateMetadata({ params }: ProjectPageProps) {
+  const { slug } = await params
+  const project = getContentBySlug('projects', slug)
 
   if (!project) {
     return createMetadata({
       title: 'Project',
       description: 'Project details for Ibim Braide.',
-      path: `/projects/${params.slug}`,
+      path: `/projects/${slug}`,
     })
   }
 
@@ -43,9 +44,10 @@ export function generateMetadata({ params }: ProjectPageProps) {
   })
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = getContentBySlug('projects', params.slug)
-  const projectMeta = getProjectCardBySlug(params.slug)
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params
+  const project = getContentBySlug('projects', slug)
+  const projectMeta = getProjectCardBySlug(slug)
 
   if (!project) {
     notFound()

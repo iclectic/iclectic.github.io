@@ -37,7 +37,7 @@ function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="rounded-full p-2 text-muted transition-colors hover:text-foreground dark:text-muted-dark dark:hover:text-foreground-dark"
+      className="p-2 text-muted transition-colors hover:text-foreground dark:text-muted-dark dark:hover:text-foreground-dark"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       {theme === 'dark' ? (
@@ -108,29 +108,31 @@ function MobileMenu({
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="Navigation menu">
-      <div className="fixed inset-0 bg-foreground/20 backdrop-blur-sm dark:bg-background-dark/80" onClick={onClose} />
-      <nav ref={navRef} className="fixed top-0 right-0 bottom-0 w-72 border-l border-border bg-background p-6 pt-20 dark:border-border-dark dark:bg-background-dark">
-        <button
-          ref={closeButtonRef}
-          onClick={onClose}
-          className="absolute top-6 right-6 p-2 text-muted hover:text-foreground dark:text-muted-dark dark:hover:text-foreground-dark"
-          aria-label="Close menu"
-        >
-          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-        <ul className="space-y-4">
+    <div className="fixed inset-0 z-50 bg-background dark:bg-background-dark lg:hidden" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <nav ref={navRef} className="flex h-full flex-col px-6 pb-10 pt-5">
+        <div className="flex items-center justify-between">
+          <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted dark:text-muted-dark">Menu</p>
+          <button
+            ref={closeButtonRef}
+            onClick={onClose}
+            className="p-2 text-muted hover:text-foreground dark:text-muted-dark dark:hover:text-foreground-dark"
+            aria-label="Close menu"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <ul className="mt-10 space-y-5">
           {mainNavigation.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
                 onClick={onClose}
-                className={`block text-lg font-medium transition-colors ${
+                className={`block font-display text-3xl tracking-tight transition-colors ${
                   isActive(item.href, pathname)
                     ? 'text-accent'
-                    : 'text-foreground hover:text-accent dark:text-foreground-dark'
+                    : 'text-foreground hover:text-accent dark:text-foreground-dark dark:hover:text-accent-dark'
                 }`}
                 aria-current={isActive(item.href, pathname) ? 'page' : undefined}
               >
@@ -160,24 +162,26 @@ export default function Header() {
   }, [pathname])
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-background/80 backdrop-blur-md dark:border-border-dark dark:bg-background-dark/80">
-      <Container className="flex h-16 items-center justify-between">
+    <>
+    <header className="sticky top-0 z-40 w-full border-b border-border bg-background dark:border-border-dark dark:bg-background-dark">
+      <Container className="flex h-14 items-center justify-between">
         <Link
           href="/"
-          className="font-display text-lg font-bold text-foreground transition-colors hover:text-accent dark:text-foreground-dark"
+          className="font-display text-lg tracking-tight text-foreground transition-colors hover:text-accent dark:text-foreground-dark"
           aria-label={`${siteSettings.author.name} home`}
         >
-          {siteSettings.author.shortName ?? 'IB'}
+          <span className="sm:hidden">{siteSettings.author.shortName ?? 'IB'}</span>
+          <span className="hidden sm:inline">{siteSettings.author.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
           {mainNavigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`text-body-sm font-medium transition-colors ${
+              className={`text-body-sm transition-colors ${
                 isActive(item.href, pathname)
-                  ? 'text-accent'
+                  ? 'text-foreground underline decoration-accent decoration-2 underline-offset-8 dark:text-foreground-dark'
                   : 'text-muted hover:text-foreground dark:text-muted-dark dark:hover:text-foreground-dark'
               }`}
               aria-current={isActive(item.href, pathname) ? 'page' : undefined}
@@ -205,7 +209,8 @@ export default function Header() {
           </button>
         </div>
       </Container>
-      <MobileMenu isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
     </header>
+    <MobileMenu isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
+    </>
   )
 }
